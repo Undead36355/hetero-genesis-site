@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+*.log
+local/
+private/
+pending-materials/private/
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*.keystore
+*.jks
+*.env
+*.env.*
+!.env.example

@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Hetero-Genesis | 异构进化</title>
+  <meta name='description' content='Hetero-Genesis is a portrait 2D deep-sea roguelite about a body that fights, breaks, heals, and mutates.'>
+  <meta property='og:title' content='Hetero-Genesis | 异构进化'>
+  <meta property='og:description' content='Graft organs, hold your body together, and survive one more dive.'>
+  <meta property='og:image' content='assets/feature-graphic.webp'>
+  <meta property='og:type' content='website'>
+  <link rel='icon' href='assets/app-icon-180.png'>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f4fbff;
+      --muted: #a7c2c7;
+      --deep: #061013;
+      --panel: rgba(8, 24, 30, .76);
+      --line: rgba(127, 225, 232, .22);
+      --cyan: #65e6ed;
+      --amber: #f2b84d;
+      --rose: #db6d9f;
+      --green: #9bd67d;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .42);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica Neue, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #03080b;
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        linear-gradient(180deg, rgba(3, 8, 11, .2), #03080b 92vh),
+        url('assets/hero-wide.webp') center top / cover fixed;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(3, 8, 11, .74);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 68px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, .12);
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #d8f5f7;
+      font-size: 13px;
+    }
+
+    nav a {
+      opacity: .82;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: var(--cyan);
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      align-items: center;
+      padding: 56px 0 44px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: #c9fbff;
+      font-size: 12px;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow span {
+      border: 1px solid rgba(101, 230, 237, .28);
+      background: rgba(2, 20, 27, .58);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .92;
+      letter-spacing: 0;
+      max-width: 780px;
+      white-space: nowrap;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .cn-title {
+      display: block;
+      margin-top: 14px;
+      color: var(--cyan);
+      font-size: clamp(30px, 5vw, 58px);
+      font-weight: 800;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 24px 0 0;
+      color: #d6eef1;
+      font-size: clamp(18px, 2vw, 24px);
+      line-height: 1.45;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 8px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(5, 20, 25, .78);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .button.primary {
+      border-color: rgba(242, 184, 77, .6);
+      background: linear-gradient(180deg, #f2b84d, #b97425);
+      color: #170d03;
+    }
+
+    .hero-card {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 8px;
+      background: rgba(2, 9, 12, .7);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 1232 / 706;
+      object-fit: cover;
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .status-strip div {
+      padding: 14px;
+      border-right: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(4, 17, 22, .82);
+    }
+
+    .status-strip div:last-child {
+      border-right: 0;
+    }
+
+    .status-strip b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .status-strip span {
+      color: var(--amber);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 74px 0;
+      background: rgba(3, 8, 11, .92);
+    }
+
+    section:nth-of-type(even) {
+      background: rgba(7, 16, 19, .94);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-head p,
+    .section-copy {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .feature {
+      min-height: 230px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .feature .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(242, 184, 77, .42);
+      border-radius: 999px;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .feature p {
+      margin: 0;
+      color: #bdd4d7;
+      font-size: 14px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .fact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .fact b {
+      color: var(--cyan);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .fact span {
+      color: #d8eef0;
+    }
+
+    .poster {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .35);
+      box-shadow: var(--shadow);
+    }
+
+    .poster img {
+      width: 100%;
+      aspect-ratio: 540 / 960;
+      object-fit: cover;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .shot {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .28);
+    }
+
+    .shot img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .shot figcaption {
+      min-height: 48px;
+      padding: 12px 14px;
+      color: #c9dde0;
+      font-size: 13px;
+    }
+
+    .media-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .trailer-box {
+      display: grid;
+      min-height: 320px;
+      place-items: center;
+      border: 1px dashed rgba(242, 184, 77, .45);
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .62)),
+        url('assets/feature-graphic.webp') center / cover;
+      text-align: center;
+    }
+
+    .trailer-box b {
+      display: block;
+      font-size: 28px;
+    }
+
+    .trailer-box span {
+      color: #d9edf0;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .platform {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .platform b {
+      display: block;
+    }
+
+    .platform span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .pending {
+      color: var(--amber);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      background: #03080b;
+      color: var(--muted);
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 860px) {
+      .topbar .wrap {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      nav {
+        width: 100%;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero {
+        min-height: 0;
+        padding: 44px 0 36px;
+      }
+
+      .hero-grid,
+      .split,
+      .media-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 12px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .status-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .status-strip div {
+        border-right: 0;
+      }
+
+      .fact {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .wrap {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .brand strong {
+        white-space: normal;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .feature {
+        min-height: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class='page'>
+    <header class='topbar'>
+      <div class='wrap'>
+        <a class='brand' href='#top' aria-label='Hetero-Genesis home'>
+          <img src='assets/app-icon-180.png' alt='Hetero-Genesis icon'>
+          <span>
+            <strong>Hetero-Genesis</strong>
+            <span>异构进化</span>
+          </span>
+        </a>
+        <nav aria-label='Main navigation'>
+          <a href='#features'>Gameplay</a>
+          <a href='#screenshots'>Screenshots</a>
+          <a href='#platforms'>Platforms</a>
+          <a href='#contact'>Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id='top'>
+      <section class='hero'>
+        <div class='wrap hero-grid'>
+          <div>
+            <div class='eyebrow'>
+              <span>Deep-sea roguelite</span>
+              <span>Portrait 2D</span>
+              <span>Single player</span>
+            </div>
+            <h1>Hetero-Genesis<span class='cn-title'>异构进化</span></h1>
+            <p class='lead'>Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.</p>
+            <div class='hero-actions'>
+              <a class='button primary' href='#platforms'>Platform status</a>
+              <a class='button' href='#screenshots'>View screenshots</a>
+            </div>
+          </div>
+          <aside class='hero-card' aria-label='Main visual and platform status'>
+            <img src='assets/hero-main.webp' alt='Hetero-Genesis deep-sea key art'>
+            <div class='status-strip'>
+              <div><b>Steam</b><span>Coming Soon pending</span></div>
+              <div><b>Google Play</b><span>Pending</span></div>
+              <div><b>App Store</b><span>Pending</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id='features'>
+        <div class='wrap'>
+          <div class='section-head'>
+            <h2>Build a body that can fail</h2>
+            <p>Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.</p>
+          </div>
+          <div class='feature-grid' aria-label='Gameplay features'>
+            <article class='feature'>
+              <span class='num'>1</span>
+              <h3>深海 Roguelite 深潜</h3>
+              <p>Pick a species, enter a short pressure-heavy dive, survive waves, draft rewards, and push toward the next boss.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>2</span>
+              <h3>器官装配与身体槽位</h3>
+              <p>Shells, venom glands, tentacles, rams, electric organs, sonic organs, and regeneration tissues all need room on the body.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>3</span>
+              <h3>协同效果</h3>
+              <p>Organs can unlock combat rules together, from poison pressure and electric control to defense, recovery, summons, and burst windows.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>4</span>
+              <h3>器官受损、断裂、修复</h3>
+              <p>Important organs can be damaged or broken. A strong build can lose a key link until you find a repair window.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>5</span>
+              <h3>Boss 后演化三选</h3>
+              <p>After boss fights, choose between deepening instinct, grafting ecology, or unstable mutation to steer the next stretch.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>6</span>
+              <h3>深潜契约与 A 难度</h3>
+              <p>Abyss difficulty and dive contracts let later runs add pressure without changing the heart of the game.</p>
+            </article>
+            <article class='feature'>
+              <span class='num'>7</span>
+              <h3>局外成长</h3>
+              <p>Gene points unlock more species, contracts, and long-term options between dives.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id='about'>
+        <div class='wrap split'>
+          <div>
+            <h2>Made for short dives and messy builds</h2>
+            <p class='section-copy'>Current content planning covers 10 playable species, 166 organ configurations, 119 synergy effects, 10 combat waves, A0-A10 difficulty, 24 deep-dive contracts, and 34 meta-progression unlocks. Final store pages will be checked against the submitted build.</p>
+            <div class='fact-list'>
+              <div class='fact'><b>Genre</b><span>Portrait 2D deep-sea roguelite</span></div>
+              <div class='fact'><b>Languages</b><span>English, 简体中文, 日本語, 한국어</span></div>
+              <div class='fact'><b>Business</b><span>Paid single-player game planned without ads, in-app purchases, or subscriptions</span></div>
+              <div class='fact'><b>Trailer</b><span>Coming soon, no final trailer embedded yet</span></div>
+            </div>
+          </div>
+          <figure class='poster'>
+            <img src='assets/mobile-boss.webp' alt='Current build boss fight screenshot'>
+          </figure>
+        </div>
+      </section>
+
+      <section id='screenshots'>
+        <div class='wrap'>
+          <div class='section-head'>
+            <h2>Current build screenshots</h2>
+            <p>These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.</p>
+          </div>
+          <div class='gallery'>
+            <figure class='shot'>
+              <img src='assets/screenshot-menu.webp' alt='Hetero-Genesis main menu screenshot'>
+              <figcaption>Main menu and dive entry</figcaption>
+            </figure>
+            <figure class='shot'>
+              <img src='assets/screenshot-prerun.webp' alt='Abyss difficulty and contract selection screenshot'>
+              <figcaption>Abyss difficulty and contracts</figcaption>
+            </figure>
+            <figure class='shot'>
+              <img src='assets/screenshot-slots.webp' alt='Organ slot selection screenshot'>
+              <figcaption>Organ slots and body planning</figcaption>
+            </figure>
+            <figure class='shot'>
+              <img src='assets/screenshot-reward.webp' alt='Organ reward draft screenshot'>
+              <figcaption>Reward drafts and synergy preview</figcaption>
+            </figure>
+            <figure class='shot'>
+              <img src='assets/screenshot-evolution.webp' alt='Post-boss evolution selection screenshot'>
+              <figcaption>Post-boss evolution choice</figcaption>
+            </figure>
+            <figure class='shot'>
+              <img src='assets/screenshot-result.webp' alt='Run result and gene points screenshot'>
+              <figcaption>Run result and gene points</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id='platforms'>
+        <div class='wrap media-row'>
+          <div class='trailer-box' aria-label='Trailer area'>
+            <div>
+              <b>Trailer coming soon</b>
+              <span>The final trailer will be added after the confirmed cut is ready.</span>
+            </div>
+          </div>
+          <div class='links'>
+            <div class='platform'>
+              <div><b>Steam</b><span>Store page is being prepared.</span></div>
+              <div class='pending'>Pending</div>
+            </div>
+            <div class='platform'>
+              <div><b>Google Play</b><span>App record and review materials are in progress.</span></div>
+              <div class='pending'>Pending</div>
+            </div>
+            <div class='platform'>
+              <div><b>App Store</b><span>iOS capture and App Store Connect setup are pending.</span></div>
+              <div class='pending'>Pending</div>
+            </div>
+            <a class='platform' href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>
+              <div><b>Privacy Policy</b><span>Separate public page for platform review.</span></div>
+              <div class='pending'>Open</div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id='contact'>
+      <div class='wrap'>
+        <div>
+          <strong>Hetero-Genesis | 异构进化</strong><br>
+          Tianyang Studio
+        </div>
+        <div>
+          Contact: <a href='mailto:qianxi36355@gmail.com'>qianxi36355@gmail.com</a><br>
+          Privacy: <a href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>undead36355.github.io/hetero-genesis-privacy-policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
