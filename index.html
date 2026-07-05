@@ -424,30 +424,41 @@
 
     .media-row {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      grid-template-columns: minmax(260px, 420px) minmax(280px, 1fr);
       gap: 18px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .trailer-box {
-      display: grid;
-      min-height: 320px;
-      place-items: center;
+      overflow: hidden;
       border: 1px dashed rgba(242, 184, 77, .45);
       border-radius: 8px;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .62)),
-        url('assets/feature-graphic.webp') center / cover;
-      text-align: center;
+      background: rgba(0, 0, 0, .35);
+      box-shadow: var(--shadow);
     }
 
-    .trailer-box b {
+    .trailer-box video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .trailer-caption {
+      padding: 14px 16px 16px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      background: rgba(4, 17, 22, .86);
+    }
+
+    .trailer-caption b {
       display: block;
-      font-size: 28px;
+      font-size: 18px;
+      line-height: 1.25;
     }
 
-    .trailer-box span {
+    .trailer-caption span {
       color: #d9edf0;
+      font-size: 13px;
     }
 
     .links {
@@ -706,7 +717,7 @@
               <div class='fact'><b data-i18n='fact.genre.label'>Genre</b><span data-i18n='fact.genre.value'>Portrait 2D deep-sea roguelite</span></div>
               <div class='fact'><b data-i18n='fact.languages.label'>Languages</b><span data-i18n='fact.languages.value'>English, 简体中文, 繁體中文, 日本語, 한국어</span></div>
               <div class='fact'><b data-i18n='fact.business.label'>Business</b><span data-i18n='fact.business.value'>Paid single-player game planned without ads, in-app purchases, or subscriptions</span></div>
-              <div class='fact'><b data-i18n='fact.trailer.label'>Trailer</b><span data-i18n='fact.trailer.value'>Coming soon, no final trailer embedded yet</span></div>
+              <div class='fact'><b data-i18n='fact.trailer.label'>Trailer</b><span data-i18n='fact.trailer.value'>Gameplay introduction video available</span></div>
             </div>
           </div>
           <figure class='poster'>
@@ -753,9 +764,12 @@
       <section id='platforms'>
         <div class='wrap media-row'>
           <div class='trailer-box' aria-label='Trailer area'>
-            <div>
-              <b data-i18n='trailer.title'>Trailer coming soon</b>
-              <span data-i18n='trailer.copy'>The final trailer will be added after the confirmed cut is ready.</span>
+            <video controls preload='metadata' poster='assets/mobile-boss.webp'>
+              <source src='assets/video/hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4' type='video/mp4'>
+            </video>
+            <div class='trailer-caption'>
+              <b data-i18n='trailer.title'>Gameplay introduction video</b>
+              <span data-i18n='trailer.copy'>Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.</span>
             </div>
           </div>
           <div class='links'>
@@ -837,7 +851,7 @@
         'fact.business.label': 'Business',
         'fact.business.value': 'Paid single-player game planned without ads, in-app purchases, or subscriptions',
         'fact.trailer.label': 'Trailer',
-        'fact.trailer.value': 'Coming soon, no final trailer embedded yet',
+        'fact.trailer.value': 'Gameplay introduction video available',
         'screenshots.title': 'Current build screenshots',
         'screenshots.copy': 'These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.',
         'shot.menu': 'Main menu and dive entry',
@@ -846,8 +860,8 @@
         'shot.reward': 'Reward drafts and synergy preview',
         'shot.evolution': 'Post-boss evolution choice',
         'shot.result': 'Run result and gene points',
-        'trailer.title': 'Trailer coming soon',
-        'trailer.copy': 'The final trailer will be added after the confirmed cut is ready.',
+        'trailer.title': 'Gameplay introduction video',
+        'trailer.copy': 'Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.',
         'platform.steam.copy': 'Store page is being prepared.',
         'platform.google.copy': 'App record and review materials are in progress.',
         'platform.apple.copy': 'iOS capture and App Store Connect setup are pending.',
@@ -900,7 +914,7 @@
         'fact.business.label': '商业模式',
         'fact.business.value': '计划为买断制单机游戏，无广告、无内购、无订阅',
         'fact.trailer.label': '预告片',
-        'fact.trailer.value': 'Coming soon，暂不嵌入未确认最终版',
+        'fact.trailer.value': '玩法介绍视频已上线',
         'screenshots.title': '当前构建截图',
         'screenshots.copy': '这些图片来自为商店素材准备的当前构建截图集。旧截图不作为当前版本证明。',
         'shot.menu': '主菜单与开始深潜',
@@ -909,8 +923,8 @@
         'shot.reward': '奖励三选与协同预览',
         'shot.evolution': 'Boss 后演化选择',
         'shot.result': '结算与基因点',
-        'trailer.title': '预告片 Coming soon',
-        'trailer.copy': '最终剪辑确认后会在这里更新。',
+        'trailer.title': '玩法介绍视频',
+        'trailer.copy': '展示螳螂虾近战冲撞、机动拉扯、远程补伤和后段高压收割。',
         'platform.steam.copy': '商店页正在准备。',
         'platform.google.copy': '应用记录和审核资料正在准备。',
         'platform.apple.copy': 'iOS 截图和 App Store Connect 设置待推进。',
@@ -963,7 +977,7 @@
         'fact.business.label': '商業模式',
         'fact.business.value': '計畫為買斷制單機遊戲，無廣告、無內購、無訂閱',
         'fact.trailer.label': '預告片',
-        'fact.trailer.value': 'Coming soon，暫不嵌入未確認最終版',
+        'fact.trailer.value': '玩法介紹影片已上線',
         'screenshots.title': '當前構建截圖',
         'screenshots.copy': '這些圖片來自為商店素材準備的當前構建截圖集。舊截圖不作為當前版本證明。',
         'shot.menu': '主選單與開始深潛',
@@ -972,8 +986,8 @@
         'shot.reward': '獎勵三選與協同預覽',
         'shot.evolution': 'Boss 後演化選擇',
         'shot.result': '結算與基因點',
-        'trailer.title': '預告片 Coming soon',
-        'trailer.copy': '最終剪輯確認後會在這裡更新。',
+        'trailer.title': '玩法介紹影片',
+        'trailer.copy': '展示螳螂蝦近戰衝撞、機動拉扯、遠程補傷和後段高壓收割。',
         'platform.steam.copy': '商店頁正在準備。',
         'platform.google.copy': '應用記錄和審核資料正在準備。',
         'platform.apple.copy': 'iOS 截圖和 App Store Connect 設定待推進。',
@@ -1026,7 +1040,7 @@
         'fact.business.label': '販売形式',
         'fact.business.value': '広告、アプリ内購入、サブスクリプションなしの買い切りシングルプレイ予定',
         'fact.trailer.label': 'トレーラー',
-        'fact.trailer.value': 'Coming soon。最終版が確定するまで埋め込みません',
+        'fact.trailer.value': 'ゲーム紹介映像を公開中',
         'screenshots.title': '現在ビルドの画像',
         'screenshots.copy': 'これらはストア素材用に準備した現在ビルドの画像です。古い画像を現行版の証明として使いません。',
         'shot.menu': 'メインメニューと潜行開始',
@@ -1035,8 +1049,8 @@
         'shot.reward': '報酬選択と協同プレビュー',
         'shot.evolution': 'Boss 後の進化選択',
         'shot.result': '結果と遺伝子点',
-        'trailer.title': 'トレーラー Coming soon',
-        'trailer.copy': '最終カット確認後にここへ追加します。',
+        'trailer.title': 'ゲーム紹介映像',
+        'trailer.copy': 'シャコの近接突進、機動戦、遠距離追撃、後半の高圧な刈り取りを紹介します。',
         'platform.steam.copy': 'ストアページを準備中です。',
         'platform.google.copy': 'アプリ記録と審査資料を準備中です。',
         'platform.apple.copy': 'iOS 撮影と App Store Connect 設定は準備中です。',
@@ -1089,7 +1103,7 @@
         'fact.business.label': '판매 방식',
         'fact.business.value': '광고, 인앱 구매, 구독 없는 유료 싱글 플레이 게임 예정',
         'fact.trailer.label': '트레일러',
-        'fact.trailer.value': 'Coming soon. 최종본 확정 전에는 삽입하지 않습니다',
+        'fact.trailer.value': '게임플레이 소개 영상 공개',
         'screenshots.title': '현재 빌드 스크린샷',
         'screenshots.copy': '이 이미지는 스토어 소재용으로 준비한 현재 빌드 캡처입니다. 오래된 이미지를 현재 버전 증거로 쓰지 않습니다.',
         'shot.menu': '메인 메뉴와 잠수 시작',
@@ -1098,8 +1112,8 @@
         'shot.reward': '보상 선택과 협동 미리보기',
         'shot.evolution': 'Boss 후 진화 선택',
         'shot.result': '결과와 유전자점',
-        'trailer.title': '트레일러 Coming soon',
-        'trailer.copy': '최종 컷이 확정되면 이곳에 추가합니다.',
+        'trailer.title': '게임플레이 소개 영상',
+        'trailer.copy': '갯가재 근접 돌진, 기동 거리 조절, 원거리 추가 피해, 후반 고압 수확 장면을 담았습니다.',
         'platform.steam.copy': '스토어 페이지를 준비 중입니다.',
         'platform.google.copy': '앱 등록과 심사 자료를 준비 중입니다.',
         'platform.apple.copy': 'iOS 캡처와 App Store Connect 설정은 준비 중입니다.',
