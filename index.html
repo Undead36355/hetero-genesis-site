@@ -22,6 +22,7 @@
       --amber: #f2b84d;
       --rose: #db6d9f;
       --green: #9bd67d;
+      --violet: #9f8cff;
       --shadow: 0 24px 70px rgba(0, 0, 0, .42);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Noto Sans, Helvetica Neue, Arial, sans-serif;
     }
@@ -36,7 +37,9 @@
 
     body {
       margin: 0;
-      background: #03080b;
+      background:
+        linear-gradient(180deg, #03080b 0%, #071419 38%, #03080b 100%),
+        linear-gradient(110deg, rgba(101, 230, 237, .06), rgba(242, 184, 77, .03), rgba(219, 109, 159, .05));
       color: var(--ink);
       line-height: 1.65;
     }
@@ -66,6 +69,7 @@
     .page {
       min-height: 100vh;
       background:
+        linear-gradient(120deg, rgba(101, 230, 237, .12), transparent 24%, rgba(242, 184, 77, .08) 54%, transparent 78%),
         linear-gradient(180deg, rgba(3, 8, 11, .2), #03080b 92vh),
         url('assets/hero-wide.webp') center top / cover fixed;
     }
@@ -80,7 +84,7 @@
       top: 0;
       z-index: 20;
       border-bottom: 1px solid rgba(255, 255, 255, .08);
-      background: rgba(3, 8, 11, .74);
+      background: linear-gradient(90deg, rgba(3, 8, 11, .86), rgba(7, 24, 31, .82), rgba(3, 8, 11, .86));
       backdrop-filter: blur(18px);
     }
 
@@ -188,7 +192,7 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(38px, 5vw, 68px);
+      font-size: 68px;
       line-height: .92;
       letter-spacing: 0;
       max-width: 780px;
@@ -201,15 +205,50 @@
       display: block;
       margin-top: 14px;
       color: var(--cyan);
-      font-size: clamp(30px, 5vw, 58px);
+      font-size: 58px;
       font-weight: 800;
+      text-shadow: 0 0 24px rgba(101, 230, 237, .34);
     }
 
     .lead {
       max-width: 690px;
       margin: 24px 0 0;
       color: #d6eef1;
-      font-size: clamp(18px, 2vw, 24px);
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+      max-width: 720px;
+    }
+
+    .hero-point {
+      min-height: 104px;
+      padding: 12px;
+      border: 1px solid rgba(101, 230, 237, .2);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(7, 27, 35, .86), rgba(6, 14, 18, .72)),
+        linear-gradient(90deg, rgba(101, 230, 237, .12), rgba(242, 184, 77, .08));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+    }
+
+    .hero-point b {
+      display: block;
+      color: #f8fdff;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .hero-point span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
       line-height: 1.45;
     }
 
@@ -238,14 +277,25 @@
       border-color: rgba(242, 184, 77, .6);
       background: linear-gradient(180deg, #f2b84d, #b97425);
       color: #170d03;
+      box-shadow: 0 10px 26px rgba(242, 184, 77, .2);
     }
 
     .hero-card {
+      position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .13);
       border-radius: 8px;
       background: rgba(2, 9, 12, .7);
       box-shadow: var(--shadow);
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, rgba(101, 230, 237, .22), transparent 32%, rgba(242, 184, 77, .18) 60%, transparent 82%);
+      mix-blend-mode: screen;
     }
 
     .hero-card img {
@@ -282,11 +332,15 @@
 
     section {
       padding: 74px 0;
-      background: rgba(3, 8, 11, .92);
+      background:
+        linear-gradient(180deg, rgba(3, 8, 11, .92), rgba(3, 8, 11, .96)),
+        linear-gradient(90deg, rgba(101, 230, 237, .04), rgba(219, 109, 159, .035));
     }
 
     section:nth-of-type(even) {
-      background: rgba(7, 16, 19, .94);
+      background:
+        linear-gradient(180deg, rgba(7, 16, 19, .94), rgba(4, 13, 16, .96)),
+        linear-gradient(90deg, rgba(242, 184, 77, .035), rgba(101, 230, 237, .04));
     }
 
     .section-head {
@@ -299,7 +353,7 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(30px, 4vw, 48px);
+      font-size: 46px;
       line-height: 1.05;
       letter-spacing: 0;
     }
@@ -318,11 +372,27 @@
     }
 
     .feature {
+      position: relative;
+      overflow: hidden;
       min-height: 230px;
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--panel);
+      background:
+        linear-gradient(180deg, rgba(12, 35, 43, .82), rgba(6, 18, 22, .78)),
+        var(--panel);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+    }
+
+    .feature::before,
+    .shot::before,
+    .platform::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), var(--amber), var(--rose));
+      opacity: .7;
     }
 
     .feature .num {
@@ -356,6 +426,70 @@
       grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
       gap: 28px;
       align-items: center;
+    }
+
+    .rhythm-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .rhythm-panel {
+      border: 1px solid rgba(101, 230, 237, .2);
+      border-radius: 8px;
+      padding: 22px;
+      background:
+        linear-gradient(135deg, rgba(10, 35, 43, .86), rgba(8, 16, 22, .8)),
+        url('assets/feature-graphic.webp') center / cover;
+      background-blend-mode: multiply;
+      box-shadow: var(--shadow);
+    }
+
+    .rhythm-panel p {
+      max-width: 680px;
+      margin: 14px 0 0;
+      color: #d2e9ec;
+    }
+
+    .rhythm-steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .rhythm-step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      background: rgba(5, 18, 23, .78);
+    }
+
+    .rhythm-step i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(101, 230, 237, .2), rgba(242, 184, 77, .18));
+      color: var(--amber);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .rhythm-step b {
+      display: block;
+      line-height: 1.2;
+    }
+
+    .rhythm-step span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .fact-list {
@@ -403,6 +537,7 @@
     }
 
     .shot {
+      position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 8px;
@@ -431,7 +566,7 @@
 
     .trailer-box {
       overflow: hidden;
-      border: 1px dashed rgba(242, 184, 77, .45);
+      border: 1px solid rgba(242, 184, 77, .45);
       border-radius: 8px;
       background: rgba(0, 0, 0, .35);
       box-shadow: var(--shadow);
@@ -467,6 +602,8 @@
     }
 
     .platform {
+      position: relative;
+      overflow: hidden;
       display: flex;
       justify-content: space-between;
       gap: 14px;
@@ -536,7 +673,8 @@
 
       .hero-grid,
       .split,
-      .media-row {
+      .media-row,
+      .rhythm-grid {
         grid-template-columns: 1fr;
       }
 
@@ -583,6 +721,26 @@
         width: 100%;
       }
 
+      h1 {
+        font-size: 42px;
+      }
+
+      .cn-title {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .hero-points {
+        grid-template-columns: 1fr;
+      }
+
       .feature-grid {
         grid-template-columns: 1fr;
         overflow: visible;
@@ -617,6 +775,7 @@
         <div class='top-actions'>
           <nav aria-label='Main navigation'>
             <a href='#features' data-i18n='nav.gameplay'>Gameplay</a>
+            <a href='#combat' data-i18n='nav.combat'>Combat</a>
             <a href='#screenshots' data-i18n='nav.screenshots'>Screenshots</a>
             <a href='#platforms' data-i18n='nav.platforms'>Platforms</a>
             <a href='#contact' data-i18n='nav.contact'>Contact</a>
@@ -646,6 +805,11 @@
             </div>
             <h1>Hetero-Genesis<span class='cn-title' data-i18n='hero.subtitle'>异构进化</span></h1>
             <p class='lead' data-i18n='hero.lead'>Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.</p>
+            <div class='hero-points' aria-label='Gameplay focus'>
+              <div class='hero-point'><b data-i18n='hero.point.1.title'>Tactical mantis shrimp cut</b><span data-i18n='hero.point.1.copy'>Close-range rushes, spacing, ranged follow-ups, and late-run cleanup.</span></div>
+              <div class='hero-point'><b data-i18n='hero.point.2.title'>A body with weak links</b><span data-i18n='hero.point.2.copy'>A broken organ can take an entire synergy offline until you repair or rebuild.</span></div>
+              <div class='hero-point'><b data-i18n='hero.point.3.title'>Short runs, lasting unlocks</b><span data-i18n='hero.point.3.copy'>Gene points open new species starts, contracts, and harder Abyss routes.</span></div>
+            </div>
             <div class='hero-actions'>
               <a class='button primary' href='#platforms' data-i18n='hero.platformStatus'>Platform status</a>
               <a class='button' href='#screenshots' data-i18n='hero.viewScreenshots'>View screenshots</a>
@@ -659,6 +823,25 @@
               <div><b>App Store</b><span data-i18n='status.pending'>Pending</span></div>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section id='combat'>
+        <div class='wrap rhythm-grid'>
+          <div class='rhythm-panel'>
+            <div class='eyebrow'>
+              <span data-i18n='combat.eyebrow.one'>Current video focus</span>
+              <span data-i18n='combat.eyebrow.two'>Mantis shrimp route</span>
+            </div>
+            <h2 data-i18n='combat.title'>Rush, break distance, finish the swarm</h2>
+            <p data-i18n='combat.copy'>The new gameplay cut follows a mantis shrimp run built around impact. It shows how a melee body enters danger, uses movement to reset spacing, adds ranged damage when the arena gets crowded, then converts late pressure into a clean harvest.</p>
+          </div>
+          <div class='rhythm-steps' aria-label='Combat rhythm'>
+            <div class='rhythm-step'><i>01</i><div><b data-i18n='combat.step.1.title'>Commit</b><span data-i18n='combat.step.1.copy'>Rush into a target before the swarm closes.</span></div></div>
+            <div class='rhythm-step'><i>02</i><div><b data-i18n='combat.step.2.title'>Disengage</b><span data-i18n='combat.step.2.copy'>Use mobility to avoid getting pinned by pressure.</span></div></div>
+            <div class='rhythm-step'><i>03</i><div><b data-i18n='combat.step.3.title'>Patch the gap</b><span data-i18n='combat.step.3.copy'>Let ranged organs cover what melee cannot reach safely.</span></div></div>
+            <div class='rhythm-step'><i>04</i><div><b data-i18n='combat.step.4.title'>Cash out</b><span data-i18n='combat.step.4.copy'>When the build clicks, turn the final wave into momentum.</span></div></div>
+          </div>
         </div>
       </section>
 
@@ -814,6 +997,7 @@
         metaDescription: 'Hetero-Genesis is a portrait 2D deep-sea roguelite about a body that fights, breaks, heals, and mutates.',
         'brand.subtitle': '异构进化',
         'nav.gameplay': 'Gameplay',
+        'nav.combat': 'Combat',
         'nav.screenshots': 'Screenshots',
         'nav.platforms': 'Platforms',
         'nav.contact': 'Contact',
@@ -822,10 +1006,28 @@
         'eyebrow.three': 'Single player',
         'hero.subtitle': '异构进化',
         'hero.lead': 'Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.',
+        'hero.point.1.title': 'Tactical mantis shrimp cut',
+        'hero.point.1.copy': 'Close-range rushes, spacing, ranged follow-ups, and late-run cleanup.',
+        'hero.point.2.title': 'A body with weak links',
+        'hero.point.2.copy': 'A broken organ can take an entire synergy offline until you repair or rebuild.',
+        'hero.point.3.title': 'Short runs, lasting unlocks',
+        'hero.point.3.copy': 'Gene points open new species starts, contracts, and harder Abyss routes.',
         'hero.platformStatus': 'Platform status',
         'hero.viewScreenshots': 'View screenshots',
         'status.steam': 'Coming Soon pending',
         'status.pending': 'Pending',
+        'combat.eyebrow.one': 'Current video focus',
+        'combat.eyebrow.two': 'Mantis shrimp route',
+        'combat.title': 'Rush, break distance, finish the swarm',
+        'combat.copy': 'The new gameplay cut follows a mantis shrimp run built around impact. It shows how a melee body enters danger, uses movement to reset spacing, adds ranged damage when the arena gets crowded, then converts late pressure into a clean harvest.',
+        'combat.step.1.title': 'Commit',
+        'combat.step.1.copy': 'Rush into a target before the swarm closes.',
+        'combat.step.2.title': 'Disengage',
+        'combat.step.2.copy': 'Use mobility to avoid getting pinned by pressure.',
+        'combat.step.3.title': 'Patch the gap',
+        'combat.step.3.copy': 'Let ranged organs cover what melee cannot reach safely.',
+        'combat.step.4.title': 'Cash out',
+        'combat.step.4.copy': 'When the build clicks, turn the final wave into momentum.',
         'features.title': 'Build a body that can fail',
         'features.copy': 'Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.',
         'feature.1.title': '深海 Roguelite 深潜',
@@ -877,6 +1079,7 @@
         metaDescription: '异构进化是一款竖屏 2D 深海 Roguelite，围绕会战斗、会断裂、会修复、会异化的身体展开。',
         'brand.subtitle': '异构进化',
         'nav.gameplay': '玩法',
+        'nav.combat': '战斗',
         'nav.screenshots': '截图',
         'nav.platforms': '平台',
         'nav.contact': '联系',
@@ -885,10 +1088,28 @@
         'eyebrow.three': '单人游戏',
         'hero.subtitle': '异构进化',
         'hero.lead': '把器官移植到一具陌生的深海身体上，维持协同，在受损、断裂和异化的压力下再撑过一次深潜。',
+        'hero.point.1.title': '螳螂虾战术剪辑',
+        'hero.point.1.copy': '近战冲撞、机动拉扯、远程补伤，以及后段高压收割。',
+        'hero.point.2.title': '一具带弱点的身体',
+        'hero.point.2.copy': '关键器官断裂时，整套协同都可能暂时掉线。',
+        'hero.point.3.title': '短局深潜，长期解锁',
+        'hero.point.3.copy': '基因点会打开新物种、新契约和更高 A 难度路线。',
         'hero.platformStatus': '平台状态',
         'hero.viewScreenshots': '查看截图',
         'status.steam': 'Coming Soon 待定',
         'status.pending': '待定',
+        'combat.eyebrow.one': '当前视频重点',
+        'combat.eyebrow.two': '螳螂虾路线',
+        'combat.title': '冲进去，拉开距离，收掉敌群',
+        'combat.copy': '这版玩法介绍围绕螳螂虾的冲击路线剪辑。它展示近战身体如何进入危险、通过机动重置距离，在敌群变密时用远程器官补伤，并把后段压力转化成收割节奏。',
+        'combat.step.1.title': '切入',
+        'combat.step.1.copy': '在敌群合围前，用冲撞先处理关键目标。',
+        'combat.step.2.title': '脱离',
+        'combat.step.2.copy': '利用机动避免被高压波次钉在原地。',
+        'combat.step.3.title': '补伤',
+        'combat.step.3.copy': '远程器官覆盖近战不适合硬追的空档。',
+        'combat.step.4.title': '收割',
+        'combat.step.4.copy': '构筑成型后，把最终压力变成连续推进。',
         'features.title': '构筑一具会出问题的身体',
         'features.copy': '异构进化的核心不是固定职业或武器栏，而是一局里你能不能把身体撑住。下潜越深，每个身体选择越重要。',
         'feature.1.title': '深海 Roguelite 深潜',
@@ -940,6 +1161,7 @@
         metaDescription: '異構進化是一款直式 2D 深海 Roguelite，圍繞會戰鬥、會斷裂、會修復、會異化的身體展開。',
         'brand.subtitle': '異構進化',
         'nav.gameplay': '玩法',
+        'nav.combat': '戰鬥',
         'nav.screenshots': '截圖',
         'nav.platforms': '平台',
         'nav.contact': '聯絡',
@@ -948,10 +1170,28 @@
         'eyebrow.three': '單人遊戲',
         'hero.subtitle': '異構進化',
         'hero.lead': '把器官移植到一具陌生的深海身體上，維持協同，在受損、斷裂和異化的壓力下再撐過一次深潛。',
+        'hero.point.1.title': '螳螂蝦戰術剪輯',
+        'hero.point.1.copy': '近戰衝撞、機動拉扯、遠程補傷，以及後段高壓收割。',
+        'hero.point.2.title': '一具帶弱點的身體',
+        'hero.point.2.copy': '關鍵器官斷裂時，整套協同都可能暫時掉線。',
+        'hero.point.3.title': '短局深潛，長期解鎖',
+        'hero.point.3.copy': '基因點會打開新物種、新契約和更高 A 難度路線。',
         'hero.platformStatus': '平台狀態',
         'hero.viewScreenshots': '查看截圖',
         'status.steam': 'Coming Soon 待定',
         'status.pending': '待定',
+        'combat.eyebrow.one': '當前影片重點',
+        'combat.eyebrow.two': '螳螂蝦路線',
+        'combat.title': '衝進去，拉開距離，收掉敵群',
+        'combat.copy': '這版玩法介紹圍繞螳螂蝦的衝擊路線剪輯。它展示近戰身體如何進入危險、透過機動重置距離，在敵群變密時用遠程器官補傷，並把後段壓力轉化成收割節奏。',
+        'combat.step.1.title': '切入',
+        'combat.step.1.copy': '在敵群合圍前，用衝撞先處理關鍵目標。',
+        'combat.step.2.title': '脫離',
+        'combat.step.2.copy': '利用機動避免被高壓波次釘在原地。',
+        'combat.step.3.title': '補傷',
+        'combat.step.3.copy': '遠程器官覆蓋近戰不適合硬追的空檔。',
+        'combat.step.4.title': '收割',
+        'combat.step.4.copy': '構築成型後，把最終壓力變成連續推進。',
         'features.title': '構築一具會出問題的身體',
         'features.copy': '異構進化的核心不是固定職業或武器欄，而是一局裡你能不能把身體撐住。下潛越深，每個身體選擇越重要。',
         'feature.1.title': '深海 Roguelite 深潛',
@@ -1003,6 +1243,7 @@
         metaDescription: 'Hetero-Genesis は、戦い、壊れ、修復され、変異する身体を扱う縦画面 2D 深海 Roguelite です。',
         'brand.subtitle': '異構進化',
         'nav.gameplay': 'ゲーム内容',
+        'nav.combat': '戦闘',
         'nav.screenshots': 'スクリーンショット',
         'nav.platforms': 'プラットフォーム',
         'nav.contact': '連絡先',
@@ -1011,10 +1252,28 @@
         'eyebrow.three': 'シングルプレイ',
         'hero.subtitle': '異構進化',
         'hero.lead': '奇妙な深海の身体に器官を移植し、協同を保ちながら、損傷、断裂、変異の圧力の中でもう一度だけ潜ります。',
+        'hero.point.1.title': 'シャコ戦術カット',
+        'hero.point.1.copy': '近接突進、間合い管理、遠距離追撃、後半の高圧な刈り取り。',
+        'hero.point.2.title': '弱点を抱えた身体',
+        'hero.point.2.copy': '重要な器官が断裂すると、協同全体が一時的に止まることがあります。',
+        'hero.point.3.title': '短い潜行と長期解放',
+        'hero.point.3.copy': '遺伝子点で新しい種、契約、より高い A 難度ルートを開きます。',
         'hero.platformStatus': '配信状況',
         'hero.viewScreenshots': '画像を見る',
         'status.steam': 'Coming Soon 準備中',
         'status.pending': '準備中',
+        'combat.eyebrow.one': '現在の映像テーマ',
+        'combat.eyebrow.two': 'シャコルート',
+        'combat.title': '突っ込み、距離を切り、群れを刈る',
+        'combat.copy': '新しい紹介映像は、衝撃を軸にしたシャコの Run を追います。近接の身体が危険へ入り、移動で間合いを作り直し、敵群が密になったら遠距離器官で補い、後半の圧力を収穫へ変える流れです。',
+        'combat.step.1.title': '踏み込む',
+        'combat.step.1.copy': '群れが閉じる前に、突進で要の標的へ入ります。',
+        'combat.step.2.title': '離脱する',
+        'combat.step.2.copy': '機動力で高圧の波に捕まらない位置へ戻ります。',
+        'combat.step.3.title': '隙間を埋める',
+        'combat.step.3.copy': '近接で追いにくい時間を遠距離器官が補います。',
+        'combat.step.4.title': '刈り取る',
+        'combat.step.4.copy': '構築が噛み合えば、最後の波を勢いに変えられます。',
         'features.title': '壊れうる身体を組み上げる',
         'features.copy': 'Hetero-Genesis の主役は固定職業や武器欄ではなく、1 回の潜行でどこまで身体を保てるかです。深く潜るほど、身体の選択が重くなります。',
         'feature.1.title': '深海 Roguelite 潜行',
@@ -1066,6 +1325,7 @@
         metaDescription: 'Hetero-Genesis는 싸우고, 부서지고, 수리되고, 변이하는 몸을 다루는 세로형 2D 심해 Roguelite입니다.',
         'brand.subtitle': '이종 진화',
         'nav.gameplay': '게임플레이',
+        'nav.combat': '전투',
         'nav.screenshots': '스크린샷',
         'nav.platforms': '플랫폼',
         'nav.contact': '연락처',
@@ -1074,10 +1334,28 @@
         'eyebrow.three': '싱글 플레이',
         'hero.subtitle': '이종 진화',
         'hero.lead': '낯선 심해 생물의 몸에 기관을 이식하고, 협동 효과를 유지하며, 손상과 절단과 변이의 압박 속에서 한 번 더 잠수하세요.',
+        'hero.point.1.title': '갯가재 전술 컷',
+        'hero.point.1.copy': '근접 돌진, 거리 조절, 원거리 추가 피해, 후반 고압 수확.',
+        'hero.point.2.title': '약점을 가진 몸',
+        'hero.point.2.copy': '핵심 기관이 절단되면 협동 전체가 잠시 꺼질 수 있습니다.',
+        'hero.point.3.title': '짧은 잠수와 장기 해금',
+        'hero.point.3.copy': '유전자점으로 새 종, 계약, 더 높은 A 난이도 루트를 엽니다.',
         'hero.platformStatus': '플랫폼 상태',
         'hero.viewScreenshots': '스크린샷 보기',
         'status.steam': 'Coming Soon 준비 중',
         'status.pending': '준비 중',
+        'combat.eyebrow.one': '현재 영상 초점',
+        'combat.eyebrow.two': '갯가재 루트',
+        'combat.title': '돌진하고, 거리를 벌리고, 무리를 정리한다',
+        'combat.copy': '새 게임플레이 영상은 충격을 중심으로 한 갯가재 Run을 따라갑니다. 근접 몸이 위험에 들어가고, 기동으로 거리를 다시 만들고, 적이 몰릴 때 원거리 기관으로 보완한 뒤 후반 압박을 수확으로 바꿉니다.',
+        'combat.step.1.title': '진입',
+        'combat.step.1.copy': '무리가 닫히기 전에 돌진으로 핵심 목표를 노립니다.',
+        'combat.step.2.title': '이탈',
+        'combat.step.2.copy': '기동으로 고압 웨이브에 붙잡히지 않습니다.',
+        'combat.step.3.title': '틈 메우기',
+        'combat.step.3.copy': '근접으로 쫓기 어려운 구간은 원거리 기관이 맡습니다.',
+        'combat.step.4.title': '수확',
+        'combat.step.4.copy': '빌드가 맞물리면 마지막 압박이 추진력이 됩니다.',
         'features.title': '망가질 수 있는 몸을 만든다',
         'features.copy': 'Hetero-Genesis의 중심은 고정 직업이나 무기 칸이 아니라, 한 번의 잠수에서 몸을 얼마나 버틸 수 있는가입니다. 깊이 내려갈수록 몸의 선택이 중요해집니다.',
         'feature.1.title': '심해 Roguelite 잠수',
