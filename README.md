@@ -28,7 +28,7 @@ The site only copies public-facing store material candidates:
 - `F:\package\game-issuance-and-operation\local\store-assets\screenshots\current-build\dynamic-candidates\20260704_01`
 - `F:\package\game-issuance-and-operation\local\store-assets\trailers\current-build\steam_trailer_recut_v6_user_source\hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4`
 
-The gameplay video is kept as the user-approved cut. Its size is about 54.16 MiB, which may trigger a GitHub warning but remains below GitHub's hard 100 MiB file limit.
+The gameplay video is based on the user-approved cut and compressed for GitHub Pages stability while keeping 1080x1920, about 60fps, and the original cut length. The site copy is under 50 MB.
 
 No private account, identity, tax, payment, certificate, key, or 2FA material belongs in this repository.
 
