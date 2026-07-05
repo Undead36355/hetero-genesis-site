@@ -51,6 +51,18 @@
       max-width: 100%;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .page {
       min-height: 100vh;
       background:
@@ -123,6 +135,23 @@
     nav a:hover {
       opacity: 1;
       color: var(--cyan);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .language-select {
+      min-height: 34px;
+      border: 1px solid rgba(101, 230, 237, .28);
+      border-radius: 8px;
+      padding: 5px 28px 5px 10px;
+      background: rgba(5, 20, 25, .9);
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
     }
 
     .hero {
@@ -483,6 +512,12 @@
         padding-bottom: 2px;
       }
 
+      .top-actions {
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+      }
+
       .hero {
         min-height: 0;
         padding: 44px 0 36px;
@@ -545,6 +580,15 @@
       .feature {
         min-height: 0;
       }
+
+      .top-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+      }
+
+      .language-select {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -556,15 +600,27 @@
           <img src='assets/app-icon-180.png' alt='Hetero-Genesis icon'>
           <span>
             <strong>Hetero-Genesis</strong>
-            <span>异构进化</span>
+            <span data-i18n='brand.subtitle'>异构进化</span>
           </span>
         </a>
-        <nav aria-label='Main navigation'>
-          <a href='#features'>Gameplay</a>
-          <a href='#screenshots'>Screenshots</a>
-          <a href='#platforms'>Platforms</a>
-          <a href='#contact'>Contact</a>
-        </nav>
+        <div class='top-actions'>
+          <nav aria-label='Main navigation'>
+            <a href='#features' data-i18n='nav.gameplay'>Gameplay</a>
+            <a href='#screenshots' data-i18n='nav.screenshots'>Screenshots</a>
+            <a href='#platforms' data-i18n='nav.platforms'>Platforms</a>
+            <a href='#contact' data-i18n='nav.contact'>Contact</a>
+          </nav>
+          <label>
+            <span class='sr-only'>Language</span>
+            <select class='language-select' id='languageSelect' aria-label='Language'>
+              <option value='en'>English</option>
+              <option value='zh-Hans'>简体中文</option>
+              <option value='zh-Hant'>繁體中文</option>
+              <option value='ja'>日本語</option>
+              <option value='ko'>한국어</option>
+            </select>
+          </label>
+        </div>
       </div>
     </header>
 
@@ -573,23 +629,23 @@
         <div class='wrap hero-grid'>
           <div>
             <div class='eyebrow'>
-              <span>Deep-sea roguelite</span>
-              <span>Portrait 2D</span>
-              <span>Single player</span>
+              <span data-i18n='eyebrow.one'>Deep-sea roguelite</span>
+              <span data-i18n='eyebrow.two'>Portrait 2D</span>
+              <span data-i18n='eyebrow.three'>Single player</span>
             </div>
-            <h1>Hetero-Genesis<span class='cn-title'>异构进化</span></h1>
-            <p class='lead'>Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.</p>
+            <h1>Hetero-Genesis<span class='cn-title' data-i18n='hero.subtitle'>异构进化</span></h1>
+            <p class='lead' data-i18n='hero.lead'>Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.</p>
             <div class='hero-actions'>
-              <a class='button primary' href='#platforms'>Platform status</a>
-              <a class='button' href='#screenshots'>View screenshots</a>
+              <a class='button primary' href='#platforms' data-i18n='hero.platformStatus'>Platform status</a>
+              <a class='button' href='#screenshots' data-i18n='hero.viewScreenshots'>View screenshots</a>
             </div>
           </div>
           <aside class='hero-card' aria-label='Main visual and platform status'>
             <img src='assets/hero-main.webp' alt='Hetero-Genesis deep-sea key art'>
             <div class='status-strip'>
-              <div><b>Steam</b><span>Coming Soon pending</span></div>
-              <div><b>Google Play</b><span>Pending</span></div>
-              <div><b>App Store</b><span>Pending</span></div>
+              <div><b>Steam</b><span data-i18n='status.steam'>Coming Soon pending</span></div>
+              <div><b>Google Play</b><span data-i18n='status.pending'>Pending</span></div>
+              <div><b>App Store</b><span data-i18n='status.pending'>Pending</span></div>
             </div>
           </aside>
         </div>
@@ -598,44 +654,44 @@
       <section id='features'>
         <div class='wrap'>
           <div class='section-head'>
-            <h2>Build a body that can fail</h2>
-            <p>Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.</p>
+            <h2 data-i18n='features.title'>Build a body that can fail</h2>
+            <p data-i18n='features.copy'>Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.</p>
           </div>
           <div class='feature-grid' aria-label='Gameplay features'>
             <article class='feature'>
               <span class='num'>1</span>
-              <h3>深海 Roguelite 深潜</h3>
-              <p>Pick a species, enter a short pressure-heavy dive, survive waves, draft rewards, and push toward the next boss.</p>
+              <h3 data-i18n='feature.1.title'>深海 Roguelite 深潜</h3>
+              <p data-i18n='feature.1.copy'>Pick a species, enter a short pressure-heavy dive, survive waves, draft rewards, and push toward the next boss.</p>
             </article>
             <article class='feature'>
               <span class='num'>2</span>
-              <h3>器官装配与身体槽位</h3>
-              <p>Shells, venom glands, tentacles, rams, electric organs, sonic organs, and regeneration tissues all need room on the body.</p>
+              <h3 data-i18n='feature.2.title'>器官装配与身体槽位</h3>
+              <p data-i18n='feature.2.copy'>Shells, venom glands, tentacles, rams, electric organs, sonic organs, and regeneration tissues all need room on the body.</p>
             </article>
             <article class='feature'>
               <span class='num'>3</span>
-              <h3>协同效果</h3>
-              <p>Organs can unlock combat rules together, from poison pressure and electric control to defense, recovery, summons, and burst windows.</p>
+              <h3 data-i18n='feature.3.title'>协同效果</h3>
+              <p data-i18n='feature.3.copy'>Organs can unlock combat rules together, from poison pressure and electric control to defense, recovery, summons, and burst windows.</p>
             </article>
             <article class='feature'>
               <span class='num'>4</span>
-              <h3>器官受损、断裂、修复</h3>
-              <p>Important organs can be damaged or broken. A strong build can lose a key link until you find a repair window.</p>
+              <h3 data-i18n='feature.4.title'>器官受损、断裂、修复</h3>
+              <p data-i18n='feature.4.copy'>Important organs can be damaged or broken. A strong build can lose a key link until you find a repair window.</p>
             </article>
             <article class='feature'>
               <span class='num'>5</span>
-              <h3>Boss 后演化三选</h3>
-              <p>After boss fights, choose between deepening instinct, grafting ecology, or unstable mutation to steer the next stretch.</p>
+              <h3 data-i18n='feature.5.title'>Boss 后演化三选</h3>
+              <p data-i18n='feature.5.copy'>After boss fights, choose between deepening instinct, grafting ecology, or unstable mutation to steer the next stretch.</p>
             </article>
             <article class='feature'>
               <span class='num'>6</span>
-              <h3>深潜契约与 A 难度</h3>
-              <p>Abyss difficulty and dive contracts let later runs add pressure without changing the heart of the game.</p>
+              <h3 data-i18n='feature.6.title'>深潜契约与 A 难度</h3>
+              <p data-i18n='feature.6.copy'>Abyss difficulty and dive contracts let later runs add pressure without changing the heart of the game.</p>
             </article>
             <article class='feature'>
               <span class='num'>7</span>
-              <h3>局外成长</h3>
-              <p>Gene points unlock more species, contracts, and long-term options between dives.</p>
+              <h3 data-i18n='feature.7.title'>局外成长</h3>
+              <p data-i18n='feature.7.copy'>Gene points unlock more species, contracts, and long-term options between dives.</p>
             </article>
           </div>
         </div>
@@ -644,13 +700,13 @@
       <section id='about'>
         <div class='wrap split'>
           <div>
-            <h2>Made for short dives and messy builds</h2>
-            <p class='section-copy'>Current content planning covers 10 playable species, 166 organ configurations, 119 synergy effects, 10 combat waves, A0-A10 difficulty, 24 deep-dive contracts, and 34 meta-progression unlocks. Final store pages will be checked against the submitted build.</p>
+            <h2 data-i18n='about.title'>Made for short dives and messy builds</h2>
+            <p class='section-copy' data-i18n='about.copy'>Current content planning covers 10 playable species, 166 organ configurations, 119 synergy effects, 10 combat waves, A0-A10 difficulty, 24 deep-dive contracts, and 34 meta-progression unlocks. Final store pages will be checked against the submitted build.</p>
             <div class='fact-list'>
-              <div class='fact'><b>Genre</b><span>Portrait 2D deep-sea roguelite</span></div>
-              <div class='fact'><b>Languages</b><span>English, 简体中文, 日本語, 한국어</span></div>
-              <div class='fact'><b>Business</b><span>Paid single-player game planned without ads, in-app purchases, or subscriptions</span></div>
-              <div class='fact'><b>Trailer</b><span>Coming soon, no final trailer embedded yet</span></div>
+              <div class='fact'><b data-i18n='fact.genre.label'>Genre</b><span data-i18n='fact.genre.value'>Portrait 2D deep-sea roguelite</span></div>
+              <div class='fact'><b data-i18n='fact.languages.label'>Languages</b><span data-i18n='fact.languages.value'>English, 简体中文, 繁體中文, 日本語, 한국어</span></div>
+              <div class='fact'><b data-i18n='fact.business.label'>Business</b><span data-i18n='fact.business.value'>Paid single-player game planned without ads, in-app purchases, or subscriptions</span></div>
+              <div class='fact'><b data-i18n='fact.trailer.label'>Trailer</b><span data-i18n='fact.trailer.value'>Coming soon, no final trailer embedded yet</span></div>
             </div>
           </div>
           <figure class='poster'>
@@ -662,33 +718,33 @@
       <section id='screenshots'>
         <div class='wrap'>
           <div class='section-head'>
-            <h2>Current build screenshots</h2>
-            <p>These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.</p>
+            <h2 data-i18n='screenshots.title'>Current build screenshots</h2>
+            <p data-i18n='screenshots.copy'>These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.</p>
           </div>
           <div class='gallery'>
             <figure class='shot'>
               <img src='assets/screenshot-menu.webp' alt='Hetero-Genesis main menu screenshot'>
-              <figcaption>Main menu and dive entry</figcaption>
+              <figcaption data-i18n='shot.menu'>Main menu and dive entry</figcaption>
             </figure>
             <figure class='shot'>
               <img src='assets/screenshot-prerun.webp' alt='Abyss difficulty and contract selection screenshot'>
-              <figcaption>Abyss difficulty and contracts</figcaption>
+              <figcaption data-i18n='shot.prerun'>Abyss difficulty and contracts</figcaption>
             </figure>
             <figure class='shot'>
               <img src='assets/screenshot-slots.webp' alt='Organ slot selection screenshot'>
-              <figcaption>Organ slots and body planning</figcaption>
+              <figcaption data-i18n='shot.slots'>Organ slots and body planning</figcaption>
             </figure>
             <figure class='shot'>
               <img src='assets/screenshot-reward.webp' alt='Organ reward draft screenshot'>
-              <figcaption>Reward drafts and synergy preview</figcaption>
+              <figcaption data-i18n='shot.reward'>Reward drafts and synergy preview</figcaption>
             </figure>
             <figure class='shot'>
               <img src='assets/screenshot-evolution.webp' alt='Post-boss evolution selection screenshot'>
-              <figcaption>Post-boss evolution choice</figcaption>
+              <figcaption data-i18n='shot.evolution'>Post-boss evolution choice</figcaption>
             </figure>
             <figure class='shot'>
               <img src='assets/screenshot-result.webp' alt='Run result and gene points screenshot'>
-              <figcaption>Run result and gene points</figcaption>
+              <figcaption data-i18n='shot.result'>Run result and gene points</figcaption>
             </figure>
           </div>
         </div>
@@ -698,26 +754,26 @@
         <div class='wrap media-row'>
           <div class='trailer-box' aria-label='Trailer area'>
             <div>
-              <b>Trailer coming soon</b>
-              <span>The final trailer will be added after the confirmed cut is ready.</span>
+              <b data-i18n='trailer.title'>Trailer coming soon</b>
+              <span data-i18n='trailer.copy'>The final trailer will be added after the confirmed cut is ready.</span>
             </div>
           </div>
           <div class='links'>
             <div class='platform'>
-              <div><b>Steam</b><span>Store page is being prepared.</span></div>
-              <div class='pending'>Pending</div>
+              <div><b>Steam</b><span data-i18n='platform.steam.copy'>Store page is being prepared.</span></div>
+              <div class='pending' data-i18n='status.pending'>Pending</div>
             </div>
             <div class='platform'>
-              <div><b>Google Play</b><span>App record and review materials are in progress.</span></div>
-              <div class='pending'>Pending</div>
+              <div><b>Google Play</b><span data-i18n='platform.google.copy'>App record and review materials are in progress.</span></div>
+              <div class='pending' data-i18n='status.pending'>Pending</div>
             </div>
             <div class='platform'>
-              <div><b>App Store</b><span>iOS capture and App Store Connect setup are pending.</span></div>
-              <div class='pending'>Pending</div>
+              <div><b>App Store</b><span data-i18n='platform.apple.copy'>iOS capture and App Store Connect setup are pending.</span></div>
+              <div class='pending' data-i18n='status.pending'>Pending</div>
             </div>
             <a class='platform' href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>
-              <div><b>Privacy Policy</b><span>Separate public page for platform review.</span></div>
-              <div class='pending'>Open</div>
+              <div><b data-i18n='privacy.title'>Privacy Policy</b><span data-i18n='privacy.copy'>Separate public page for platform review.</span></div>
+              <div class='pending' data-i18n='privacy.open'>Open</div>
             </a>
           </div>
         </div>
@@ -727,15 +783,366 @@
     <footer id='contact'>
       <div class='wrap'>
         <div>
-          <strong>Hetero-Genesis | 异构进化</strong><br>
+          <strong data-i18n='footer.title'>Hetero-Genesis | 异构进化</strong><br>
           Tianyang Studio
         </div>
         <div>
-          Contact: <a href='mailto:qianxi36355@gmail.com'>qianxi36355@gmail.com</a><br>
-          Privacy: <a href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>undead36355.github.io/hetero-genesis-privacy-policy</a>
+          <span data-i18n='footer.contact'>Contact</span>: <a href='mailto:qianxi36355@gmail.com'>qianxi36355@gmail.com</a><br>
+          <span data-i18n='footer.privacy'>Privacy</span>: <a href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>undead36355.github.io/hetero-genesis-privacy-policy</a>
         </div>
       </div>
     </footer>
   </div>
+  <script>
+    const translations = {
+      en: {
+        metaTitle: 'Hetero-Genesis | 异构进化',
+        metaDescription: 'Hetero-Genesis is a portrait 2D deep-sea roguelite about a body that fights, breaks, heals, and mutates.',
+        'brand.subtitle': '异构进化',
+        'nav.gameplay': 'Gameplay',
+        'nav.screenshots': 'Screenshots',
+        'nav.platforms': 'Platforms',
+        'nav.contact': 'Contact',
+        'eyebrow.one': 'Deep-sea roguelite',
+        'eyebrow.two': 'Portrait 2D',
+        'eyebrow.three': 'Single player',
+        'hero.subtitle': '异构进化',
+        'hero.lead': 'Graft organs onto a strange deep-sea body, keep its synergies alive, and survive one more dive as the body breaks and mutates under pressure.',
+        'hero.platformStatus': 'Platform status',
+        'hero.viewScreenshots': 'View screenshots',
+        'status.steam': 'Coming Soon pending',
+        'status.pending': 'Pending',
+        'features.title': 'Build a body that can fail',
+        'features.copy': 'Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.',
+        'feature.1.title': '深海 Roguelite 深潜',
+        'feature.1.copy': 'Pick a species, enter a short pressure-heavy dive, survive waves, draft rewards, and push toward the next boss.',
+        'feature.2.title': '器官装配与身体槽位',
+        'feature.2.copy': 'Shells, venom glands, tentacles, rams, electric organs, sonic organs, and regeneration tissues all need room on the body.',
+        'feature.3.title': '协同效果',
+        'feature.3.copy': 'Organs can unlock combat rules together, from poison pressure and electric control to defense, recovery, summons, and burst windows.',
+        'feature.4.title': '器官受损、断裂、修复',
+        'feature.4.copy': 'Important organs can be damaged or broken. A strong build can lose a key link until you find a repair window.',
+        'feature.5.title': 'Boss 后演化三选',
+        'feature.5.copy': 'After boss fights, choose between deepening instinct, grafting ecology, or unstable mutation to steer the next stretch.',
+        'feature.6.title': '深潜契约与 A 难度',
+        'feature.6.copy': 'Abyss difficulty and dive contracts let later runs add pressure without changing the heart of the game.',
+        'feature.7.title': '局外成长',
+        'feature.7.copy': 'Gene points unlock more species, contracts, and long-term options between dives.',
+        'about.title': 'Made for short dives and messy builds',
+        'about.copy': 'Current content planning covers 10 playable species, 166 organ configurations, 119 synergy effects, 10 combat waves, A0-A10 difficulty, 24 deep-dive contracts, and 34 meta-progression unlocks. Final store pages will be checked against the submitted build.',
+        'fact.genre.label': 'Genre',
+        'fact.genre.value': 'Portrait 2D deep-sea roguelite',
+        'fact.languages.label': 'Languages',
+        'fact.languages.value': 'English, 简体中文, 繁體中文, 日本語, 한국어',
+        'fact.business.label': 'Business',
+        'fact.business.value': 'Paid single-player game planned without ads, in-app purchases, or subscriptions',
+        'fact.trailer.label': 'Trailer',
+        'fact.trailer.value': 'Coming soon, no final trailer embedded yet',
+        'screenshots.title': 'Current build screenshots',
+        'screenshots.copy': 'These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.',
+        'shot.menu': 'Main menu and dive entry',
+        'shot.prerun': 'Abyss difficulty and contracts',
+        'shot.slots': 'Organ slots and body planning',
+        'shot.reward': 'Reward drafts and synergy preview',
+        'shot.evolution': 'Post-boss evolution choice',
+        'shot.result': 'Run result and gene points',
+        'trailer.title': 'Trailer coming soon',
+        'trailer.copy': 'The final trailer will be added after the confirmed cut is ready.',
+        'platform.steam.copy': 'Store page is being prepared.',
+        'platform.google.copy': 'App record and review materials are in progress.',
+        'platform.apple.copy': 'iOS capture and App Store Connect setup are pending.',
+        'privacy.title': 'Privacy Policy',
+        'privacy.copy': 'Separate public page for platform review.',
+        'privacy.open': 'Open',
+        'footer.title': 'Hetero-Genesis | 异构进化',
+        'footer.contact': 'Contact',
+        'footer.privacy': 'Privacy'
+      },
+      'zh-Hans': {
+        metaTitle: 'Hetero-Genesis | 异构进化',
+        metaDescription: '异构进化是一款竖屏 2D 深海 Roguelite，围绕会战斗、会断裂、会修复、会异化的身体展开。',
+        'brand.subtitle': '异构进化',
+        'nav.gameplay': '玩法',
+        'nav.screenshots': '截图',
+        'nav.platforms': '平台',
+        'nav.contact': '联系',
+        'eyebrow.one': '深海 Roguelite',
+        'eyebrow.two': '竖屏 2D',
+        'eyebrow.three': '单人游戏',
+        'hero.subtitle': '异构进化',
+        'hero.lead': '把器官移植到一具陌生的深海身体上，维持协同，在受损、断裂和异化的压力下再撑过一次深潜。',
+        'hero.platformStatus': '平台状态',
+        'hero.viewScreenshots': '查看截图',
+        'status.steam': 'Coming Soon 待定',
+        'status.pending': '待定',
+        'features.title': '构筑一具会出问题的身体',
+        'features.copy': '异构进化的核心不是固定职业或武器栏，而是一局里你能不能把身体撑住。下潜越深，每个身体选择越重要。',
+        'feature.1.title': '深海 Roguelite 深潜',
+        'feature.1.copy': '选择物种，进入一局短而高压的深潜，在波次中生存、抽取奖励，并推进到下一个 Boss。',
+        'feature.2.title': '器官装配与身体槽位',
+        'feature.2.copy': '外壳、毒腺、触手、冲角、电器官、声波器官和再生组织都要装进有限的身体槽位。',
+        'feature.3.title': '协同效果',
+        'feature.3.copy': '器官组合能解锁真实战斗规则，从毒素、电控，到防御、修复、召唤和爆发窗口。',
+        'feature.4.title': '器官受损、断裂、修复',
+        'feature.4.copy': '关键器官会受损或断裂。再强的构筑也可能因为一处断点暂时失去协同。',
+        'feature.5.title': 'Boss 后演化三选',
+        'feature.5.copy': '击败 Boss 后，在深化本能、生态嫁接、断谱异化之间选择下一段身体方向。',
+        'feature.6.title': '深潜契约与 A 难度',
+        'feature.6.copy': 'A 难度和深潜契约会为后续 Run 增加压力，但不改变游戏的核心节奏。',
+        'feature.7.title': '局外成长',
+        'feature.7.copy': '结算获得基因点，用于解锁更多物种、契约和长期选项。',
+        'about.title': '适合短局深潜，也适合乱中成型',
+        'about.copy': '当前内容规划包括 10 个可玩物种、166 个器官配置、119 条协同效果、10 波战斗、A0-A10 难度、24 个深潜契约和 34 项局外成长解锁。最终商店页会以提交构建为准复核。',
+        'fact.genre.label': '类型',
+        'fact.genre.value': '竖屏 2D 深海 Roguelite',
+        'fact.languages.label': '语言',
+        'fact.languages.value': 'English、简体中文、繁體中文、日本語、한국어',
+        'fact.business.label': '商业模式',
+        'fact.business.value': '计划为买断制单机游戏，无广告、无内购、无订阅',
+        'fact.trailer.label': '预告片',
+        'fact.trailer.value': 'Coming soon，暂不嵌入未确认最终版',
+        'screenshots.title': '当前构建截图',
+        'screenshots.copy': '这些图片来自为商店素材准备的当前构建截图集。旧截图不作为当前版本证明。',
+        'shot.menu': '主菜单与开始深潜',
+        'shot.prerun': 'A 难度与深潜契约',
+        'shot.slots': '器官槽位与身体规划',
+        'shot.reward': '奖励三选与协同预览',
+        'shot.evolution': 'Boss 后演化选择',
+        'shot.result': '结算与基因点',
+        'trailer.title': '预告片 Coming soon',
+        'trailer.copy': '最终剪辑确认后会在这里更新。',
+        'platform.steam.copy': '商店页正在准备。',
+        'platform.google.copy': '应用记录和审核资料正在准备。',
+        'platform.apple.copy': 'iOS 截图和 App Store Connect 设置待推进。',
+        'privacy.title': '隐私政策',
+        'privacy.copy': '独立公开页面，用于平台审核。',
+        'privacy.open': '打开',
+        'footer.title': 'Hetero-Genesis | 异构进化',
+        'footer.contact': '联系',
+        'footer.privacy': '隐私政策'
+      },
+      'zh-Hant': {
+        metaTitle: 'Hetero-Genesis | 異構進化',
+        metaDescription: '異構進化是一款直式 2D 深海 Roguelite，圍繞會戰鬥、會斷裂、會修復、會異化的身體展開。',
+        'brand.subtitle': '異構進化',
+        'nav.gameplay': '玩法',
+        'nav.screenshots': '截圖',
+        'nav.platforms': '平台',
+        'nav.contact': '聯絡',
+        'eyebrow.one': '深海 Roguelite',
+        'eyebrow.two': '直式 2D',
+        'eyebrow.three': '單人遊戲',
+        'hero.subtitle': '異構進化',
+        'hero.lead': '把器官移植到一具陌生的深海身體上，維持協同，在受損、斷裂和異化的壓力下再撐過一次深潛。',
+        'hero.platformStatus': '平台狀態',
+        'hero.viewScreenshots': '查看截圖',
+        'status.steam': 'Coming Soon 待定',
+        'status.pending': '待定',
+        'features.title': '構築一具會出問題的身體',
+        'features.copy': '異構進化的核心不是固定職業或武器欄，而是一局裡你能不能把身體撐住。下潛越深，每個身體選擇越重要。',
+        'feature.1.title': '深海 Roguelite 深潛',
+        'feature.1.copy': '選擇物種，進入一局短而高壓的深潛，在波次中生存、抽取獎勵，並推進到下一個 Boss。',
+        'feature.2.title': '器官裝配與身體槽位',
+        'feature.2.copy': '外殼、毒腺、觸手、衝角、電器官、聲波器官和再生組織都要裝進有限的身體槽位。',
+        'feature.3.title': '協同效果',
+        'feature.3.copy': '器官組合能解鎖真實戰鬥規則，從毒素、電控，到防禦、修復、召喚和爆發窗口。',
+        'feature.4.title': '器官受損、斷裂、修復',
+        'feature.4.copy': '關鍵器官會受損或斷裂。再強的構築也可能因為一處斷點暫時失去協同。',
+        'feature.5.title': 'Boss 後演化三選',
+        'feature.5.copy': '擊敗 Boss 後，在深化本能、生態嫁接、斷譜異化之間選擇下一段身體方向。',
+        'feature.6.title': '深潛契約與 A 難度',
+        'feature.6.copy': 'A 難度和深潛契約會為後續 Run 增加壓力，但不改變遊戲的核心節奏。',
+        'feature.7.title': '局外成長',
+        'feature.7.copy': '結算獲得基因點，用於解鎖更多物種、契約和長期選項。',
+        'about.title': '適合短局深潛，也適合亂中成型',
+        'about.copy': '當前內容規劃包括 10 個可玩物種、166 個器官配置、119 條協同效果、10 波戰鬥、A0-A10 難度、24 個深潛契約和 34 項局外成長解鎖。最終商店頁會以提交構建為準複核。',
+        'fact.genre.label': '類型',
+        'fact.genre.value': '直式 2D 深海 Roguelite',
+        'fact.languages.label': '語言',
+        'fact.languages.value': 'English、简体中文、繁體中文、日本語、한국어',
+        'fact.business.label': '商業模式',
+        'fact.business.value': '計畫為買斷制單機遊戲，無廣告、無內購、無訂閱',
+        'fact.trailer.label': '預告片',
+        'fact.trailer.value': 'Coming soon，暫不嵌入未確認最終版',
+        'screenshots.title': '當前構建截圖',
+        'screenshots.copy': '這些圖片來自為商店素材準備的當前構建截圖集。舊截圖不作為當前版本證明。',
+        'shot.menu': '主選單與開始深潛',
+        'shot.prerun': 'A 難度與深潛契約',
+        'shot.slots': '器官槽位與身體規劃',
+        'shot.reward': '獎勵三選與協同預覽',
+        'shot.evolution': 'Boss 後演化選擇',
+        'shot.result': '結算與基因點',
+        'trailer.title': '預告片 Coming soon',
+        'trailer.copy': '最終剪輯確認後會在這裡更新。',
+        'platform.steam.copy': '商店頁正在準備。',
+        'platform.google.copy': '應用記錄和審核資料正在準備。',
+        'platform.apple.copy': 'iOS 截圖和 App Store Connect 設定待推進。',
+        'privacy.title': '隱私政策',
+        'privacy.copy': '獨立公開頁面，用於平台審核。',
+        'privacy.open': '打開',
+        'footer.title': 'Hetero-Genesis | 異構進化',
+        'footer.contact': '聯絡',
+        'footer.privacy': '隱私政策'
+      },
+      ja: {
+        metaTitle: 'Hetero-Genesis | 異構進化',
+        metaDescription: 'Hetero-Genesis は、戦い、壊れ、修復され、変異する身体を扱う縦画面 2D 深海 Roguelite です。',
+        'brand.subtitle': '異構進化',
+        'nav.gameplay': 'ゲーム内容',
+        'nav.screenshots': 'スクリーンショット',
+        'nav.platforms': 'プラットフォーム',
+        'nav.contact': '連絡先',
+        'eyebrow.one': '深海 Roguelite',
+        'eyebrow.two': '縦画面 2D',
+        'eyebrow.three': 'シングルプレイ',
+        'hero.subtitle': '異構進化',
+        'hero.lead': '奇妙な深海の身体に器官を移植し、協同を保ちながら、損傷、断裂、変異の圧力の中でもう一度だけ潜ります。',
+        'hero.platformStatus': '配信状況',
+        'hero.viewScreenshots': '画像を見る',
+        'status.steam': 'Coming Soon 準備中',
+        'status.pending': '準備中',
+        'features.title': '壊れうる身体を組み上げる',
+        'features.copy': 'Hetero-Genesis の主役は固定職業や武器欄ではなく、1 回の潜行でどこまで身体を保てるかです。深く潜るほど、身体の選択が重くなります。',
+        'feature.1.title': '深海 Roguelite 潜行',
+        'feature.1.copy': '種を選び、短く高圧な潜行へ。波をしのぎ、報酬を選び、次の Boss へ進みます。',
+        'feature.2.title': '器官装備と身体スロット',
+        'feature.2.copy': '殻、毒腺、触手、突角、電気器官、音波器官、再生組織は、限られた身体スロットに収める必要があります。',
+        'feature.3.title': '協同効果',
+        'feature.3.copy': '器官の組み合わせで、毒、電撃制御、防御、修復、召喚、バースト機会などの戦闘ルールが開きます。',
+        'feature.4.title': '器官の損傷、断裂、修復',
+        'feature.4.copy': '重要な器官は損傷し、断裂することがあります。強い構築でも、要の器官を失えば協同が崩れます。',
+        'feature.5.title': 'Boss 後の進化三択',
+        'feature.5.copy': 'Boss 撃破後は、本能深化、生態接合、不安定な変異から次の身体方針を選びます。',
+        'feature.6.title': '深潜契約と A 難度',
+        'feature.6.copy': 'A 難度と深潜契約は、ゲームの芯を変えずに後半の Run へ圧力を加えます。',
+        'feature.7.title': 'メタ成長',
+        'feature.7.copy': '遺伝子点で新しい種、契約、長期的な選択肢を解放します。',
+        'about.title': '短い潜行と崩れかけの構築のために',
+        'about.copy': '現在の内容計画には、10 種のプレイアブル種、166 件の器官設定、119 件の協同効果、10 波の戦闘、A0-A10 難度、24 件の深潜契約、34 件のメタ成長解放が含まれます。最終的なストア内容は提出ビルドで確認します。',
+        'fact.genre.label': 'ジャンル',
+        'fact.genre.value': '縦画面 2D 深海 Roguelite',
+        'fact.languages.label': '言語',
+        'fact.languages.value': 'English、简体中文、繁體中文、日本語、한국어',
+        'fact.business.label': '販売形式',
+        'fact.business.value': '広告、アプリ内購入、サブスクリプションなしの買い切りシングルプレイ予定',
+        'fact.trailer.label': 'トレーラー',
+        'fact.trailer.value': 'Coming soon。最終版が確定するまで埋め込みません',
+        'screenshots.title': '現在ビルドの画像',
+        'screenshots.copy': 'これらはストア素材用に準備した現在ビルドの画像です。古い画像を現行版の証明として使いません。',
+        'shot.menu': 'メインメニューと潜行開始',
+        'shot.prerun': 'A 難度と深潜契約',
+        'shot.slots': '器官スロットと身体計画',
+        'shot.reward': '報酬選択と協同プレビュー',
+        'shot.evolution': 'Boss 後の進化選択',
+        'shot.result': '結果と遺伝子点',
+        'trailer.title': 'トレーラー Coming soon',
+        'trailer.copy': '最終カット確認後にここへ追加します。',
+        'platform.steam.copy': 'ストアページを準備中です。',
+        'platform.google.copy': 'アプリ記録と審査資料を準備中です。',
+        'platform.apple.copy': 'iOS 撮影と App Store Connect 設定は準備中です。',
+        'privacy.title': 'プライバシーポリシー',
+        'privacy.copy': '審査用の独立した公開ページです。',
+        'privacy.open': '開く',
+        'footer.title': 'Hetero-Genesis | 異構進化',
+        'footer.contact': '連絡先',
+        'footer.privacy': 'プライバシー'
+      },
+      ko: {
+        metaTitle: 'Hetero-Genesis | 이종 진화',
+        metaDescription: 'Hetero-Genesis는 싸우고, 부서지고, 수리되고, 변이하는 몸을 다루는 세로형 2D 심해 Roguelite입니다.',
+        'brand.subtitle': '이종 진화',
+        'nav.gameplay': '게임플레이',
+        'nav.screenshots': '스크린샷',
+        'nav.platforms': '플랫폼',
+        'nav.contact': '연락처',
+        'eyebrow.one': '심해 Roguelite',
+        'eyebrow.two': '세로형 2D',
+        'eyebrow.three': '싱글 플레이',
+        'hero.subtitle': '이종 진화',
+        'hero.lead': '낯선 심해 생물의 몸에 기관을 이식하고, 협동 효과를 유지하며, 손상과 절단과 변이의 압박 속에서 한 번 더 잠수하세요.',
+        'hero.platformStatus': '플랫폼 상태',
+        'hero.viewScreenshots': '스크린샷 보기',
+        'status.steam': 'Coming Soon 준비 중',
+        'status.pending': '준비 중',
+        'features.title': '망가질 수 있는 몸을 만든다',
+        'features.copy': 'Hetero-Genesis의 중심은 고정 직업이나 무기 칸이 아니라, 한 번의 잠수에서 몸을 얼마나 버틸 수 있는가입니다. 깊이 내려갈수록 몸의 선택이 중요해집니다.',
+        'feature.1.title': '심해 Roguelite 잠수',
+        'feature.1.copy': '종을 고르고 짧고 압박감 있는 잠수에 들어가, 웨이브를 버티고 보상을 고르며 다음 Boss로 나아갑니다.',
+        'feature.2.title': '기관 장착과 몸 슬롯',
+        'feature.2.copy': '껍질, 독샘, 촉수, 돌진 기관, 전기 기관, 음파 기관, 재생 조직은 제한된 몸 슬롯 안에 넣어야 합니다.',
+        'feature.3.title': '협동 효과',
+        'feature.3.copy': '기관 조합은 독 압박, 전기 제어, 방어, 수리, 소환, 폭발 타이밍 같은 전투 규칙을 엽니다.',
+        'feature.4.title': '기관 손상, 절단, 수리',
+        'feature.4.copy': '중요한 기관은 손상되거나 절단될 수 있습니다. 강한 빌드도 핵심 기관을 잃으면 협동이 무너질 수 있습니다.',
+        'feature.5.title': 'Boss 후 진화 3택',
+        'feature.5.copy': 'Boss를 쓰러뜨린 뒤 본능 심화, 생태 접합, 불안정 변이 중 다음 몸의 방향을 고릅니다.',
+        'feature.6.title': '심해 계약과 A 난이도',
+        'feature.6.copy': 'A 난이도와 심해 계약은 핵심 흐름을 바꾸지 않고 이후 Run에 압박을 더합니다.',
+        'feature.7.title': '메타 성장',
+        'feature.7.copy': '유전자점으로 더 많은 종, 계약, 장기 선택지를 해금합니다.',
+        'about.title': '짧은 잠수와 흔들리는 빌드를 위해',
+        'about.copy': '현재 콘텐츠 계획에는 플레이 가능 종 10개, 기관 설정 166개, 협동 효과 119개, 전투 10웨이브, A0-A10 난이도, 심해 계약 24개, 메타 성장 해금 34개가 포함됩니다. 최종 스토어 내용은 제출 빌드 기준으로 확인합니다.',
+        'fact.genre.label': '장르',
+        'fact.genre.value': '세로형 2D 심해 Roguelite',
+        'fact.languages.label': '언어',
+        'fact.languages.value': 'English, 简体中文, 繁體中文, 日本語, 한국어',
+        'fact.business.label': '판매 방식',
+        'fact.business.value': '광고, 인앱 구매, 구독 없는 유료 싱글 플레이 게임 예정',
+        'fact.trailer.label': '트레일러',
+        'fact.trailer.value': 'Coming soon. 최종본 확정 전에는 삽입하지 않습니다',
+        'screenshots.title': '현재 빌드 스크린샷',
+        'screenshots.copy': '이 이미지는 스토어 소재용으로 준비한 현재 빌드 캡처입니다. 오래된 이미지를 현재 버전 증거로 쓰지 않습니다.',
+        'shot.menu': '메인 메뉴와 잠수 시작',
+        'shot.prerun': 'A 난이도와 심해 계약',
+        'shot.slots': '기관 슬롯과 몸 설계',
+        'shot.reward': '보상 선택과 협동 미리보기',
+        'shot.evolution': 'Boss 후 진화 선택',
+        'shot.result': '결과와 유전자점',
+        'trailer.title': '트레일러 Coming soon',
+        'trailer.copy': '최종 컷이 확정되면 이곳에 추가합니다.',
+        'platform.steam.copy': '스토어 페이지를 준비 중입니다.',
+        'platform.google.copy': '앱 등록과 심사 자료를 준비 중입니다.',
+        'platform.apple.copy': 'iOS 캡처와 App Store Connect 설정은 준비 중입니다.',
+        'privacy.title': '개인정보 처리방침',
+        'privacy.copy': '플랫폼 심사용 별도 공개 페이지입니다.',
+        'privacy.open': '열기',
+        'footer.title': 'Hetero-Genesis | 이종 진화',
+        'footer.contact': '연락처',
+        'footer.privacy': '개인정보'
+      }
+    };
+
+    const languageSelect = document.getElementById('languageSelect');
+    const availableLanguages = Object.keys(translations);
+
+    function normalizeLanguage(language) {
+      if (!language) return 'en';
+      const lower = language.toLowerCase();
+      if (lower.startsWith('zh-tw') || lower.startsWith('zh-hk') || lower.startsWith('zh-hant')) return 'zh-Hant';
+      if (lower.startsWith('zh')) return 'zh-Hans';
+      if (lower.startsWith('ja')) return 'ja';
+      if (lower.startsWith('ko')) return 'ko';
+      return availableLanguages.includes(language) ? language : 'en';
+    }
+
+    function applyLanguage(language) {
+      const selected = normalizeLanguage(language);
+      const dictionary = translations[selected] || translations.en;
+      document.documentElement.lang = selected;
+      document.title = dictionary.metaTitle;
+      document.querySelector('meta[name="description"]').setAttribute('content', dictionary.metaDescription);
+      document.querySelector('meta[property="og:title"]').setAttribute('content', dictionary.metaTitle);
+      document.querySelector('meta[property="og:description"]').setAttribute('content', dictionary.metaDescription);
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const key = node.dataset.i18n;
+        if (dictionary[key]) node.textContent = dictionary[key];
+      });
+      languageSelect.value = selected;
+      localStorage.setItem('heteroGenesisLanguage', selected);
+    }
+
+    languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
+    applyLanguage(localStorage.getItem('heteroGenesisLanguage') || navigator.language || 'en');
+  </script>
 </body>
 </html>

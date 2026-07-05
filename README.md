@@ -15,6 +15,8 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 - `index.html` - static homepage
 - `assets/` - compressed public store images and current-build screenshots
 
+The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
+
 ## Asset Sources
 
 The site only copies public-facing store material candidates:
