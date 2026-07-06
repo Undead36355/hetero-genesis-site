@@ -492,6 +492,108 @@
       font-size: 13px;
     }
 
+    .build-route-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .route-card {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 18% 0, var(--route-glow), transparent 42%),
+        linear-gradient(180deg, rgba(10, 34, 42, .9), rgba(5, 14, 19, .84));
+      box-shadow: var(--shadow);
+    }
+
+    .route-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--route-color), rgba(255, 255, 255, .08));
+    }
+
+    .route-card::after {
+      content: '';
+      position: absolute;
+      right: -24px;
+      bottom: -28px;
+      width: 86px;
+      height: 86px;
+      border: 1px solid var(--route-color);
+      border-radius: 999px;
+      opacity: .16;
+    }
+
+    .route-card[data-route='kite'] {
+      --route-color: #65e6ed;
+      --route-glow: rgba(101, 230, 237, .22);
+    }
+
+    .route-card[data-route='melee'] {
+      --route-color: #f2b84d;
+      --route-glow: rgba(242, 184, 77, .2);
+    }
+
+    .route-card[data-route='field'] {
+      --route-color: #7cf2a1;
+      --route-glow: rgba(124, 242, 161, .2);
+    }
+
+    .route-card[data-route='assassin'] {
+      --route-color: #d48cff;
+      --route-glow: rgba(212, 140, 255, .2);
+    }
+
+    .route-card[data-route='summon'] {
+      --route-color: #ff7f6e;
+      --route-glow: rgba(255, 127, 110, .18);
+    }
+
+    .route-card .route-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 26px;
+      margin-bottom: 18px;
+      padding: 4px 9px;
+      border: 1px solid color-mix(in srgb, var(--route-color) 52%, transparent);
+      border-radius: 999px;
+      color: var(--route-color);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .route-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .route-card p {
+      margin: 0;
+      color: #c3d9dc;
+      font-size: 14px;
+    }
+
+    .route-card .route-note {
+      display: block;
+      margin-top: 16px;
+      color: #f0d7a0;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     .fact-list {
       display: grid;
       gap: 12px;
@@ -674,7 +776,8 @@
       .hero-grid,
       .split,
       .media-row,
-      .rhythm-grid {
+      .rhythm-grid,
+      .build-route-grid {
         grid-template-columns: 1fr;
       }
 
@@ -776,6 +879,7 @@
           <nav aria-label='Main navigation'>
             <a href='#features' data-i18n='nav.gameplay'>Gameplay</a>
             <a href='#combat' data-i18n='nav.combat'>Combat</a>
+            <a href='#builds' data-i18n='nav.builds'>Build routes</a>
             <a href='#screenshots' data-i18n='nav.screenshots'>Screenshots</a>
             <a href='#platforms' data-i18n='nav.platforms'>Platforms</a>
             <a href='#contact' data-i18n='nav.contact'>Contact</a>
@@ -841,6 +945,47 @@
             <div class='rhythm-step'><i>02</i><div><b data-i18n='combat.step.2.title'>Disengage</b><span data-i18n='combat.step.2.copy'>Use mobility to avoid getting pinned by pressure.</span></div></div>
             <div class='rhythm-step'><i>03</i><div><b data-i18n='combat.step.3.title'>Patch the gap</b><span data-i18n='combat.step.3.copy'>Let ranged organs cover what melee cannot reach safely.</span></div></div>
             <div class='rhythm-step'><i>04</i><div><b data-i18n='combat.step.4.title'>Cash out</b><span data-i18n='combat.step.4.copy'>When the build clicks, turn the final wave into momentum.</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id='builds'>
+        <div class='wrap'>
+          <div class='section-head'>
+            <h2 data-i18n='builds.title'>Five routes through the same deep sea</h2>
+            <p data-i18n='builds.copy'>The body does not start as a class. Organs, synergies, and damage risks push a run toward different rhythms, from clean kiting to risky close-range pressure.</p>
+          </div>
+          <div class='build-route-grid' aria-label='Build routes'>
+            <article class='route-card' data-route='kite'>
+              <span class='route-label' data-i18n='build.kite.label'>Kite</span>
+              <h3 data-i18n='build.kite.title'>Remote venom and spacing</h3>
+              <p data-i18n='build.kite.copy'>Keep distance, mark targets, stack poison, and let ranged organs keep working while the swarm chases through bad angles.</p>
+              <span class='route-note' data-i18n='build.kite.note'>Fits players who like movement, retreat lines, and damage over time.</span>
+            </article>
+            <article class='route-card' data-route='melee'>
+              <span class='route-label' data-i18n='build.melee.label'>Melee</span>
+              <h3 data-i18n='build.melee.title'>Heavy armor and regeneration</h3>
+              <p data-i18n='build.melee.copy'>Stack shells, regeneration tissue, and close-range organs, then pressure enemies at the edge of what the body can repair.</p>
+              <span class='route-note' data-i18n='build.melee.note'>The mantis shrimp cut leans into this route, with ranged organs covering unsafe gaps.</span>
+            </article>
+            <article class='route-card' data-route='field'>
+              <span class='route-label' data-i18n='build.field.label'>Field</span>
+              <h3 data-i18n='build.field.title'>Mucus, electric grids, and zones</h3>
+              <p data-i18n='build.field.copy'>Lay down fluid, toxin, or electric areas, then pull enemies across the edge where control and damage overlap.</p>
+              <span class='route-note' data-i18n='build.field.note'>A steadier route for players who like shaping the arena before the harvest.</span>
+            </article>
+            <article class='route-card' data-route='assassin'>
+              <span class='route-label' data-i18n='build.assassin.label'>Assassin</span>
+              <h3 data-i18n='build.assassin.title'>Camouflage and first strike</h3>
+              <p data-i18n='build.assassin.copy'>Use disguise to choose the target, open with a burst window, then leave before the body is forced into a fair fight.</p>
+              <span class='route-note' data-i18n='build.assassin.note'>Strong timing can pay off, but a missed window should feel dangerous.</span>
+            </article>
+            <article class='route-card' data-route='summon'>
+              <span class='route-label' data-i18n='build.summon.label'>Support</span>
+              <h3 data-i18n='build.summon.title'>Symbiosis and support net</h3>
+              <p data-i18n='build.summon.copy'>Use lures, cleaner shrimp, and symbiotic areas as a support layer while the player still makes the main combat decisions.</p>
+              <span class='route-note' data-i18n='build.summon.note'>Support helps stabilize a run, but marked threats still need attention.</span>
+            </article>
           </div>
         </div>
       </section>
@@ -998,6 +1143,7 @@
         'brand.subtitle': '异构进化',
         'nav.gameplay': 'Gameplay',
         'nav.combat': 'Combat',
+        'nav.builds': 'Build routes',
         'nav.screenshots': 'Screenshots',
         'nav.platforms': 'Platforms',
         'nav.contact': 'Contact',
@@ -1028,6 +1174,28 @@
         'combat.step.3.copy': 'Let ranged organs cover what melee cannot reach safely.',
         'combat.step.4.title': 'Cash out',
         'combat.step.4.copy': 'When the build clicks, turn the final wave into momentum.',
+        'builds.title': 'Five routes through the same deep sea',
+        'builds.copy': 'The body does not start as a class. Organs, synergies, and damage risks push a run toward different rhythms, from clean kiting to risky close-range pressure.',
+        'build.kite.label': 'Kite',
+        'build.kite.title': 'Remote venom and spacing',
+        'build.kite.copy': 'Keep distance, mark targets, stack poison, and let ranged organs keep working while the swarm chases through bad angles.',
+        'build.kite.note': 'Fits players who like movement, retreat lines, and damage over time.',
+        'build.melee.label': 'Melee',
+        'build.melee.title': 'Heavy armor and regeneration',
+        'build.melee.copy': 'Stack shells, regeneration tissue, and close-range organs, then pressure enemies at the edge of what the body can repair.',
+        'build.melee.note': 'The mantis shrimp cut leans into this route, with ranged organs covering unsafe gaps.',
+        'build.field.label': 'Field',
+        'build.field.title': 'Mucus, electric grids, and zones',
+        'build.field.copy': 'Lay down fluid, toxin, or electric areas, then pull enemies across the edge where control and damage overlap.',
+        'build.field.note': 'A steadier route for players who like shaping the arena before the harvest.',
+        'build.assassin.label': 'Assassin',
+        'build.assassin.title': 'Camouflage and first strike',
+        'build.assassin.copy': 'Use disguise to choose the target, open with a burst window, then leave before the body is forced into a fair fight.',
+        'build.assassin.note': 'Strong timing can pay off, but a missed window should feel dangerous.',
+        'build.summon.label': 'Support',
+        'build.summon.title': 'Symbiosis and support net',
+        'build.summon.copy': 'Use lures, cleaner shrimp, and symbiotic areas as a support layer while the player still makes the main combat decisions.',
+        'build.summon.note': 'Support helps stabilize a run, but marked threats still need attention.',
         'features.title': 'Build a body that can fail',
         'features.copy': 'Hetero-Genesis is about the run you can hold together, not a fixed class or weapon list. The deeper you go, the more each body choice starts to matter.',
         'feature.1.title': '深海 Roguelite 深潜',
@@ -1080,6 +1248,7 @@
         'brand.subtitle': '异构进化',
         'nav.gameplay': '玩法',
         'nav.combat': '战斗',
+        'nav.builds': '流派',
         'nav.screenshots': '截图',
         'nav.platforms': '平台',
         'nav.contact': '联系',
@@ -1110,6 +1279,28 @@
         'combat.step.3.copy': '远程器官覆盖近战不适合硬追的空档。',
         'combat.step.4.title': '收割',
         'combat.step.4.copy': '构筑成型后，把最终压力变成连续推进。',
+        'builds.title': '同一片深海里的五种路线',
+        'builds.copy': '身体一开始没有固定职业。器官、协同和受损风险会把一局推向不同节奏，从拉扯风筝到高风险贴脸压制。',
+        'build.kite.label': '风筝',
+        'build.kite.title': '远程毒素与距离控制',
+        'build.kite.copy': '拉开距离，标记目标，叠加毒素，让远程器官在敌群追错角度时持续输出。',
+        'build.kite.note': '适合喜欢走位、退路规划和持续伤害的玩家。',
+        'build.melee.label': '近战',
+        'build.melee.title': '重甲压制与再生',
+        'build.melee.copy': '堆叠外壳、再生组织和近战器官，在身体还能修复的边缘持续压迫敌群。',
+        'build.melee.note': '螳螂虾剪辑偏向这条路线，远程器官负责补上不适合硬追的空档。',
+        'build.field.label': '领域',
+        'build.field.title': '黏液、电网与区域控制',
+        'build.field.copy': '铺下流体、毒素或电击区域，再把敌人拉过边界，让控制与伤害叠在一起。',
+        'build.field.note': '更适合喜欢先塑造战场、再收掉敌群的玩家。',
+        'build.assassin.label': '刺杀',
+        'build.assassin.title': '伪装与首击窗口',
+        'build.assassin.copy': '用伪装选择目标，抓住爆发窗口打出首击，然后在身体被迫正面硬拼前脱离。',
+        'build.assassin.note': '时机抓得准会很赚，错过窗口也应该有危险感。',
+        'build.summon.label': '支援',
+        'build.summon.title': '共生体与支援网络',
+        'build.summon.copy': '用诱饵、清洁虾和共生区域作为支援层，但主要战斗判断仍由玩家完成。',
+        'build.summon.note': '支援能稳住局面，但被标记的威胁仍然需要处理。',
         'features.title': '构筑一具会出问题的身体',
         'features.copy': '异构进化的核心不是固定职业或武器栏，而是一局里你能不能把身体撑住。下潜越深，每个身体选择越重要。',
         'feature.1.title': '深海 Roguelite 深潜',
@@ -1162,6 +1353,7 @@
         'brand.subtitle': '異構進化',
         'nav.gameplay': '玩法',
         'nav.combat': '戰鬥',
+        'nav.builds': '流派',
         'nav.screenshots': '截圖',
         'nav.platforms': '平台',
         'nav.contact': '聯絡',
@@ -1192,6 +1384,28 @@
         'combat.step.3.copy': '遠程器官覆蓋近戰不適合硬追的空檔。',
         'combat.step.4.title': '收割',
         'combat.step.4.copy': '構築成型後，把最終壓力變成連續推進。',
+        'builds.title': '同一片深海裡的五種路線',
+        'builds.copy': '身體一開始沒有固定職業。器官、協同和受損風險會把一局推向不同節奏，從拉扯風箏到高風險貼臉壓制。',
+        'build.kite.label': '風箏',
+        'build.kite.title': '遠程毒素與距離控制',
+        'build.kite.copy': '拉開距離，標記目標，疊加毒素，讓遠程器官在敵群追錯角度時持續輸出。',
+        'build.kite.note': '適合喜歡走位、退路規劃和持續傷害的玩家。',
+        'build.melee.label': '近戰',
+        'build.melee.title': '重甲壓制與再生',
+        'build.melee.copy': '疊加外殼、再生組織和近戰器官，在身體還能修復的邊緣持續壓迫敵群。',
+        'build.melee.note': '螳螂蝦剪輯偏向這條路線，遠程器官負責補上不適合硬追的空檔。',
+        'build.field.label': '領域',
+        'build.field.title': '黏液、電網與區域控制',
+        'build.field.copy': '鋪下流體、毒素或電擊區域，再把敵人拉過邊界，讓控制與傷害疊在一起。',
+        'build.field.note': '更適合喜歡先塑造戰場、再收掉敵群的玩家。',
+        'build.assassin.label': '刺殺',
+        'build.assassin.title': '偽裝與首擊窗口',
+        'build.assassin.copy': '用偽裝選擇目標，抓住爆發窗口打出首擊，然後在身體被迫正面硬拼前脫離。',
+        'build.assassin.note': '時機抓得準會很賺，錯過窗口也應該有危險感。',
+        'build.summon.label': '支援',
+        'build.summon.title': '共生體與支援網絡',
+        'build.summon.copy': '用誘餌、清潔蝦和共生區域作為支援層，但主要戰鬥判斷仍由玩家完成。',
+        'build.summon.note': '支援能穩住局面，但被標記的威脅仍然需要處理。',
         'features.title': '構築一具會出問題的身體',
         'features.copy': '異構進化的核心不是固定職業或武器欄，而是一局裡你能不能把身體撐住。下潛越深，每個身體選擇越重要。',
         'feature.1.title': '深海 Roguelite 深潛',
@@ -1244,6 +1458,7 @@
         'brand.subtitle': '異構進化',
         'nav.gameplay': 'ゲーム内容',
         'nav.combat': '戦闘',
+        'nav.builds': 'ビルドルート',
         'nav.screenshots': 'スクリーンショット',
         'nav.platforms': 'プラットフォーム',
         'nav.contact': '連絡先',
@@ -1274,6 +1489,28 @@
         'combat.step.3.copy': '近接で追いにくい時間を遠距離器官が補います。',
         'combat.step.4.title': '刈り取る',
         'combat.step.4.copy': '構築が噛み合えば、最後の波を勢いに変えられます。',
+        'builds.title': '同じ深海を進む五つのルート',
+        'builds.copy': '身体は最初から職業で決まりません。器官、協同、損傷リスクが、引き撃ちから危険な近接圧力まで異なるリズムへ Run を押し出します。',
+        'build.kite.label': '引き撃ち',
+        'build.kite.title': '遠距離毒と間合い管理',
+        'build.kite.copy': '距離を取り、標的を印づけ、毒を重ね、敵群が悪い角度で追ってくる間も遠距離器官で削ります。',
+        'build.kite.note': '移動、退路、継続ダメージが好きなプレイヤー向けです。',
+        'build.melee.label': '近接',
+        'build.melee.title': '重装甲と再生',
+        'build.melee.copy': '殻、再生組織、近接器官を重ね、身体が修復できる限界で敵群へ圧をかけます。',
+        'build.melee.note': 'シャコの映像はこのルート寄りで、危ない隙間を遠距離器官が埋めます。',
+        'build.field.label': '領域',
+        'build.field.title': '粘液、電網、ゾーン制御',
+        'build.field.copy': '流体、毒、電撃の領域を敷き、敵を境界へ引き込んで制御とダメージを重ねます。',
+        'build.field.note': '先に戦場を形づくり、後から群れを刈り取るプレイに向いています。',
+        'build.assassin.label': '暗殺',
+        'build.assassin.title': '擬態と初撃窓',
+        'build.assassin.copy': '擬態で標的を選び、短いバースト窓で初撃を入れ、正面戦になる前に離脱します。',
+        'build.assassin.note': 'タイミングが合えば大きく稼げますが、窓を逃すと危険です。',
+        'build.summon.label': '支援',
+        'build.summon.title': '共生体と支援網',
+        'build.summon.copy': 'ルアー、クリーナーシュリンプ、共生エリアを支援層として使い、主な戦闘判断はプレイヤーが握ります。',
+        'build.summon.note': '支援は Run を安定させますが、印づけられた脅威は自分で処理する必要があります。',
         'features.title': '壊れうる身体を組み上げる',
         'features.copy': 'Hetero-Genesis の主役は固定職業や武器欄ではなく、1 回の潜行でどこまで身体を保てるかです。深く潜るほど、身体の選択が重くなります。',
         'feature.1.title': '深海 Roguelite 潜行',
@@ -1326,6 +1563,7 @@
         'brand.subtitle': '이종 진화',
         'nav.gameplay': '게임플레이',
         'nav.combat': '전투',
+        'nav.builds': '빌드 루트',
         'nav.screenshots': '스크린샷',
         'nav.platforms': '플랫폼',
         'nav.contact': '연락처',
@@ -1356,6 +1594,28 @@
         'combat.step.3.copy': '근접으로 쫓기 어려운 구간은 원거리 기관이 맡습니다.',
         'combat.step.4.title': '수확',
         'combat.step.4.copy': '빌드가 맞물리면 마지막 압박이 추진력이 됩니다.',
+        'builds.title': '같은 심해를 지나는 다섯 루트',
+        'builds.copy': '몸은 처음부터 직업으로 정해지지 않습니다. 기관, 협동 효과, 손상 위험이 한 Run을 카이팅부터 위험한 근접 압박까지 다른 리듬으로 밀어냅니다.',
+        'build.kite.label': '카이팅',
+        'build.kite.title': '원거리 독과 거리 조절',
+        'build.kite.copy': '거리를 벌리고, 표식을 남기고, 독을 쌓아 적 무리가 나쁜 각도로 따라오는 동안 원거리 기관이 계속 일하게 합니다.',
+        'build.kite.note': '이동, 퇴로 설계, 지속 피해를 좋아하는 플레이어에게 맞습니다.',
+        'build.melee.label': '근접',
+        'build.melee.title': '중갑과 재생',
+        'build.melee.copy': '껍질, 재생 조직, 근접 기관을 쌓고 몸이 수리할 수 있는 한계에서 적 무리를 압박합니다.',
+        'build.melee.note': '갯가재 영상은 이 루트에 가깝고, 원거리 기관이 위험한 공백을 메웁니다.',
+        'build.field.label': '영역',
+        'build.field.title': '점액, 전기망, 구역 제어',
+        'build.field.copy': '액체, 독, 전기 영역을 깔고 적을 경계선으로 끌어들여 제어와 피해를 겹칩니다.',
+        'build.field.note': '전장을 먼저 만들고 나중에 무리를 정리하는 플레이에 어울립니다.',
+        'build.assassin.label': '암살',
+        'build.assassin.title': '위장과 첫 타격 창',
+        'build.assassin.copy': '위장으로 목표를 고르고, 짧은 폭발 창에 첫 타격을 넣은 뒤 정면전이 되기 전에 빠져나옵니다.',
+        'build.assassin.note': '타이밍이 맞으면 크게 벌지만, 창을 놓치면 위험해야 합니다.',
+        'build.summon.label': '지원',
+        'build.summon.title': '공생체와 지원망',
+        'build.summon.copy': '미끼, 청소 새우, 공생 구역을 지원층으로 쓰되 주요 전투 판단은 플레이어가 맡습니다.',
+        'build.summon.note': '지원은 Run을 안정시키지만, 표식이 붙은 위협은 직접 처리해야 합니다.',
         'features.title': '망가질 수 있는 몸을 만든다',
         'features.copy': 'Hetero-Genesis의 중심은 고정 직업이나 무기 칸이 아니라, 한 번의 잠수에서 몸을 얼마나 버틸 수 있는가입니다. 깊이 내려갈수록 몸의 선택이 중요해집니다.',
         'feature.1.title': '심해 Roguelite 잠수',

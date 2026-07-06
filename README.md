@@ -18,6 +18,7 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 
 The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
 It also includes the current mantis-shrimp gameplay introduction video, a richer combat rhythm section, and expanded gameplay copy.
+The gameplay section now summarizes five player-facing build routes adapted from the internal quick-start guide: ranged venom kiting, heavy melee regeneration, field control, camouflage first strike, and symbiotic support.
 
 ## Asset Sources
 
@@ -27,6 +28,7 @@ The site only copies public-facing store material candidates:
 - `F:\package\game-issuance-and-operation\local\store-assets\google-play\draft-v1`
 - `F:\package\game-issuance-and-operation\local\store-assets\screenshots\current-build\dynamic-candidates\20260704_01`
 - `F:\package\game-issuance-and-operation\local\store-assets\trailers\current-build\steam_trailer_recut_v6_user_source\hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4`
+- `F:\package\Hetero-Genesis\docs\_流派教学快速上手.html` for player-facing build route summaries
 
 The gameplay video is based on the user-approved cut and compressed for GitHub Pages stability while keeping 1080x1920, about 60fps, and the original cut length. The site copy is under 50 MB.
 
