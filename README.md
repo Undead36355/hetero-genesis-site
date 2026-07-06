@@ -18,7 +18,7 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 - `assets/data/game-catalog.json` - public gameplay catalog generated from selected current-build config JSON
 
 The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
-It also includes the current mantis-shrimp gameplay introduction video, a richer combat rhythm section, and expanded gameplay copy.
+It uses the current mantis-shrimp gameplay introduction video as the first-screen hero, followed by a richer combat rhythm section and expanded gameplay copy.
 The gameplay section now summarizes five player-facing build routes adapted from the internal quick-start guide: ranged venom kiting, heavy melee regeneration, field control, camouflage first strike, and symbiotic support.
 The atlas section reads `assets/data/game-catalog.json` and lets visitors browse/search current-build species, organs, synergies, waves, and enemies.
 

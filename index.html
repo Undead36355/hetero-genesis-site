@@ -167,8 +167,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 520px);
-      gap: 34px;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+      gap: 42px;
       align-items: center;
     }
 
@@ -289,6 +289,14 @@
       box-shadow: var(--shadow);
     }
 
+    .hero-video-card {
+      justify-self: end;
+      width: min(100%, 420px);
+      background:
+        linear-gradient(180deg, rgba(2, 9, 12, .1), rgba(2, 9, 12, .76)),
+        url('assets/hero-main.webp') center / cover;
+    }
+
     .hero-card::before {
       content: '';
       position: absolute;
@@ -302,6 +310,56 @@
       width: 100%;
       aspect-ratio: 1232 / 706;
       object-fit: cover;
+    }
+
+    .hero-video-card video {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .hero-video-caption {
+      position: relative;
+      z-index: 1;
+      padding: 14px 16px 16px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      background: rgba(3, 15, 20, .88);
+    }
+
+    .hero-video-caption b {
+      display: block;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .hero-video-caption span {
+      display: block;
+      margin-top: 5px;
+      color: #d9edf0;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-width: 720px;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-status span {
+      border: 1px solid rgba(242, 184, 77, .28);
+      border-radius: 999px;
+      padding: 5px 9px;
+      color: #f0d7a0;
+      background: rgba(242, 184, 77, .08);
     }
 
     .status-strip {
@@ -923,6 +981,7 @@
 
     .links {
       display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
 
@@ -1026,6 +1085,16 @@
 
       .status-strip {
         grid-template-columns: 1fr;
+      }
+
+      .links {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-video-card {
+        order: -1;
+        justify-self: center;
+        width: min(100%, 340px);
       }
 
       .status-strip div {
@@ -1148,16 +1217,23 @@
               <div class='hero-point'><b data-i18n='hero.point.3.title'>Short runs, lasting unlocks</b><span data-i18n='hero.point.3.copy'>Gene points open new species starts, contracts, and harder Abyss routes.</span></div>
             </div>
             <div class='hero-actions'>
-              <a class='button primary' href='#platforms' data-i18n='hero.platformStatus'>Platform status</a>
-              <a class='button' href='#screenshots' data-i18n='hero.viewScreenshots'>View screenshots</a>
+              <a class='button primary' href='#gameplay-video' data-i18n='hero.watchGameplay'>Watch gameplay</a>
+              <a class='button' href='#atlas' data-i18n='hero.browseAtlas'>Browse atlas</a>
+              <a class='button' href='https://undead36355.github.io/hetero-genesis-privacy-policy/' data-i18n='hero.privacyPolicy'>Privacy policy</a>
+            </div>
+            <div class='hero-status' aria-label='Platform status'>
+              <span data-i18n='hero.status.steam'>Steam Coming Soon pending</span>
+              <span data-i18n='hero.status.google'>Google Play pending</span>
+              <span data-i18n='hero.status.apple'>App Store pending</span>
             </div>
           </div>
-          <aside class='hero-card' aria-label='Main visual and platform status'>
-            <img src='assets/hero-main.webp' alt='Hetero-Genesis deep-sea key art'>
-            <div class='status-strip'>
-              <div><b>Steam</b><span data-i18n='status.steam'>Coming Soon pending</span></div>
-              <div><b>Google Play</b><span data-i18n='status.pending'>Pending</span></div>
-              <div><b>App Store</b><span data-i18n='status.pending'>Pending</span></div>
+          <aside class='hero-card hero-video-card' id='gameplay-video' aria-label='Gameplay video'>
+            <video controls preload='metadata' poster='assets/mobile-boss.webp'>
+              <source src='assets/video/hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4' type='video/mp4'>
+            </video>
+            <div class='hero-video-caption'>
+              <b data-i18n='trailer.title'>Gameplay introduction video</b>
+              <span data-i18n='trailer.copy'>Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.</span>
             </div>
           </aside>
         </div>
@@ -1383,15 +1459,10 @@
       </section>
 
       <section id='platforms'>
-        <div class='wrap media-row'>
-          <div class='trailer-box' aria-label='Trailer area'>
-            <video controls preload='metadata' poster='assets/mobile-boss.webp'>
-              <source src='assets/video/hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4' type='video/mp4'>
-            </video>
-            <div class='trailer-caption'>
-              <b data-i18n='trailer.title'>Gameplay introduction video</b>
-              <span data-i18n='trailer.copy'>Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.</span>
-            </div>
+        <div class='wrap'>
+          <div class='section-head'>
+            <h2 data-i18n='platforms.title'>Platforms and contact</h2>
+            <p data-i18n='platforms.copy'>Store pages are being prepared. Official links will replace the pending labels after each platform page is live.</p>
           </div>
           <div class='links'>
             <div class='platform'>
@@ -1409,6 +1480,10 @@
             <a class='platform' href='https://undead36355.github.io/hetero-genesis-privacy-policy/'>
               <div><b data-i18n='privacy.title'>Privacy Policy</b><span data-i18n='privacy.copy'>Separate public page for platform review.</span></div>
               <div class='pending' data-i18n='privacy.open'>Open</div>
+            </a>
+            <a class='platform' href='mailto:qianxi36355@gmail.com'>
+              <div><b data-i18n='platform.contact.title'>Contact</b><span>qianxi36355@gmail.com</span></div>
+              <div class='pending' data-i18n='platform.contact.copy'>Email</div>
             </a>
           </div>
         </div>
@@ -1455,6 +1530,12 @@
         'hero.point.3.copy': 'Gene points open new species starts, contracts, and harder Abyss routes.',
         'hero.platformStatus': 'Platform status',
         'hero.viewScreenshots': 'View screenshots',
+        'hero.watchGameplay': 'Watch gameplay',
+        'hero.browseAtlas': 'Browse atlas',
+        'hero.privacyPolicy': 'Privacy policy',
+        'hero.status.steam': 'Steam Coming Soon pending',
+        'hero.status.google': 'Google Play pending',
+        'hero.status.apple': 'App Store pending',
         'status.steam': 'Coming Soon pending',
         'status.pending': 'Pending',
         'combat.eyebrow.one': 'Current video focus',
@@ -1563,9 +1644,13 @@
         'shot.result': 'Run result and gene points',
         'trailer.title': 'Gameplay introduction video',
         'trailer.copy': 'Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.',
+        'platforms.title': 'Platforms and contact',
+        'platforms.copy': 'Store pages are being prepared. Official links will replace the pending labels after each platform page is live.',
         'platform.steam.copy': 'Store page is being prepared.',
         'platform.google.copy': 'App record and review materials are in progress.',
         'platform.apple.copy': 'iOS capture and App Store Connect setup are pending.',
+        'platform.contact.title': 'Contact',
+        'platform.contact.copy': 'Email',
         'privacy.title': 'Privacy Policy',
         'privacy.copy': 'Separate public page for platform review.',
         'privacy.open': 'Open',
@@ -1598,6 +1683,12 @@
         'hero.point.3.copy': '基因点会打开新物种、新契约和更高 A 难度路线。',
         'hero.platformStatus': '平台状态',
         'hero.viewScreenshots': '查看截图',
+        'hero.watchGameplay': '观看玩法',
+        'hero.browseAtlas': '浏览图鉴',
+        'hero.privacyPolicy': '隐私政策',
+        'hero.status.steam': 'Steam Coming Soon 待定',
+        'hero.status.google': 'Google Play 待定',
+        'hero.status.apple': 'App Store 待定',
         'status.steam': 'Coming Soon 待定',
         'status.pending': '待定',
         'combat.eyebrow.one': '当前视频重点',
@@ -1706,9 +1797,13 @@
         'shot.result': '结算与基因点',
         'trailer.title': '玩法介绍视频',
         'trailer.copy': '展示螳螂虾近战冲撞、机动拉扯、远程补伤和后段高压收割。',
+        'platforms.title': '平台与联系',
+        'platforms.copy': '商店页正在准备。各平台页面上线后，会把 pending 状态替换为正式链接。',
         'platform.steam.copy': '商店页正在准备。',
         'platform.google.copy': '应用记录和审核资料正在准备。',
         'platform.apple.copy': 'iOS 截图和 App Store Connect 设置待推进。',
+        'platform.contact.title': '联系邮箱',
+        'platform.contact.copy': '邮件',
         'privacy.title': '隐私政策',
         'privacy.copy': '独立公开页面，用于平台审核。',
         'privacy.open': '打开',
@@ -1741,6 +1836,12 @@
         'hero.point.3.copy': '基因點會打開新物種、新契約和更高 A 難度路線。',
         'hero.platformStatus': '平台狀態',
         'hero.viewScreenshots': '查看截圖',
+        'hero.watchGameplay': '觀看玩法',
+        'hero.browseAtlas': '瀏覽圖鑑',
+        'hero.privacyPolicy': '隱私政策',
+        'hero.status.steam': 'Steam Coming Soon 待定',
+        'hero.status.google': 'Google Play 待定',
+        'hero.status.apple': 'App Store 待定',
         'status.steam': 'Coming Soon 待定',
         'status.pending': '待定',
         'combat.eyebrow.one': '當前影片重點',
@@ -1849,9 +1950,13 @@
         'shot.result': '結算與基因點',
         'trailer.title': '玩法介紹影片',
         'trailer.copy': '展示螳螂蝦近戰衝撞、機動拉扯、遠程補傷和後段高壓收割。',
+        'platforms.title': '平台與聯絡',
+        'platforms.copy': '商店頁正在準備。各平台頁面上線後，會把 pending 狀態替換為正式連結。',
         'platform.steam.copy': '商店頁正在準備。',
         'platform.google.copy': '應用記錄和審核資料正在準備。',
         'platform.apple.copy': 'iOS 截圖和 App Store Connect 設定待推進。',
+        'platform.contact.title': '聯絡信箱',
+        'platform.contact.copy': '郵件',
         'privacy.title': '隱私政策',
         'privacy.copy': '獨立公開頁面，用於平台審核。',
         'privacy.open': '打開',
@@ -1884,6 +1989,12 @@
         'hero.point.3.copy': '遺伝子点で新しい種、契約、より高い A 難度ルートを開きます。',
         'hero.platformStatus': '配信状況',
         'hero.viewScreenshots': '画像を見る',
+        'hero.watchGameplay': 'ゲームプレイを見る',
+        'hero.browseAtlas': '図鑑を見る',
+        'hero.privacyPolicy': 'プライバシー',
+        'hero.status.steam': 'Steam Coming Soon 準備中',
+        'hero.status.google': 'Google Play 準備中',
+        'hero.status.apple': 'App Store 準備中',
         'status.steam': 'Coming Soon 準備中',
         'status.pending': '準備中',
         'combat.eyebrow.one': '現在の映像テーマ',
@@ -1992,9 +2103,13 @@
         'shot.result': '結果と遺伝子点',
         'trailer.title': 'ゲーム紹介映像',
         'trailer.copy': 'シャコの近接突進、機動戦、遠距離追撃、後半の高圧な刈り取りを紹介します。',
+        'platforms.title': 'プラットフォームと連絡先',
+        'platforms.copy': 'ストアページを準備中です。各ページが公開されたら、pending 表示を正式リンクに置き換えます。',
         'platform.steam.copy': 'ストアページを準備中です。',
         'platform.google.copy': 'アプリ記録と審査資料を準備中です。',
         'platform.apple.copy': 'iOS 撮影と App Store Connect 設定は準備中です。',
+        'platform.contact.title': '連絡先',
+        'platform.contact.copy': 'メール',
         'privacy.title': 'プライバシーポリシー',
         'privacy.copy': '審査用の独立した公開ページです。',
         'privacy.open': '開く',
@@ -2027,6 +2142,12 @@
         'hero.point.3.copy': '유전자점으로 새 종, 계약, 더 높은 A 난이도 루트를 엽니다.',
         'hero.platformStatus': '플랫폼 상태',
         'hero.viewScreenshots': '스크린샷 보기',
+        'hero.watchGameplay': '게임플레이 보기',
+        'hero.browseAtlas': '도감 보기',
+        'hero.privacyPolicy': '개인정보',
+        'hero.status.steam': 'Steam Coming Soon 준비 중',
+        'hero.status.google': 'Google Play 준비 중',
+        'hero.status.apple': 'App Store 준비 중',
         'status.steam': 'Coming Soon 준비 중',
         'status.pending': '준비 중',
         'combat.eyebrow.one': '현재 영상 초점',
@@ -2135,9 +2256,13 @@
         'shot.result': '결과와 유전자점',
         'trailer.title': '게임플레이 소개 영상',
         'trailer.copy': '갯가재 근접 돌진, 기동 거리 조절, 원거리 추가 피해, 후반 고압 수확 장면을 담았습니다.',
+        'platforms.title': '플랫폼과 연락처',
+        'platforms.copy': '스토어 페이지를 준비 중입니다. 각 플랫폼 페이지가 공개되면 pending 표시를 공식 링크로 교체합니다.',
         'platform.steam.copy': '스토어 페이지를 준비 중입니다.',
         'platform.google.copy': '앱 등록과 심사 자료를 준비 중입니다.',
         'platform.apple.copy': 'iOS 캡처와 App Store Connect 설정은 준비 중입니다.',
+        'platform.contact.title': '연락처',
+        'platform.contact.copy': '이메일',
         'privacy.title': '개인정보 처리방침',
         'privacy.copy': '플랫폼 심사용 별도 공개 페이지입니다.',
         'privacy.open': '열기',
