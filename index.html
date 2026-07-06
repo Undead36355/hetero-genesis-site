@@ -7,9 +7,45 @@
   <meta name='description' content='Hetero-Genesis is a portrait 2D deep-sea roguelite about a body that fights, breaks, heals, and mutates.'>
   <meta property='og:title' content='Hetero-Genesis | 异构进化'>
   <meta property='og:description' content='Graft organs, hold your body together, and survive one more dive.'>
-  <meta property='og:image' content='assets/feature-graphic.webp'>
+  <meta property='og:image' content='https://undead36355.github.io/hetero-genesis-site/assets/feature-graphic.webp'>
+  <meta property='og:url' content='https://undead36355.github.io/hetero-genesis-site/'>
+  <meta property='og:site_name' content='Hetero-Genesis'>
   <meta property='og:type' content='website'>
+  <meta name='twitter:card' content='summary_large_image'>
+  <meta name='twitter:title' content='Hetero-Genesis | 异构进化'>
+  <meta name='twitter:description' content='Graft organs, hold your body together, and survive one more dive.'>
+  <meta name='twitter:image' content='https://undead36355.github.io/hetero-genesis-site/assets/feature-graphic.webp'>
   <link rel='icon' href='assets/app-icon-180.png'>
+  <script type='application/ld+json'>
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "VideoGame",
+          "name": "Hetero-Genesis / 异构进化",
+          "url": "https://undead36355.github.io/hetero-genesis-site/",
+          "image": "https://undead36355.github.io/hetero-genesis-site/assets/feature-graphic.webp",
+          "description": "A portrait 2D deep-sea roguelite about a body that fights, breaks, heals, and mutates.",
+          "genre": ["Roguelite", "Action", "Deep-sea"],
+          "inLanguage": ["en", "zh-Hans", "zh-Hant", "ja", "ko"],
+          "applicationCategory": "Game",
+          "gamePlatform": ["PC", "Android", "iOS"],
+          "operatingSystem": ["Windows", "Android", "iOS"],
+          "email": "qianxi36355@gmail.com",
+          "privacyPolicy": "https://undead36355.github.io/hetero-genesis-privacy-policy/"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Hetero-Genesis gameplay introduction video",
+          "description": "Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.",
+          "contentUrl": "https://undead36355.github.io/hetero-genesis-site/assets/video/hetero-genesis_mantis-shrimp_tactical-cut_v6_vertical.mp4",
+          "thumbnailUrl": "https://undead36355.github.io/hetero-genesis-site/assets/mobile-boss.webp",
+          "duration": "PT1M19S",
+          "uploadDate": "2026-07-06"
+        }
+      ]
+    }
+  </script>
   <style>
     :root {
       color-scheme: dark;
@@ -652,6 +688,99 @@
       line-height: 1.45;
     }
 
+    .starter-build-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .starter-build-card {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      min-height: 330px;
+      overflow: hidden;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 14% 0, rgba(101, 230, 237, .2), transparent 36%),
+        radial-gradient(circle at 100% 18%, rgba(242, 184, 77, .14), transparent 30%),
+        linear-gradient(180deg, rgba(8, 29, 37, .92), rgba(4, 13, 18, .86));
+      box-shadow: var(--shadow);
+    }
+
+    .starter-build-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--amber), var(--rose));
+      opacity: .84;
+    }
+
+    .starter-build-card h3 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .starter-build-card p {
+      margin: 0;
+      color: #c8dde0;
+      font-size: 14px;
+    }
+
+    .starter-build-meta {
+      display: grid;
+      gap: 9px;
+    }
+
+    .starter-build-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      color: #dff8fa;
+      font-size: 13px;
+    }
+
+    .starter-build-row b {
+      color: var(--amber);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .starter-build-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-self: end;
+    }
+
+    .starter-jump {
+      min-height: 34px;
+      border: 1px solid rgba(101, 230, 237, .32);
+      border-radius: 8px;
+      padding: 6px 10px;
+      color: #e8feff;
+      background: rgba(101, 230, 237, .08);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .starter-jump:hover,
+    .starter-jump:focus-visible {
+      color: #071013;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--cyan), var(--amber));
+      outline: none;
+    }
+
     .system-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -845,6 +974,50 @@
       font-size: 12px;
     }
 
+    .atlas-path-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    .atlas-path-card {
+      min-height: 126px;
+      padding: 13px;
+      border: 1px solid rgba(101, 230, 237, .16);
+      border-radius: 8px;
+      color: inherit;
+      text-align: left;
+      background:
+        linear-gradient(145deg, rgba(12, 35, 43, .82), rgba(6, 18, 22, .72)),
+        rgba(255, 255, 255, .035);
+      cursor: pointer;
+    }
+
+    .atlas-path-card b {
+      display: block;
+      color: #f8fdff;
+      font-size: 14px;
+      line-height: 1.25;
+    }
+
+    .atlas-path-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .atlas-path-card:hover,
+    .atlas-path-card:focus-visible {
+      border-color: rgba(242, 184, 77, .48);
+      background:
+        linear-gradient(145deg, rgba(18, 49, 55, .9), rgba(9, 22, 25, .82)),
+        rgba(242, 184, 77, .05);
+      outline: none;
+    }
+
     .atlas-list {
       display: grid;
       gap: 8px;
@@ -954,6 +1127,24 @@
       font-size: 12px;
       text-transform: uppercase;
       margin-bottom: 6px;
+    }
+
+    .atlas-next {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid rgba(242, 184, 77, .18);
+      border-radius: 8px;
+      background:
+        linear-gradient(120deg, rgba(242, 184, 77, .08), rgba(101, 230, 237, .06)),
+        rgba(255, 255, 255, .032);
+    }
+
+    .atlas-next b {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--amber);
+      font-size: 12px;
+      text-transform: uppercase;
     }
 
     .atlas-empty {
@@ -1146,6 +1337,7 @@
       .media-row,
       .rhythm-grid,
       .build-route-grid,
+      .starter-build-grid,
       .system-grid,
       .system-flow,
       .atlas-shell {
@@ -1153,6 +1345,7 @@
       }
 
       .atlas-stats,
+      .atlas-path-grid,
       .atlas-tabs,
       .atlas-detail-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1231,6 +1424,10 @@
         grid-template-columns: 1fr;
       }
 
+      .atlas-path-grid {
+        grid-template-columns: 1fr;
+      }
+
       .feature-grid {
         grid-template-columns: 1fr;
         overflow: visible;
@@ -1256,7 +1453,7 @@
     <header class='topbar'>
       <div class='wrap'>
         <a class='brand' href='#top' aria-label='Hetero-Genesis home'>
-          <img src='assets/app-icon-180.png' alt='Hetero-Genesis icon'>
+          <img src='assets/app-icon-180.png' alt='Hetero-Genesis icon' width='180' height='180'>
           <span>
             <strong>Hetero-Genesis</strong>
             <span data-i18n='brand.subtitle'>异构进化</span>
@@ -1267,6 +1464,7 @@
             <a href='#features' data-i18n='nav.gameplay'>Gameplay</a>
             <a href='#combat' data-i18n='nav.combat'>Combat</a>
             <a href='#builds' data-i18n='nav.builds'>Build routes</a>
+            <a href='#starter-builds' data-i18n='nav.starter'>Starter builds</a>
             <a href='#systems' data-i18n='nav.systems'>Systems</a>
             <a href='#atlas' data-i18n='nav.atlas'>Atlas</a>
             <a href='#screenshots' data-i18n='nav.screenshots'>Screenshots</a>
@@ -1386,6 +1584,16 @@
         </div>
       </section>
 
+      <section id='starter-builds'>
+        <div class='wrap'>
+          <div class='section-head'>
+            <h2 data-i18n='starter.title'>Starter builds to trace in the atlas</h2>
+            <p data-i18n='starter.copy'>Three sample routes connect the readable build fantasy to the actual current-build species, organs, and synergies. Use them as entry points, not fixed recipes.</p>
+          </div>
+          <div class='starter-build-grid' id='starterBuildGrid' aria-label='Starter build examples'></div>
+        </div>
+      </section>
+
       <section id='systems'>
         <div class='wrap'>
           <div class='section-head'>
@@ -1404,6 +1612,7 @@
             <p data-i18n='atlas.copy'>The site reads a public subset of the game JSON used by the internal reference pages. Search species, organs, synergies, waves, and enemies without opening the project.</p>
           </div>
           <div class='atlas-stats' id='atlasStats' aria-label='Current build data stats'></div>
+          <div class='atlas-path-grid' id='atlasPathGrid' aria-label='Recommended atlas paths'></div>
           <div class='atlas-shell'>
             <div class='atlas-panel'>
               <div class='atlas-toolbar'>
@@ -1485,7 +1694,7 @@
             </div>
           </div>
           <figure class='poster'>
-            <img src='assets/mobile-boss.webp' alt='Current build boss fight screenshot'>
+            <img src='assets/mobile-boss.webp' alt='Current build boss fight screenshot' width='540' height='960' loading='lazy' decoding='async'>
           </figure>
         </div>
       </section>
@@ -1498,27 +1707,27 @@
           </div>
           <div class='gallery'>
             <figure class='shot'>
-              <img src='assets/screenshot-menu.webp' alt='Hetero-Genesis main menu screenshot'>
+              <img src='assets/screenshot-menu.webp' alt='Hetero-Genesis main menu screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.menu'>Main menu and dive entry</figcaption>
             </figure>
             <figure class='shot'>
-              <img src='assets/screenshot-prerun.webp' alt='Abyss difficulty and contract selection screenshot'>
+              <img src='assets/screenshot-prerun.webp' alt='Abyss difficulty and contract selection screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.prerun'>Abyss difficulty and contracts</figcaption>
             </figure>
             <figure class='shot'>
-              <img src='assets/screenshot-slots.webp' alt='Organ slot selection screenshot'>
+              <img src='assets/screenshot-slots.webp' alt='Organ slot selection screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.slots'>Organ slots and body planning</figcaption>
             </figure>
             <figure class='shot'>
-              <img src='assets/screenshot-reward.webp' alt='Organ reward draft screenshot'>
+              <img src='assets/screenshot-reward.webp' alt='Organ reward draft screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.reward'>Reward drafts and synergy preview</figcaption>
             </figure>
             <figure class='shot'>
-              <img src='assets/screenshot-evolution.webp' alt='Post-boss evolution selection screenshot'>
+              <img src='assets/screenshot-evolution.webp' alt='Post-boss evolution selection screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.evolution'>Post-boss evolution choice</figcaption>
             </figure>
             <figure class='shot'>
-              <img src='assets/screenshot-result.webp' alt='Run result and gene points screenshot'>
+              <img src='assets/screenshot-result.webp' alt='Run result and gene points screenshot' width='1280' height='720' loading='lazy' decoding='async'>
               <figcaption data-i18n='shot.result'>Run result and gene points</figcaption>
             </figure>
           </div>
@@ -1579,6 +1788,7 @@
         'nav.gameplay': 'Gameplay',
         'nav.combat': 'Combat',
         'nav.builds': 'Build routes',
+        'nav.starter': 'Starter builds',
         'nav.systems': 'Systems',
         'nav.atlas': 'Atlas',
         'nav.screenshots': 'Screenshots',
@@ -1639,6 +1849,15 @@
         'build.summon.title': 'Symbiosis and support net',
         'build.summon.copy': 'Use lures, cleaner shrimp, and symbiotic areas as a support layer while the player still makes the main combat decisions.',
         'build.summon.note': 'Support helps stabilize a run, but marked threats still need attention.',
+        'starter.title': 'Starter builds to trace in the atlas',
+        'starter.copy': 'Three sample routes connect the readable build fantasy to the actual current-build species, organs, and synergies. Use them as entry points, not fixed recipes.',
+        'starter.coreOrgans': 'Core organs',
+        'starter.synergy': 'Key synergy',
+        'starter.rhythm': 'Rhythm',
+        'starter.fit': 'Fits',
+        'starter.viewSpecies': 'Species',
+        'starter.viewOrgan': 'Organ',
+        'starter.viewSynergy': 'Synergy',
         'systems.title': 'Combat is built around a living body',
         'systems.copy': 'Under the action layer, damage, status effects, organs, and enemy waves all speak through the same body rules. The result is a run that can bend, break, and recover.',
         'system.organ.title': 'Organ health is real',
@@ -1659,7 +1878,17 @@
         'atlas.search': 'Search names, tags, organs, wave roles',
         'atlas.loading': 'Loading current build data...',
         'atlas.empty': 'No matching entries.',
+        'atlas.error': 'Atlas data could not be loaded. Please refresh or try again later.',
         'atlas.filter.all': 'All',
+        'atlas.path.species.title': 'Start from a species',
+        'atlas.path.species.copy': 'Pick a body first, then see which organs it naturally brings into a run.',
+        'atlas.path.organs.title': 'Assemble organs',
+        'atlas.path.organs.copy': 'Check slots, tags, health, native species, and related synergies.',
+        'atlas.path.synergy.title': 'Trace a synergy',
+        'atlas.path.synergy.copy': 'Follow the required organs and tags that turn separate parts into one rule.',
+        'atlas.path.waves.title': 'Read wave pressure',
+        'atlas.path.waves.copy': 'See where enemies appear and which roles start pushing the body.',
+        'atlas.next.title': 'Next step',
         'atlas.stat.species': 'Species',
         'atlas.stat.organs': 'Organs',
         'atlas.stat.synergies': 'Synergies',
@@ -1704,12 +1933,12 @@
         'fact.trailer.value': 'Gameplay introduction video available',
         'screenshots.title': 'Current build screenshots',
         'screenshots.copy': 'These images come from the current build capture set prepared for store materials. Older screenshots are not used as current-version proof.',
-        'shot.menu': 'Main menu and dive entry',
-        'shot.prerun': 'Abyss difficulty and contracts',
-        'shot.slots': 'Organ slots and body planning',
-        'shot.reward': 'Reward drafts and synergy preview',
-        'shot.evolution': 'Post-boss evolution choice',
-        'shot.result': 'Run result and gene points',
+        'shot.menu': 'The run begins from a plain dive entry, before the body takes shape.',
+        'shot.prerun': 'A difficulty and contracts set the pressure before the first wave.',
+        'shot.slots': 'Organ slots turn the body into a small planning problem.',
+        'shot.reward': 'Reward drafts show whether a new organ can complete a route.',
+        'shot.evolution': 'After a boss, evolution choices push the next stretch in a new direction.',
+        'shot.result': 'The result screen turns a dive into gene points for later starts.',
         'trailer.title': 'Gameplay introduction video',
         'trailer.copy': 'Mantis shrimp melee rushes, mobile spacing, ranged follow-up damage, and late-run pressure.',
         'platforms.title': 'Platforms and contact',
@@ -1733,6 +1962,7 @@
         'nav.gameplay': '玩法',
         'nav.combat': '战斗',
         'nav.builds': '流派',
+        'nav.starter': '入门构筑',
         'nav.systems': '系统',
         'nav.atlas': '图鉴',
         'nav.screenshots': '截图',
@@ -1793,6 +2023,15 @@
         'build.summon.title': '共生体与支援网络',
         'build.summon.copy': '用诱饵、清洁虾和共生区域作为支援层，但主要战斗判断仍由玩家完成。',
         'build.summon.note': '支援能稳住局面，但被标记的威胁仍然需要处理。',
+        'starter.title': '可以直接追进图鉴的入门构筑',
+        'starter.copy': '这三条样例把玩家能理解的流派感受，接到当前构建里的物种、器官和协同。它们是入口，不是固定作业。',
+        'starter.coreOrgans': '核心器官',
+        'starter.synergy': '关键协同',
+        'starter.rhythm': '战斗节奏',
+        'starter.fit': '适合玩家',
+        'starter.viewSpecies': '物种',
+        'starter.viewOrgan': '器官',
+        'starter.viewSynergy': '协同',
         'systems.title': '战斗围绕一具活体身体展开',
         'systems.copy': '动作层下面，伤害、状态、器官和敌人波次都服从同一套身体规则。一局 Run 会弯折、断裂，也会重新接上。',
         'system.organ.title': '器官生命是真实的',
@@ -1813,7 +2052,17 @@
         'atlas.search': '搜索名称、标签、器官、波次职责',
         'atlas.loading': '正在读取当前构建数据...',
         'atlas.empty': '没有匹配条目。',
+        'atlas.error': '图鉴数据没有成功读取，请刷新页面或稍后再试。',
         'atlas.filter.all': '全部',
+        'atlas.path.species.title': '从物种开局',
+        'atlas.path.species.copy': '先选一具身体，再看它天然携带哪些器官。',
+        'atlas.path.organs.title': '查看器官装配',
+        'atlas.path.organs.copy': '查询槽位、标签、生命、归属物种和相关协同。',
+        'atlas.path.synergy.title': '追踪协同',
+        'atlas.path.synergy.copy': '顺着需求器官和标签，看零散部件如何变成一条规则。',
+        'atlas.path.waves.title': '阅读波次压力',
+        'atlas.path.waves.copy': '查看敌人在哪里出现，以及哪些职责开始压迫身体。',
+        'atlas.next.title': '下一步查看',
         'atlas.stat.species': '物种',
         'atlas.stat.organs': '器官',
         'atlas.stat.synergies': '协同',
@@ -1858,12 +2107,12 @@
         'fact.trailer.value': '玩法介绍视频已上线',
         'screenshots.title': '当前构建截图',
         'screenshots.copy': '这些图片来自为商店素材准备的当前构建截图集。旧截图不作为当前版本证明。',
-        'shot.menu': '主菜单与开始深潜',
-        'shot.prerun': 'A 难度与深潜契约',
-        'shot.slots': '器官槽位与身体规划',
-        'shot.reward': '奖励三选与协同预览',
-        'shot.evolution': 'Boss 后演化选择',
-        'shot.result': '结算与基因点',
+        'shot.menu': '深潜从很直接的入口开始，身体还没真正成型。',
+        'shot.prerun': 'A 难度和契约会在第一波前先定下压力。',
+        'shot.slots': '器官槽位把身体变成一个小型规划题。',
+        'shot.reward': '奖励三选会提示新器官能不能补上路线缺口。',
+        'shot.evolution': 'Boss 后的演化选择会把下一段身体推向新方向。',
+        'shot.result': '结算把一次深潜转成基因点，留给之后的开局。',
         'trailer.title': '玩法介绍视频',
         'trailer.copy': '展示螳螂虾近战冲撞、机动拉扯、远程补伤和后段高压收割。',
         'platforms.title': '平台与联系',
@@ -1887,6 +2136,7 @@
         'nav.gameplay': '玩法',
         'nav.combat': '戰鬥',
         'nav.builds': '流派',
+        'nav.starter': '入門構築',
         'nav.systems': '系統',
         'nav.atlas': '圖鑑',
         'nav.screenshots': '截圖',
@@ -1947,6 +2197,15 @@
         'build.summon.title': '共生體與支援網絡',
         'build.summon.copy': '用誘餌、清潔蝦和共生區域作為支援層，但主要戰鬥判斷仍由玩家完成。',
         'build.summon.note': '支援能穩住局面，但被標記的威脅仍然需要處理。',
+        'starter.title': '可以直接追進圖鑑的入門構築',
+        'starter.copy': '這三條樣例把玩家能理解的流派感受，接到當前構建裡的物種、器官和協同。它們是入口，不是固定作業。',
+        'starter.coreOrgans': '核心器官',
+        'starter.synergy': '關鍵協同',
+        'starter.rhythm': '戰鬥節奏',
+        'starter.fit': '適合玩家',
+        'starter.viewSpecies': '物種',
+        'starter.viewOrgan': '器官',
+        'starter.viewSynergy': '協同',
         'systems.title': '戰鬥圍繞一具活體身體展開',
         'systems.copy': '動作層下面，傷害、狀態、器官和敵人波次都服從同一套身體規則。一局 Run 會彎折、斷裂，也會重新接上。',
         'system.organ.title': '器官生命是真實的',
@@ -1967,7 +2226,17 @@
         'atlas.search': '搜尋名稱、標籤、器官、波次職責',
         'atlas.loading': '正在讀取當前構建資料...',
         'atlas.empty': '沒有匹配條目。',
+        'atlas.error': '圖鑑資料沒有成功讀取，請刷新頁面或稍後再試。',
         'atlas.filter.all': '全部',
+        'atlas.path.species.title': '從物種開局',
+        'atlas.path.species.copy': '先選一具身體，再看它天然攜帶哪些器官。',
+        'atlas.path.organs.title': '查看器官裝配',
+        'atlas.path.organs.copy': '查詢槽位、標籤、生命、歸屬物種和相關協同。',
+        'atlas.path.synergy.title': '追蹤協同',
+        'atlas.path.synergy.copy': '順著需求器官和標籤，看零散部件如何變成一條規則。',
+        'atlas.path.waves.title': '閱讀波次壓力',
+        'atlas.path.waves.copy': '查看敵人在哪裡出現，以及哪些職責開始壓迫身體。',
+        'atlas.next.title': '下一步查看',
         'atlas.stat.species': '物種',
         'atlas.stat.organs': '器官',
         'atlas.stat.synergies': '協同',
@@ -2012,12 +2281,12 @@
         'fact.trailer.value': '玩法介紹影片已上線',
         'screenshots.title': '當前構建截圖',
         'screenshots.copy': '這些圖片來自為商店素材準備的當前構建截圖集。舊截圖不作為當前版本證明。',
-        'shot.menu': '主選單與開始深潛',
-        'shot.prerun': 'A 難度與深潛契約',
-        'shot.slots': '器官槽位與身體規劃',
-        'shot.reward': '獎勵三選與協同預覽',
-        'shot.evolution': 'Boss 後演化選擇',
-        'shot.result': '結算與基因點',
+        'shot.menu': '深潛從很直接的入口開始，身體還沒真正成型。',
+        'shot.prerun': 'A 難度和契約會在第一波前先定下壓力。',
+        'shot.slots': '器官槽位把身體變成一個小型規劃題。',
+        'shot.reward': '獎勵三選會提示新器官能不能補上路線缺口。',
+        'shot.evolution': 'Boss 後的演化選擇會把下一段身體推向新方向。',
+        'shot.result': '結算把一次深潛轉成基因點，留給之後的開局。',
         'trailer.title': '玩法介紹影片',
         'trailer.copy': '展示螳螂蝦近戰衝撞、機動拉扯、遠程補傷和後段高壓收割。',
         'platforms.title': '平台與聯絡',
@@ -2041,6 +2310,7 @@
         'nav.gameplay': 'ゲーム内容',
         'nav.combat': '戦闘',
         'nav.builds': 'ビルドルート',
+        'nav.starter': '入門ビルド',
         'nav.systems': 'システム',
         'nav.atlas': '図鑑',
         'nav.screenshots': 'スクリーンショット',
@@ -2101,6 +2371,15 @@
         'build.summon.title': '共生体と支援網',
         'build.summon.copy': 'ルアー、クリーナーシュリンプ、共生エリアを支援層として使い、主な戦闘判断はプレイヤーが握ります。',
         'build.summon.note': '支援は Run を安定させますが、印づけられた脅威は自分で処理する必要があります。',
+        'starter.title': '図鑑へたどれる入門ビルド',
+        'starter.copy': '三つの例は、分かりやすいビルド感覚を現在ビルドの種、器官、協同へつなぎます。固定レシピではなく入口です。',
+        'starter.coreOrgans': '中核器官',
+        'starter.synergy': '重要協同',
+        'starter.rhythm': '戦闘リズム',
+        'starter.fit': '向くプレイヤー',
+        'starter.viewSpecies': '種',
+        'starter.viewOrgan': '器官',
+        'starter.viewSynergy': '協同',
         'systems.title': '戦闘は生きた身体を中心に組まれる',
         'systems.copy': 'アクションの下では、ダメージ、状態、器官、敵の波が同じ身体ルールで動きます。Run は曲がり、壊れ、またつながります。',
         'system.organ.title': '器官の耐久は本物',
@@ -2121,7 +2400,17 @@
         'atlas.search': '名前、タグ、器官、波の役割を検索',
         'atlas.loading': '現在ビルドのデータを読み込み中...',
         'atlas.empty': '一致する項目はありません。',
+        'atlas.error': '図鑑データを読み込めませんでした。ページを更新するか、少し後で試してください。',
         'atlas.filter.all': 'すべて',
+        'atlas.path.species.title': '種から始める',
+        'atlas.path.species.copy': 'まず身体を選び、その種が自然に持つ器官を見ます。',
+        'atlas.path.organs.title': '器官を組む',
+        'atlas.path.organs.copy': 'スロット、タグ、耐久、所属種、関連協同を確認します。',
+        'atlas.path.synergy.title': '協同を追う',
+        'atlas.path.synergy.copy': '必要な器官とタグをたどり、部品が一つのルールになる流れを見ます。',
+        'atlas.path.waves.title': '波の圧力を見る',
+        'atlas.path.waves.copy': '敵の出現場所と、身体を圧迫する役割を確認します。',
+        'atlas.next.title': '次に見る',
         'atlas.stat.species': '種',
         'atlas.stat.organs': '器官',
         'atlas.stat.synergies': '協同',
@@ -2166,12 +2455,12 @@
         'fact.trailer.value': 'ゲーム紹介映像を公開中',
         'screenshots.title': '現在ビルドの画像',
         'screenshots.copy': 'これらはストア素材用に準備した現在ビルドの画像です。古い画像を現行版の証明として使いません。',
-        'shot.menu': 'メインメニューと潜行開始',
-        'shot.prerun': 'A 難度と深潜契約',
-        'shot.slots': '器官スロットと身体計画',
-        'shot.reward': '報酬選択と協同プレビュー',
-        'shot.evolution': 'Boss 後の進化選択',
-        'shot.result': '結果と遺伝子点',
+        'shot.menu': '潜行は素直な入口から始まり、身体はまだ形を決めていません。',
+        'shot.prerun': 'A 難度と契約が、最初の波の前に圧力を決めます。',
+        'shot.slots': '器官スロットは身体を小さな計画問題にします。',
+        'shot.reward': '報酬選択は、新しい器官がルートの穴を埋めるかを見せます。',
+        'shot.evolution': 'Boss 後の進化は、次の区間の身体方針を変えます。',
+        'shot.result': '結果画面は一回の潜行を次の開始に使う遺伝子点へ変えます。',
         'trailer.title': 'ゲーム紹介映像',
         'trailer.copy': 'シャコの近接突進、機動戦、遠距離追撃、後半の高圧な刈り取りを紹介します。',
         'platforms.title': 'プラットフォームと連絡先',
@@ -2195,6 +2484,7 @@
         'nav.gameplay': '게임플레이',
         'nav.combat': '전투',
         'nav.builds': '빌드 루트',
+        'nav.starter': '입문 빌드',
         'nav.systems': '시스템',
         'nav.atlas': '도감',
         'nav.screenshots': '스크린샷',
@@ -2255,6 +2545,15 @@
         'build.summon.title': '공생체와 지원망',
         'build.summon.copy': '미끼, 청소 새우, 공생 구역을 지원층으로 쓰되 주요 전투 판단은 플레이어가 맡습니다.',
         'build.summon.note': '지원은 Run을 안정시키지만, 표식이 붙은 위협은 직접 처리해야 합니다.',
+        'starter.title': '도감으로 이어지는 입문 빌드',
+        'starter.copy': '세 가지 예시는 이해하기 쉬운 빌드 감각을 현재 빌드의 종, 기관, 협동으로 연결합니다. 고정 레시피가 아니라 입구입니다.',
+        'starter.coreOrgans': '핵심 기관',
+        'starter.synergy': '핵심 협동',
+        'starter.rhythm': '전투 리듬',
+        'starter.fit': '맞는 플레이어',
+        'starter.viewSpecies': '종',
+        'starter.viewOrgan': '기관',
+        'starter.viewSynergy': '협동',
         'systems.title': '전투는 살아 있는 몸을 중심으로 구성된다',
         'systems.copy': '액션 아래에서 피해, 상태, 기관, 적 웨이브는 같은 몸 규칙으로 움직입니다. 한 Run은 휘고, 부서지고, 다시 이어집니다.',
         'system.organ.title': '기관 내구도는 실제다',
@@ -2275,7 +2574,17 @@
         'atlas.search': '이름, 태그, 기관, 웨이브 역할 검색',
         'atlas.loading': '현재 빌드 데이터를 읽는 중...',
         'atlas.empty': '일치하는 항목이 없습니다.',
+        'atlas.error': '도감 데이터를 불러오지 못했습니다. 새로고침하거나 잠시 후 다시 시도하세요.',
         'atlas.filter.all': '전체',
+        'atlas.path.species.title': '종에서 시작',
+        'atlas.path.species.copy': '먼저 몸을 고르고 그 종이 자연스럽게 가져오는 기관을 봅니다.',
+        'atlas.path.organs.title': '기관 조립',
+        'atlas.path.organs.copy': '슬롯, 태그, 내구도, 소속 종, 관련 협동을 확인합니다.',
+        'atlas.path.synergy.title': '협동 추적',
+        'atlas.path.synergy.copy': '필요 기관과 태그를 따라가며 부품이 규칙이 되는 과정을 봅니다.',
+        'atlas.path.waves.title': '웨이브 압박 읽기',
+        'atlas.path.waves.copy': '적이 어디에 나오고 어떤 역할이 몸을 압박하는지 확인합니다.',
+        'atlas.next.title': '다음 보기',
         'atlas.stat.species': '종',
         'atlas.stat.organs': '기관',
         'atlas.stat.synergies': '협동',
@@ -2320,12 +2629,12 @@
         'fact.trailer.value': '게임플레이 소개 영상 공개',
         'screenshots.title': '현재 빌드 스크린샷',
         'screenshots.copy': '이 이미지는 스토어 소재용으로 준비한 현재 빌드 캡처입니다. 오래된 이미지를 현재 버전 증거로 쓰지 않습니다.',
-        'shot.menu': '메인 메뉴와 잠수 시작',
-        'shot.prerun': 'A 난이도와 심해 계약',
-        'shot.slots': '기관 슬롯과 몸 설계',
-        'shot.reward': '보상 선택과 협동 미리보기',
-        'shot.evolution': 'Boss 후 진화 선택',
-        'shot.result': '결과와 유전자점',
+        'shot.menu': '잠수는 단순한 입구에서 시작되고, 몸은 아직 형태를 정하지 않았습니다.',
+        'shot.prerun': 'A 난이도와 계약이 첫 웨이브 전 압박을 정합니다.',
+        'shot.slots': '기관 슬롯은 몸을 작은 계획 문제로 만듭니다.',
+        'shot.reward': '보상 선택은 새 기관이 루트의 빈칸을 메울지 보여줍니다.',
+        'shot.evolution': 'Boss 후 진화는 다음 구간의 몸 방향을 바꿉니다.',
+        'shot.result': '결과 화면은 한 번의 잠수를 다음 시작에 쓸 유전자점으로 바꿉니다.',
         'trailer.title': '게임플레이 소개 영상',
         'trailer.copy': '갯가재 근접 돌진, 기동 거리 조절, 원거리 추가 피해, 후반 고압 수확 장면을 담았습니다.',
         'platforms.title': '플랫폼과 연락처',
@@ -2572,6 +2881,161 @@
       }
     };
 
+    const starterBuildContent = {
+      en: [
+        {
+          title: 'Mantis shrimp impact melee',
+          copy: 'A compact route for reading the trailer: enter with impact, leave before the swarm locks you down, then use follow-up damage to finish the cluster.',
+          organs: 'Mantis shrimp spear, spring muscle, impact horn',
+          synergy: 'Cavitation Punch',
+          rhythm: 'Commit, break distance, patch gaps, cash out late pressure.',
+          fit: 'Players who like close-range timing and visible hit confirmation.',
+          links: { species: 'MANTIS_SHRIMP', organ: 'mantis_shrimp_spear', synergy: 'extreme_punch' }
+        },
+        {
+          title: 'Octopus ink control',
+          copy: 'A control route that turns movement and cover into damage windows. Ink gives the run time to reposition while electric links punish crowded enemies.',
+          organs: 'Ink sac, electric disc, neural ganglion',
+          synergy: 'Electric Ink Field',
+          rhythm: 'Lay cover, pull enemies through bad space, punish the clump.',
+          fit: 'Players who prefer arena control over raw collision damage.',
+          links: { species: 'OCTOPUS', organ: 'ink_sac', synergy: 'electric_ink_field' }
+        },
+        {
+          title: 'Electric eel chain control',
+          copy: 'A field route built around repeated electric checks. It rewards spacing, cooldown awareness, and watching how one hit jumps through a group.',
+          organs: 'Electric eel generator, electric ray disc, electroreceptor',
+          synergy: 'Electric Potential Link',
+          rhythm: 'Charge, trigger, kite through the cooldown, chain the next pack.',
+          fit: 'Players who enjoy readable crowd control and timed bursts.',
+          links: { species: 'ELECTRIC_EEL', organ: 'electric_eel_generator', synergy: 'electric_master' }
+        }
+      ],
+      'zh-Hans': [
+        {
+          title: '螳螂虾冲击近战',
+          copy: '这条路线最接近当前视频：用冲击切入，在敌群锁死前脱离，再用后续伤害收掉聚在一起的目标。',
+          organs: '螳螂虾刺钳、弹射肌、撞击尖角',
+          synergy: '空化拳',
+          rhythm: '切入、拉开距离、补伤、把后段压力兑现。',
+          fit: '喜欢贴脸时机和明确命中反馈的玩家。',
+          links: { species: 'MANTIS_SHRIMP', organ: 'mantis_shrimp_spear', synergy: 'extreme_punch' }
+        },
+        {
+          title: '章鱼墨囊控制',
+          copy: '用控制把位移和遮蔽变成输出窗口。墨囊给身体重新站位的时间，电墨协同惩罚拥挤敌群。',
+          organs: '墨囊、电鳐电盘、神经节',
+          synergy: '电墨迷障',
+          rhythm: '铺开遮蔽，把敌人拉进坏位置，再处理聚团。',
+          fit: '喜欢塑造战场、而不是硬拼碰撞伤害的玩家。',
+          links: { species: 'OCTOPUS', organ: 'ink_sac', synergy: 'electric_ink_field' }
+        },
+        {
+          title: '电鳗电控连锁',
+          copy: '围绕连续电击检查展开的领域路线。它奖励距离控制、冷却节奏，以及观察一次命中如何跳过敌群。',
+          organs: '电鳗发电机、电鳐放电盘、电感受器',
+          synergy: '电位链路',
+          rhythm: '蓄能、触发、拉扯冷却，再连锁下一批敌人。',
+          fit: '喜欢清晰群控和定时爆发的玩家。',
+          links: { species: 'ELECTRIC_EEL', organ: 'electric_eel_generator', synergy: 'electric_master' }
+        }
+      ],
+      'zh-Hant': [
+        {
+          title: '螳螂蝦衝擊近戰',
+          copy: '這條路線最接近當前影片：用衝擊切入，在敵群鎖死前脫離，再用後續傷害收掉聚在一起的目標。',
+          organs: '螳螂蝦刺鉗、彈射肌、撞擊尖角',
+          synergy: '空化拳',
+          rhythm: '切入、拉開距離、補傷、把後段壓力兌現。',
+          fit: '喜歡貼臉時機和明確命中反饋的玩家。',
+          links: { species: 'MANTIS_SHRIMP', organ: 'mantis_shrimp_spear', synergy: 'extreme_punch' }
+        },
+        {
+          title: '章魚墨囊控制',
+          copy: '用控制把位移和遮蔽變成輸出窗口。墨囊給身體重新站位的時間，電墨協同懲罰擁擠敵群。',
+          organs: '墨囊、電鰩電盤、神經節',
+          synergy: '電墨迷障',
+          rhythm: '鋪開遮蔽，把敵人拉進壞位置，再處理聚團。',
+          fit: '喜歡塑造戰場、而不是硬拼碰撞傷害的玩家。',
+          links: { species: 'OCTOPUS', organ: 'ink_sac', synergy: 'electric_ink_field' }
+        },
+        {
+          title: '電鰻電控連鎖',
+          copy: '圍繞連續電擊檢查展開的領域路線。它獎勵距離控制、冷卻節奏，以及觀察一次命中如何跳過敵群。',
+          organs: '電鰻發電機、電鰩放電盤、電感受器',
+          synergy: '電位鏈路',
+          rhythm: '蓄能、觸發、拉扯冷卻，再連鎖下一批敵人。',
+          fit: '喜歡清晰群控和定時爆發的玩家。',
+          links: { species: 'ELECTRIC_EEL', organ: 'electric_eel_generator', synergy: 'electric_master' }
+        }
+      ],
+      ja: [
+        {
+          title: 'シャコ衝撃近接',
+          copy: '現在の映像に近いルートです。衝撃で入り、群れに固められる前に離れ、追撃ダメージでまとまった敵を落とします。',
+          organs: 'シャコ刺鉗、射出筋、衝撃角',
+          synergy: 'キャビテーションパンチ',
+          rhythm: '踏み込む、距離を切る、隙間を埋める、後半の圧力を回収する。',
+          fit: '近接のタイミングと命中感を重視するプレイヤー。',
+          links: { species: 'MANTIS_SHRIMP', organ: 'mantis_shrimp_spear', synergy: 'extreme_punch' }
+        },
+        {
+          title: 'タコ墨コントロール',
+          copy: '移動と遮蔽を攻撃窓へ変える制御ルートです。墨で立て直す時間を作り、電墨協同で密集した敵を罰します。',
+          organs: '墨袋、電気円盤、神経節',
+          synergy: '電墨フィールド',
+          rhythm: '遮蔽を置き、敵を悪い位置へ引き、固まった所を処理する。',
+          fit: '衝突ダメージよりも場づくりを好むプレイヤー。',
+          links: { species: 'OCTOPUS', organ: 'ink_sac', synergy: 'electric_ink_field' }
+        },
+        {
+          title: '電気ウナギ連鎖制御',
+          copy: '連続する電撃チェックを軸にした領域ルートです。間合い、クールダウン、一撃が群れを渡る読みやすさが報われます。',
+          organs: '電気ウナギ発電器、電気エイ放電盤、電気受容器',
+          synergy: '電位リンク',
+          rhythm: '蓄電、発動、クールダウン中に引き撃ち、次の群れへ連鎖する。',
+          fit: '読みやすい群衆制御とタイミング爆発が好きなプレイヤー。',
+          links: { species: 'ELECTRIC_EEL', organ: 'electric_eel_generator', synergy: 'electric_master' }
+        }
+      ],
+      ko: [
+        {
+          title: '갯가재 충격 근접',
+          copy: '현재 영상에 가장 가까운 루트입니다. 충격으로 진입하고, 무리가 잠그기 전에 빠져나온 뒤, 추가 피해로 뭉친 적을 정리합니다.',
+          organs: '갯가재 창집게, 발사 근육, 충격 뿔',
+          synergy: '공동화 펀치',
+          rhythm: '진입, 거리 벌리기, 빈틈 보완, 후반 압박 회수.',
+          fit: '근접 타이밍과 명확한 타격감을 좋아하는 플레이어.',
+          links: { species: 'MANTIS_SHRIMP', organ: 'mantis_shrimp_spear', synergy: 'extreme_punch' }
+        },
+        {
+          title: '문어 먹물 제어',
+          copy: '이동과 엄폐를 피해 창으로 바꾸는 제어 루트입니다. 먹물이 재정비 시간을 만들고 전기 먹물 협동이 밀집한 적을 벌합니다.',
+          organs: '먹물 주머니, 전기 원반, 신경절',
+          synergy: '전기 먹물장',
+          rhythm: '엄폐를 깔고, 적을 나쁜 위치로 끌어들인 뒤, 뭉친 적을 처리합니다.',
+          fit: '충돌 피해보다 전장 설계를 좋아하는 플레이어.',
+          links: { species: 'OCTOPUS', organ: 'ink_sac', synergy: 'electric_ink_field' }
+        },
+        {
+          title: '전기뱀장어 연쇄 제어',
+          copy: '반복 전기 판정을 중심으로 한 영역 루트입니다. 거리 조절, 재사용 대기시간, 한 번의 명중이 무리로 번지는 흐름을 보상합니다.',
+          organs: '전기뱀장어 발전기, 전기가오리 방전판, 전기수용기',
+          synergy: '전위 링크',
+          rhythm: '충전, 발동, 대기시간 동안 카이팅, 다음 무리로 연쇄.',
+          fit: '읽기 쉬운 군중 제어와 정해진 폭발 타이밍을 좋아하는 플레이어.',
+          links: { species: 'ELECTRIC_EEL', organ: 'electric_eel_generator', synergy: 'electric_master' }
+        }
+      ]
+    };
+
+    const atlasPathSeeds = [
+      { key: 'species', mode: 'species', id: 'MANTIS_SHRIMP' },
+      { key: 'organs', mode: 'organs', id: 'ink_sac' },
+      { key: 'synergy', mode: 'synergies', id: 'electric_ink_field' },
+      { key: 'waves', mode: 'waves', id: '3' }
+    ];
+
     const catalogState = {
       data: null,
       localeData: null,
@@ -2599,6 +3063,11 @@
     function currentSystemContent() {
       const selected = normalizeLanguage(languageSelect?.value || document.documentElement.lang || 'en');
       return systemContent[selected] || systemContent.en;
+    }
+
+    function currentStarterBuilds() {
+      const selected = normalizeLanguage(languageSelect?.value || document.documentElement.lang || 'en');
+      return starterBuildContent[selected] || starterBuildContent.en;
     }
 
     function escapeHtml(value) {
@@ -2641,7 +3110,36 @@
       return links.length ? `<div class='atlas-meta'>${links.join('')}</div>` : `<p>${escapeHtml(empty)}</p>`;
     }
 
-    function jumpCatalog(mode, id) {
+    function catalogHash(mode = catalogState.mode, id = catalogState.selectedId) {
+      return `#atlas/${encodeURIComponent(mode)}/${encodeURIComponent(id)}`;
+    }
+
+    function updateCatalogHash() {
+      if (!catalogState.selectedId) return;
+      history.replaceState(null, '', catalogHash());
+    }
+
+    function applyCatalogHash({ scroll = false } = {}) {
+      if (!catalogState.data) return false;
+      const match = window.location.hash.match(/^#atlas\/([^/]+)\/(.+)$/);
+      if (!match) return false;
+      const mode = decodeURIComponent(match[1]);
+      const id = decodeURIComponent(match[2]);
+      if (!findCatalogItemInMode(mode, id)) return false;
+      catalogState.mode = mode;
+      catalogState.query = '';
+      catalogState.filter = '';
+      catalogState.selectedId = String(id);
+      const search = document.getElementById('atlasSearch');
+      const filter = document.getElementById('atlasFilter');
+      if (search) search.value = '';
+      if (filter) filter.value = '';
+      renderCatalog();
+      if (scroll) document.getElementById('atlas')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      return true;
+    }
+
+    function jumpCatalog(mode, id, { scroll = true, updateHash = true } = {}) {
       if (!findCatalogItemInMode(mode, id)) return;
       catalogState.mode = mode;
       catalogState.query = '';
@@ -2652,7 +3150,8 @@
       if (search) search.value = '';
       if (filter) filter.value = '';
       renderCatalog();
-      document.getElementById('atlas')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      if (updateHash) updateCatalogHash();
+      if (scroll) document.getElementById('atlas')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
     }
 
     function renderSystems() {
@@ -2674,6 +3173,35 @@
           </article>
         `).join('');
       }
+    }
+
+    function starterButton(mode, id, labelKey) {
+      const item = findCatalogItemInMode(mode, id);
+      const itemLabel = item ? localizedItemTitle(item, mode) : id;
+      return `<button class='starter-jump' type='button' data-catalog-jump-mode='${escapeHtml(mode)}' data-catalog-jump-id='${escapeHtml(id)}'>${escapeHtml(textFor(labelKey))}: ${escapeHtml(itemLabel)}</button>`;
+    }
+
+    function renderStarterBuilds() {
+      const grid = document.getElementById('starterBuildGrid');
+      if (!grid) return;
+      const builds = currentStarterBuilds();
+      grid.innerHTML = builds.map((build) => `
+        <article class='starter-build-card'>
+          <h3>${escapeHtml(build.title)}</h3>
+          <p>${escapeHtml(build.copy)}</p>
+          <div class='starter-build-meta'>
+            <div class='starter-build-row'><b>${escapeHtml(textFor('starter.coreOrgans'))}</b><span>${escapeHtml(build.organs)}</span></div>
+            <div class='starter-build-row'><b>${escapeHtml(textFor('starter.synergy'))}</b><span>${escapeHtml(build.synergy)}</span></div>
+            <div class='starter-build-row'><b>${escapeHtml(textFor('starter.rhythm'))}</b><span>${escapeHtml(build.rhythm)}</span></div>
+            <div class='starter-build-row'><b>${escapeHtml(textFor('starter.fit'))}</b><span>${escapeHtml(build.fit)}</span></div>
+          </div>
+          <div class='starter-build-actions'>
+            ${starterButton('species', build.links.species, 'starter.viewSpecies')}
+            ${starterButton('organs', build.links.organ, 'starter.viewOrgan')}
+            ${starterButton('synergies', build.links.synergy, 'starter.viewSynergy')}
+          </div>
+        </article>
+      `).join('');
     }
 
     function compactText(value, fallback = '-') {
@@ -2709,6 +3237,26 @@
 
     function containsCjk(text) {
       return /[\u3400-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]/.test(String(text ?? ''));
+    }
+
+    function isChineseLanguage() {
+      return ['zh-Hans', 'zh-Hant'].includes(currentAtlasLanguage());
+    }
+
+    function containsChineseText(text) {
+      return /[\u3400-\u9fff\uf900-\ufaff]/.test(String(text ?? ''));
+    }
+
+    function safeFacetValue(value, { allowChineseFallback = false } = {}) {
+      const raw = String(value ?? '').trim();
+      if (!raw) return '';
+      const localized = localizeTerm(raw);
+      if (!allowChineseFallback && !isChineseLanguage() && containsChineseText(localized)) {
+        if (containsChineseText(raw)) return '';
+        const identifier = localizedIdentifier(raw, raw);
+        return containsChineseText(identifier) ? '' : identifier;
+      }
+      return localized;
     }
 
     function splitIdentifierParts(text) {
@@ -2758,7 +3306,7 @@
     }
 
     function localizeChip(value) {
-      const localized = localizeTerm(value);
+      const localized = safeFacetValue(value);
       return localized ? chip(localized) : '';
     }
 
@@ -2804,9 +3352,27 @@
     }
 
     function localizedFacet(value) {
-      if (value === 'Boss') return currentAtlasLanguage() === 'en' ? 'Boss' : localizeTerm('boss');
-      if (value === 'Normal') return currentAtlasLanguage() === 'en' ? 'Normal' : localizeTerm('normal');
-      return localizeTerm(value);
+      if (value === 'Boss') return currentAtlasLanguage() === 'en' ? 'Boss' : safeFacetValue('boss');
+      if (value === 'Normal') return currentAtlasLanguage() === 'en' ? 'Normal' : safeFacetValue('normal');
+      return safeFacetValue(value);
+    }
+
+    function localizedBatchCount(count) {
+      const n = Number(count || 1);
+      const language = currentAtlasLanguage();
+      if (language === 'zh-Hans' || language === 'zh-Hant') return `${n} 组`;
+      if (language === 'ja') return `${n} バッチ`;
+      if (language === 'ko') return `${n} 묶음`;
+      return `${n} batches`;
+    }
+
+    function localizedBatchLabel(index) {
+      const n = Number(index) + 1 || 1;
+      const language = currentAtlasLanguage();
+      if (language === 'zh-Hans' || language === 'zh-Hant') return `第 ${n} 组`;
+      if (language === 'ja') return `バッチ ${n}`;
+      if (language === 'ko') return `${n} 묶음`;
+      return `Batch ${n}`;
     }
 
     function catalogItems() {
@@ -2829,9 +3395,9 @@
           atlasText(`trait.${traitId}.role`, item.combatRole)
         ].filter(Boolean).join(' / ');
       }
-      if (catalogState.mode === 'organs') return [localizeTerm(item.type), localizeTerm(item.mainSlot), localizeTerm(item.prototype)].filter(Boolean).join(' / ');
+      if (catalogState.mode === 'organs') return [safeFacetValue(item.type), safeFacetValue(item.mainSlot), isChineseLanguage() ? safeFacetValue(item.prototype, { allowChineseFallback: true }) : ''].filter(Boolean).join(' / ');
       if (catalogState.mode === 'synergies') return [localizeTerm(item.category), localizeTerm(item.trigger)].filter(Boolean).join(' / ');
-      if (catalogState.mode === 'waves') return `${item.isBoss ? localizedFacet('Boss') : localizedFacet('Normal')} · ${item.batchCount || 1} batches · ${localizeTerm(item.rewardType || '-')}`;
+      if (catalogState.mode === 'waves') return `${item.isBoss ? localizedFacet('Boss') : localizedFacet('Normal')} · ${localizedBatchCount(item.batchCount)} · ${safeFacetValue(item.rewardType || '-')}`;
       if (catalogState.mode === 'enemies') return [localizeTerm(item.role), localizeTerm(item.species), localizeTerm(item.behavior)].filter(Boolean).join(' / ');
       return '';
     }
@@ -2846,15 +3412,22 @@
     }
 
     function catalogFilterOptions(items) {
-      const values = new Set();
+      const optionMap = new Map();
+      const addValue = (value) => {
+        if (!value) return;
+        const label = localizedFacet(value);
+        if (!label) return;
+        const key = label.toLowerCase();
+        if (!optionMap.has(key)) optionMap.set(key, { value, label });
+      };
       items.forEach((item) => {
-        if (catalogState.mode === 'species') [item.primaryTag, item.secondaryTag, item.combatRole].forEach((value) => value && values.add(value));
-        if (catalogState.mode === 'organs') [item.type, item.mainSlot].forEach((value) => value && values.add(value));
-        if (catalogState.mode === 'synergies') [item.category, item.trigger].forEach((value) => value && values.add(value));
-        if (catalogState.mode === 'waves') values.add(item.isBoss ? 'Boss' : 'Normal');
-        if (catalogState.mode === 'enemies') [item.role, item.species].forEach((value) => value && values.add(value));
+        if (catalogState.mode === 'species') [item.primaryTag, item.secondaryTag, item.combatRole].forEach(addValue);
+        if (catalogState.mode === 'organs') [item.type, item.mainSlot].forEach(addValue);
+        if (catalogState.mode === 'synergies') [item.category, item.trigger].forEach(addValue);
+        if (catalogState.mode === 'waves') addValue(item.isBoss ? 'Boss' : 'Normal');
+        if (catalogState.mode === 'enemies') [item.role, item.species].forEach(addValue);
       });
-      return [...values].sort((a, b) => String(a).localeCompare(String(b), 'zh-Hans'));
+      return [...optionMap.values()].sort((a, b) => a.label.localeCompare(b.label, currentAtlasLanguage()));
     }
 
     function itemMatchesFilter(item) {
@@ -2893,12 +3466,23 @@
       `).join('');
     }
 
+    function renderAtlasPaths() {
+      const grid = document.getElementById('atlasPathGrid');
+      if (!grid) return;
+      grid.innerHTML = atlasPathSeeds.map((path) => `
+        <button class='atlas-path-card' type='button' data-catalog-jump-mode='${escapeHtml(path.mode)}' data-catalog-jump-id='${escapeHtml(path.id)}'>
+          <b>${escapeHtml(textFor(`atlas.path.${path.key}.title`))}</b>
+          <span>${escapeHtml(textFor(`atlas.path.${path.key}.copy`))}</span>
+        </button>
+      `).join('');
+    }
+
     function renderCatalogFilters() {
       const filter = document.getElementById('atlasFilter');
       if (!filter) return;
       const options = catalogFilterOptions(catalogItems());
       filter.innerHTML = `<option value=''>${escapeHtml(textFor('atlas.filter.all'))}</option>` +
-        options.map((option) => `<option value='${escapeHtml(option)}'>${escapeHtml(localizedFacet(option))}</option>`).join('');
+        options.map((option) => `<option value='${escapeHtml(option.value)}'>${escapeHtml(option.label)}</option>`).join('');
       filter.value = catalogState.filter;
     }
 
@@ -2926,6 +3510,7 @@
         button.addEventListener('click', () => {
           catalogState.selectedId = button.dataset.catalogId;
           renderCatalog();
+          updateCatalogHash();
         });
       });
     }
@@ -2942,6 +3527,55 @@
     function renderLinkList(ids, source, empty = '-') {
       const items = (ids || []).map((id) => source.find((item) => item.id === id)).filter(Boolean);
       return items.length ? `<div class='atlas-meta'>${items.map((item) => chip(item.name || item.id)).join('')}</div>` : `<p>${escapeHtml(empty)}</p>`;
+    }
+
+    function firstValidLink(candidates) {
+      return candidates.find((link) => link && findCatalogItemInMode(link.mode, link.id));
+    }
+
+    function catalogNextLinks(item) {
+      if (!item) return [];
+      if (catalogState.mode === 'species') {
+        const native = item.nativeOrgans || [];
+        const firstOrgan = native[0]?.id;
+        const organ = findCatalogItemInMode('organs', firstOrgan);
+        const firstSynergy = (organ?.synergies || [])[0];
+        return [
+          firstValidLink([{ mode: 'organs', id: firstOrgan, label: organ ? localizedItemTitle(organ, 'organs') : firstOrgan }]),
+          firstValidLink([{ mode: 'synergies', id: firstSynergy, label: localizedItemTitle(findCatalogItemInMode('synergies', firstSynergy), 'synergies') || firstSynergy }])
+        ].filter(Boolean);
+      }
+      if (catalogState.mode === 'organs') {
+        const firstSynergy = (item.synergies || [])[0];
+        const nativeSpecies = (catalogState.data?.species || []).find((species) => (species.nativeOrgans || []).some((organ) => organ.id === item.id));
+        return [
+          firstValidLink([{ mode: 'synergies', id: firstSynergy, label: localizedItemTitle(findCatalogItemInMode('synergies', firstSynergy), 'synergies') || firstSynergy }]),
+          firstValidLink([{ mode: 'species', id: nativeSpecies?.id, label: nativeSpecies ? localizedItemTitle(nativeSpecies, 'species') : '' }])
+        ].filter(Boolean);
+      }
+      if (catalogState.mode === 'synergies') {
+        const firstOrgan = (item.requiredOrgans || [])[0] || findOrganByName((item.requiredOrganNames || [])[0])?.id;
+        return [firstValidLink([{ mode: 'organs', id: firstOrgan, label: localizedItemTitle(findCatalogItemInMode('organs', firstOrgan), 'organs') || firstOrgan }])].filter(Boolean);
+      }
+      if (catalogState.mode === 'waves') {
+        const firstEnemy = (item.pools || []).flatMap((pool) => pool.entries || [])[0]?.enemyId;
+        return [firstValidLink([{ mode: 'enemies', id: firstEnemy, label: localizedItemTitle(findCatalogItemInMode('enemies', firstEnemy), 'enemies') || firstEnemy }])].filter(Boolean);
+      }
+      if (catalogState.mode === 'enemies') {
+        const firstWave = item.appearances?.[0]?.wave;
+        const firstOrgan = item.damageOrgans?.[0]?.id;
+        return [
+          firstValidLink([{ mode: 'waves', id: String(firstWave || ''), label: localizedWaveName({ number: firstWave, isBoss: item.appearances?.[0]?.boss }) }]),
+          firstValidLink([{ mode: 'organs', id: firstOrgan, label: localizedItemTitle(findCatalogItemInMode('organs', firstOrgan), 'organs') || firstOrgan }])
+        ].filter(Boolean);
+      }
+      return [];
+    }
+
+    function renderNextStepPanel(item) {
+      const links = catalogNextLinks(item);
+      if (!links.length) return '';
+      return `<div class='atlas-next'><b>${escapeHtml(textFor('atlas.next.title'))}</b>${renderAtlasLinks(links)}</div>`;
     }
 
     function renderCatalogDetail() {
@@ -2971,7 +3605,8 @@
           ${mini('atlas.detail.stats', `<p>Move ${compactText(item.stats?.moveSpeed)} · Max ${compactText(item.stats?.maxSpeed)} · Dash ${compactText(item.stats?.dashCharges)} · Load ${compactText(item.stats?.maxLoad)}</p>`)}
         </div>`;
       } else if (catalogState.mode === 'organs') {
-        html += `<div class='atlas-meta'>${[item.type, item.mainSlot, item.prototype, ...(item.tags || []).slice(0, 6)].map(localizeChip).join('')}</div>`;
+        const organChips = [item.type, item.mainSlot, ...(isChineseLanguage() ? [item.prototype] : []), ...(item.tags || []).slice(0, 6)];
+        html += `<div class='atlas-meta'>${organChips.map(localizeChip).join('')}</div>`;
         const synergyLinks = (item.synergies || []).map((id) => {
           const synergy = findCatalogItemInMode('synergies', id);
           return synergy ? { mode: 'synergies', id, label: localizedItemTitle(synergy, 'synergies') || id } : null;
@@ -3002,10 +3637,10 @@
           ${mini('atlas.detail.effects', `<div class='atlas-meta'>${(item.effectTypes || []).map(localizeChip).join('') || '-'}</div>`)}
         </div>`;
       } else if (catalogState.mode === 'waves') {
-        html += `<div class='atlas-meta'>${[item.isBoss ? 'Boss' : 'Normal', item.rewardType, `${item.batchCount || 1} batches`, ...(item.clearConditions || [])].map(localizeChip).join('')}</div>`;
+        html += `<div class='atlas-meta'>${[item.isBoss ? 'Boss' : 'Normal', item.rewardType, localizedBatchCount(item.batchCount), ...(item.clearConditions || [])].map(localizeChip).join('')}</div>`;
         html += mini('atlas.detail.pools', `<div class='atlas-detail-grid'>${(item.pools || []).map((pool) => `
           <div class='atlas-mini'>
-            <b>Batch ${Number(pool.batch) + 1 || 1}</b>
+            <b>${escapeHtml(localizedBatchLabel(pool.batch))}</b>
             <div class='atlas-meta'>${pool.entries.map((entry) => atlasLink('enemies', entry.enemyId, `${localizedIdentifier(entry.enemyId, entry.enemyName)} x${entry.min}-${entry.max}`)).join('')}</div>
           </div>
         `).join('')}</div>`);
@@ -3028,6 +3663,7 @@
           ${mini('atlas.detail.damageOrgans', renderAtlasLinks(damageOrganLinks))}
         </div>`;
       }
+      html += renderNextStepPanel(item);
       detail.innerHTML = html;
     }
 
@@ -3037,6 +3673,7 @@
         button.classList.toggle('active', button.dataset.catalogMode === catalogState.mode);
       });
       renderCatalogStats();
+      renderAtlasPaths();
       renderCatalogFilters();
       renderCatalogList();
       renderCatalogDetail();
@@ -3053,10 +3690,11 @@
         if (localeResponse.ok) {
           catalogState.localeData = await localeResponse.json();
         }
-        renderCatalog();
+        renderStarterBuilds();
+        if (!applyCatalogHash()) renderCatalog();
       } catch (error) {
         const detail = document.getElementById('atlasDetail');
-        if (detail) detail.innerHTML = `<div class='atlas-empty'>${escapeHtml(textFor('atlas.empty'))}</div>`;
+        if (detail) detail.innerHTML = `<div class='atlas-empty'>${escapeHtml(textFor('atlas.error'))}</div>`;
       }
     }
 
@@ -3078,6 +3716,8 @@
       document.querySelector('meta[name="description"]').setAttribute('content', dictionary.metaDescription);
       document.querySelector('meta[property="og:title"]').setAttribute('content', dictionary.metaTitle);
       document.querySelector('meta[property="og:description"]').setAttribute('content', dictionary.metaDescription);
+      document.querySelector('meta[name="twitter:title"]').setAttribute('content', dictionary.metaTitle);
+      document.querySelector('meta[name="twitter:description"]').setAttribute('content', dictionary.metaDescription);
       document.querySelectorAll('[data-i18n]').forEach((node) => {
         const key = node.dataset.i18n;
         if (dictionary[key]) node.textContent = dictionary[key];
@@ -3089,6 +3729,7 @@
       languageSelect.value = selected;
       localStorage.setItem('heteroGenesisLanguage', selected);
       renderSystems();
+      renderStarterBuilds();
       renderCatalog();
     }
 
@@ -3103,10 +3744,11 @@
         if (search) search.value = '';
         if (filter) filter.value = '';
         renderCatalog();
+        updateCatalogHash();
       });
     });
 
-    document.getElementById('atlasDetail')?.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
       const target = event.target.closest('[data-catalog-jump-mode]');
       if (!target) return;
       jumpCatalog(target.dataset.catalogJumpMode, target.dataset.catalogJumpId);
@@ -3116,14 +3758,17 @@
       catalogState.query = event.target.value;
       catalogState.selectedId = '';
       renderCatalog();
+      updateCatalogHash();
     });
 
     document.getElementById('atlasFilter')?.addEventListener('change', (event) => {
       catalogState.filter = event.target.value;
       catalogState.selectedId = '';
       renderCatalog();
+      updateCatalogHash();
     });
 
+    window.addEventListener('hashchange', () => applyCatalogHash({ scroll: true }));
     languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
     applyLanguage(localStorage.getItem('heteroGenesisLanguage') || navigator.language || 'en');
     initCatalog();

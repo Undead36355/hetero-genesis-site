@@ -17,12 +17,16 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 - `assets/video/` - gameplay introduction video for the homepage
 - `assets/data/game-catalog.json` - public gameplay catalog generated from selected current-build config JSON
 - `assets/data/atlas-localization.json` - public atlas localization subset generated from the game localization packs
+- `robots.txt` / `sitemap.xml` - basic crawl and GitHub Pages sitemap metadata
 
 The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
 It uses the current mantis-shrimp gameplay introduction video as the first-screen hero, followed by a richer combat rhythm section and expanded gameplay copy.
 The gameplay section now summarizes five player-facing build routes adapted from the internal quick-start guide: ranged venom kiting, heavy melee regeneration, field control, camouflage first strike, and symbiotic support.
+The starter builds section gives three atlas-linked examples: mantis shrimp impact melee, octopus ink control, and electric eel chain control.
 The combat system section now expands the body/damage model into dual health, damage context, defense layers, status pressure, synergy triggers, wave roles, movement handling, and feedback readability.
-The atlas section reads `assets/data/game-catalog.json` and `assets/data/atlas-localization.json` to browse/search current-build species, organs, synergies, waves, and enemies in the selected site language. Detail panels include cross-links, so visitors can jump from species to organs, organs to synergies, synergies back to required organs, waves to enemies, and enemies to appearances or damage organs.
+The atlas section reads `assets/data/game-catalog.json` and `assets/data/atlas-localization.json` to browse/search current-build species, organs, synergies, waves, and enemies in the selected site language. Detail panels include recommended exploration paths, cross-links, next-step prompts, and hash deep links such as `#atlas/organs/impact_horn`.
+The screenshots section is arranged as a run-flow narrative from dive entry through contracts, organ planning, rewards, evolution, and results.
+The page includes Open Graph, Twitter card, `VideoGame` JSON-LD, and `VideoObject` JSON-LD metadata using real in-repository assets.
 
 ## Asset Sources
 
