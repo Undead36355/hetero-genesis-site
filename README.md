@@ -20,7 +20,8 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
 It uses the current mantis-shrimp gameplay introduction video as the first-screen hero, followed by a richer combat rhythm section and expanded gameplay copy.
 The gameplay section now summarizes five player-facing build routes adapted from the internal quick-start guide: ranged venom kiting, heavy melee regeneration, field control, camouflage first strike, and symbiotic support.
-The atlas section reads `assets/data/game-catalog.json` and lets visitors browse/search current-build species, organs, synergies, waves, and enemies.
+The combat system section now expands the body/damage model into dual health, damage context, defense layers, status pressure, synergy triggers, wave roles, movement handling, and feedback readability.
+The atlas section reads `assets/data/game-catalog.json` and lets visitors browse/search current-build species, organs, synergies, waves, and enemies. Detail panels include cross-links, so visitors can jump from species to organs, organs to synergies, synergies back to required organs, waves to enemies, and enemies to appearances or damage organs.
 
 ## Asset Sources
 

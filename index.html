@@ -658,6 +658,40 @@
       gap: 14px;
     }
 
+    .system-flow {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 10px;
+      border: 1px solid rgba(101, 230, 237, .14);
+      border-radius: 8px;
+      background:
+        linear-gradient(90deg, rgba(101, 230, 237, .1), rgba(245, 194, 93, .08), rgba(255, 255, 255, .025)),
+        rgba(4, 13, 19, .74);
+    }
+
+    .system-flow-step {
+      min-height: 70px;
+      padding: 11px;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .035);
+      color: #dff7f7;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
+    .system-flow-step span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--amber);
+      font-size: 11px;
+      letter-spacing: .04em;
+    }
+
     .system-card {
       min-height: 220px;
       padding: 18px;
@@ -692,6 +726,35 @@
       margin: 0;
       color: #c8dde0;
       font-size: 14px;
+    }
+
+    .system-card ul {
+      display: grid;
+      gap: 7px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #b8ccd0;
+      font-size: 12px;
+    }
+
+    .system-card li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 7px;
+      border-radius: 999px;
+      background: var(--cyan);
+      box-shadow: 0 0 12px rgba(101, 230, 237, .55);
+      vertical-align: 1px;
+    }
+
+    .system-card.major {
+      grid-column: span 2;
+      background:
+        linear-gradient(145deg, rgba(15, 48, 56, .94), rgba(7, 18, 24, .86)),
+        var(--panel);
     }
 
     .atlas-shell {
@@ -846,6 +909,29 @@
       background: rgba(101, 230, 237, .08);
       font-size: 12px;
       font-weight: 700;
+    }
+
+    .atlas-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      border: 1px solid rgba(101, 230, 237, .36);
+      border-radius: 999px;
+      color: #e8feff;
+      background: rgba(101, 230, 237, .1);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .atlas-link:hover,
+    .atlas-link:focus-visible {
+      color: var(--night);
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--cyan), var(--amber));
+      outline: none;
     }
 
     .atlas-detail-grid {
@@ -1061,6 +1147,7 @@
       .rhythm-grid,
       .build-route-grid,
       .system-grid,
+      .system-flow,
       .atlas-shell {
         grid-template-columns: 1fr;
       }
@@ -1305,28 +1392,8 @@
             <h2 data-i18n='systems.title'>Combat is built around a living body</h2>
             <p data-i18n='systems.copy'>Under the action layer, damage, status effects, organs, and enemy waves all speak through the same body rules. The result is a run that can bend, break, and recover.</p>
           </div>
-          <div class='system-grid' aria-label='Combat systems'>
-            <article class='system-card'>
-              <b>01</b>
-              <h3 data-i18n='system.organ.title'>Organ health is real</h3>
-              <p data-i18n='system.organ.copy'>Hits are routed toward body parts. Losing the wrong organ can disable a build until repairs or new rewards bring it back online.</p>
-            </article>
-            <article class='system-card'>
-              <b>02</b>
-              <h3 data-i18n='system.tags.title'>Damage tags drive reactions</h3>
-              <p data-i18n='system.tags.copy'>Poison, impact, electric control, reveal, slow, and other tags let organs and synergies react to the same fight without fixed classes.</p>
-            </article>
-            <article class='system-card'>
-              <b>03</b>
-              <h3 data-i18n='system.waves.title'>Waves change the question</h3>
-              <p data-i18n='system.waves.copy'>Each wave mixes roles, ranges, weak parts, and reward timing so a body has to solve pressure in more than one way.</p>
-            </article>
-            <article class='system-card'>
-              <b>04</b>
-              <h3 data-i18n='system.motion.title'>Impact still needs motion</h3>
-              <p data-i18n='system.motion.copy'>Dash immunity, push-out handling, hit feedback, and crowd pressure are tuned so close-range builds feel heavy without getting stuck.</p>
-            </article>
-          </div>
+          <div class='system-flow' id='systemFlow' aria-label='Combat damage flow'></div>
+          <div class='system-grid' id='systemGrid' aria-label='Combat systems'></div>
         </div>
       </section>
 
@@ -1599,6 +1666,7 @@
         'atlas.stat.waves': 'Waves',
         'atlas.stat.enemies': 'Enemies',
         'atlas.detail.nativeOrgans': 'Native organs',
+        'atlas.detail.nativeSpecies': 'Native species',
         'atlas.detail.stats': 'Body stats',
         'atlas.detail.tags': 'Tags',
         'atlas.detail.synergies': 'Related synergies',
@@ -1752,6 +1820,7 @@
         'atlas.stat.waves': '波次',
         'atlas.stat.enemies': '敌人',
         'atlas.detail.nativeOrgans': '原生器官',
+        'atlas.detail.nativeSpecies': '归属物种',
         'atlas.detail.stats': '身体数值',
         'atlas.detail.tags': '标签',
         'atlas.detail.synergies': '相关协同',
@@ -1905,6 +1974,7 @@
         'atlas.stat.waves': '波次',
         'atlas.stat.enemies': '敵人',
         'atlas.detail.nativeOrgans': '原生器官',
+        'atlas.detail.nativeSpecies': '歸屬物種',
         'atlas.detail.stats': '身體數值',
         'atlas.detail.tags': '標籤',
         'atlas.detail.synergies': '相關協同',
@@ -2058,6 +2128,7 @@
         'atlas.stat.waves': '波',
         'atlas.stat.enemies': '敵',
         'atlas.detail.nativeOrgans': '初期器官',
+        'atlas.detail.nativeSpecies': '所属する種',
         'atlas.detail.stats': '身体ステータス',
         'atlas.detail.tags': 'タグ',
         'atlas.detail.synergies': '関連協同',
@@ -2211,6 +2282,7 @@
         'atlas.stat.waves': '웨이브',
         'atlas.stat.enemies': '적',
         'atlas.detail.nativeOrgans': '기본 기관',
+        'atlas.detail.nativeSpecies': '소속 종',
         'atlas.detail.stats': '몸 수치',
         'atlas.detail.tags': '태그',
         'atlas.detail.synergies': '관련 협동',
@@ -2272,6 +2344,234 @@
       }
     };
 
+    const systemContent = {
+      en: {
+        flow: ['Hit or status tick', 'Damage context', 'Defense layers', 'Organ or core routing', 'Synergy broadcast', 'Readable feedback'],
+        cards: [
+          {
+            title: 'Dual health: body core and organs',
+            copy: 'Damage does not disappear into a single HP bar. It tries to land on concrete organs first, then falls back to the core when no part can take the hit.',
+            points: ['Broken organs can interrupt a route', 'Core loss is the real death check']
+          },
+          {
+            title: 'One damage language for every source',
+            copy: 'Melee strikes, projectiles, floor hazards, poison ticks, and synergy reactions are all packed into the same damage context.',
+            points: ['Tags keep reactions consistent', 'Organ hits can feed later triggers']
+          },
+          {
+            title: 'Layered survival checks',
+            copy: 'Before damage lands, it can pass through dash immunity, miss checks, dodge, block, shield absorption, caps, resistance, and low-life reduction.',
+            points: ['Defense is a build layer', 'Close-range bodies still need timing']
+          },
+          {
+            title: 'Status effects keep pressure moving',
+            copy: 'Poison, slow, reveal, paralysis, freeze, blind, suppress, and other effects can stack, refresh, or tick through the same pipeline.',
+            points: ['Status is not just a debuff icon', 'Ticks can still hit organs']
+          },
+          {
+            title: 'Synergy is a network, not a class',
+            copy: 'Organs listen to tags, triggers, slots, and thresholds. A route can pivot when a new organ completes the missing link.',
+            points: ['Exact organs and tag thresholds both matter', 'One trigger can light several rules']
+          },
+          {
+            title: 'Waves ask different questions',
+            copy: 'Chasers, ranged attackers, armored elites, bosses, reward timing, weak parts, and spawn batches reshape the problem from wave to wave.',
+            points: ['Enemy roles pressure different organs', 'Boss waves change drafting value']
+          },
+          {
+            title: 'Movement prevents sticky combat',
+            copy: 'Dash commitment, wall sliding, overlap push-out, breakout windows, and knockback blending keep dense fights from becoming a stuck collision pile.',
+            points: ['Impact needs escape routes', 'Low-life breakout opens space']
+          },
+          {
+            title: 'Feedback has a budget',
+            copy: 'Hit pause, shake, knockback, float text, and VFX are scheduled so important organ breaks and burst hits remain readable in high-frequency fights.',
+            points: ['Heavy hits get stronger confirmation', 'Noise is throttled when fights get busy']
+          }
+        ]
+      },
+      'zh-Hans': {
+        flow: ['命中或状态 Tick', '伤害上下文', '防御层检查', '器官或核心分流', '协同广播', '可读反馈'],
+        cards: [
+          {
+            title: '双层生命：核心与器官',
+            copy: '伤害不是扣一个总血条。它会先尝试落到具体器官上，普通器官无法承接时才回落到核心。',
+            points: ['器官断裂会打断流派', '核心损毁才是死亡判定']
+          },
+          {
+            title: '所有来源共用一套伤害语言',
+            copy: '近战打击、投射物、地面伤害、中毒 Tick 和协同反应都会被整理成同一种伤害上下文。',
+            points: ['标签让反应保持一致', '器官命中会继续喂给触发层']
+          },
+          {
+            title: '层层穿透的生存检查',
+            copy: '真正受伤前，会经过冲刺无敌、Miss、闪避、格挡、护盾吸收、伤害上限、抗性和濒死减伤等层。',
+            points: ['防御也是构筑的一部分', '贴脸身体仍然需要时机']
+          },
+          {
+            title: '状态让压力持续流动',
+            copy: '毒素、减速、显形、麻痹、冰冻、致盲、压制等状态可以叠层、刷新，也能通过同一伤害管线结算。',
+            points: ['状态不只是图标', '持续伤害也可能打到器官']
+          },
+          {
+            title: '协同是一张网，不是职业表',
+            copy: '器官会监听标签、触发事件、槽位和阈值。一个新器官补上缺口后，整条路线都可能转亮。',
+            points: ['指定器官和标签阈值都重要', '一次触发可点亮多条规则']
+          },
+          {
+            title: '波次提出不同问题',
+            copy: '追击、远程、重甲精英、Boss、奖励时机、弱点部件和分批生成，会让每一波压力都不一样。',
+            points: ['敌人职责会压迫不同器官', 'Boss 波会改变奖励价值']
+          },
+          {
+            title: '机动防止战斗粘住',
+            copy: '冲刺承诺、擦墙滑移、重叠推出、突围窗口和击退融合，让密集战斗不变成卡在一起的碰撞。',
+            points: ['冲击需要逃生路线', '残血突围会撕开空间']
+          },
+          {
+            title: '反馈也有预算',
+            copy: '时停、震屏、击退、飘字和特效会被调度，让器官断裂和爆发命中在高频战斗里仍然看得清。',
+            points: ['重击需要明确确认', '战斗变密时会压低噪音']
+          }
+        ]
+      },
+      'zh-Hant': {
+        flow: ['命中或狀態 Tick', '傷害上下文', '防禦層檢查', '器官或核心分流', '協同廣播', '可讀反饋'],
+        cards: [
+          {
+            title: '雙層生命：核心與器官',
+            copy: '傷害不是扣一個總血條。它會先嘗試落到具體器官上，普通器官無法承接時才回落到核心。',
+            points: ['器官斷裂會打斷流派', '核心損毀才是死亡判定']
+          },
+          {
+            title: '所有來源共用一套傷害語言',
+            copy: '近戰打擊、投射物、地面傷害、中毒 Tick 和協同反應都會被整理成同一種傷害上下文。',
+            points: ['標籤讓反應保持一致', '器官命中會繼續餵給觸發層']
+          },
+          {
+            title: '層層穿透的生存檢查',
+            copy: '真正受傷前，會經過衝刺無敵、Miss、閃避、格擋、護盾吸收、傷害上限、抗性和瀕死減傷等層。',
+            points: ['防禦也是構築的一部分', '貼臉身體仍然需要時機']
+          },
+          {
+            title: '狀態讓壓力持續流動',
+            copy: '毒素、減速、顯形、麻痺、冰凍、致盲、壓制等狀態可以疊層、刷新，也能透過同一傷害管線結算。',
+            points: ['狀態不只是圖示', '持續傷害也可能打到器官']
+          },
+          {
+            title: '協同是一張網，不是職業表',
+            copy: '器官會監聽標籤、觸發事件、槽位和閾值。一個新器官補上缺口後，整條路線都可能轉亮。',
+            points: ['指定器官和標籤閾值都重要', '一次觸發可點亮多條規則']
+          },
+          {
+            title: '波次提出不同問題',
+            copy: '追擊、遠程、重甲精英、Boss、獎勵時機、弱點部件和分批生成，會讓每一波壓力都不一樣。',
+            points: ['敵人職責會壓迫不同器官', 'Boss 波會改變獎勵價值']
+          },
+          {
+            title: '機動防止戰鬥黏住',
+            copy: '衝刺承諾、擦牆滑移、重疊推出、突圍窗口和擊退融合，讓密集戰鬥不變成卡在一起的碰撞。',
+            points: ['衝擊需要逃生路線', '殘血突圍會撕開空間']
+          },
+          {
+            title: '反饋也有預算',
+            copy: '時停、震屏、擊退、飄字和特效會被調度，讓器官斷裂和爆發命中在高頻戰鬥裡仍然看得清。',
+            points: ['重擊需要明確確認', '戰鬥變密時會壓低噪音']
+          }
+        ]
+      },
+      ja: {
+        flow: ['命中または状態 Tick', 'ダメージ文脈', '防御レイヤー', '器官またはコアへ分流', '協同ブロードキャスト', '読みやすい反応'],
+        cards: [
+          {
+            title: '二層の生命: コアと器官',
+            copy: 'ダメージは一本の HP に消えるのではなく、まず具体的な器官へ落ち、受け先がない時だけコアへ流れます。',
+            points: ['器官の断裂でルートが止まる', 'コア損壊が本当の死亡判定']
+          },
+          {
+            title: 'すべての攻撃源が同じ言語を使う',
+            copy: '近接、弾、床ダメージ、毒 Tick、協同反応は、同じダメージ文脈として扱われます。',
+            points: ['タグで反応が揃う', '器官への命中が次のトリガーになる']
+          },
+          {
+            title: '重なった生存チェック',
+            copy: 'ダメージが入る前に、ダッシュ無敵、Miss、回避、ガード、シールド吸収、上限、耐性、瀕死軽減を通ります。',
+            points: ['防御も構築の一部', '近接の身体にもタイミングが必要']
+          },
+          {
+            title: '状態が圧力を動かし続ける',
+            copy: '毒、鈍足、可視化、麻痺、凍結、暗闇、抑制などは、積み重なり、更新され、同じ管線で Tick します。',
+            points: ['状態は単なるアイコンではない', '継続ダメージも器官へ届く']
+          },
+          {
+            title: '協同は職業表ではなくネットワーク',
+            copy: '器官はタグ、トリガー、スロット、閾値を見ます。足りない器官が入るだけで、ルート全体が点灯します。',
+            points: ['指定器官とタグ閾値の両方が重要', '一つの発火で複数の規則が動く']
+          },
+          {
+            title: '波ごとに問いが変わる',
+            copy: '追撃、遠距離、重装エリート、Boss、報酬タイミング、弱点、出現バッチが、波ごとの問題を作ります。',
+            points: ['敵の役割が別の器官を圧迫する', 'Boss 波は報酬価値を変える']
+          },
+          {
+            title: '機動が密着戦を固めない',
+            copy: 'ダッシュ確定、壁滑り、重なり押し出し、突破窓、ノックバック合成で、密集戦が詰まりません。',
+            points: ['衝撃には逃げ道が必要', '瀕死突破で空間を開く']
+          },
+          {
+            title: 'フィードバックにも予算がある',
+            copy: 'ヒットストップ、揺れ、ノックバック、数字、エフェクトを調整し、器官断裂と大技命中を読みやすくします。',
+            points: ['重い命中は強く確認できる', '戦闘が密ならノイズを抑える']
+          }
+        ]
+      },
+      ko: {
+        flow: ['명중 또는 상태 Tick', '피해 문맥', '방어 레이어', '기관 또는 코어 분기', '협동 브로드캐스트', '읽히는 피드백'],
+        cards: [
+          {
+            title: '이중 생명: 코어와 기관',
+            copy: '피해는 하나의 HP 막대에 사라지지 않습니다. 먼저 실제 기관에 닿고, 받을 기관이 없을 때 코어로 넘어갑니다.',
+            points: ['기관 절단은 루트를 끊을 수 있음', '코어 파괴가 실제 사망 판정']
+          },
+          {
+            title: '모든 피해원이 같은 언어를 쓴다',
+            copy: '근접, 투사체, 장판 피해, 독 Tick, 협동 반응은 모두 같은 피해 문맥으로 처리됩니다.',
+            points: ['태그가 반응을 일관되게 유지', '기관 명중이 다음 트리거로 이어짐']
+          },
+          {
+            title: '겹겹이 쌓인 생존 검사',
+            copy: '피해가 들어가기 전 대시 무적, Miss, 회피, 가드, 보호막 흡수, 상한, 저항, 빈사 감소를 거칩니다.',
+            points: ['방어도 빌드의 한 층', '근접 몸도 타이밍이 필요']
+          },
+          {
+            title: '상태가 압박을 계속 움직인다',
+            copy: '독, 둔화, 드러내기, 마비, 빙결, 실명, 제압 등은 중첩되고 갱신되며 같은 파이프라인으로 Tick 됩니다.',
+            points: ['상태는 단순한 아이콘이 아님', '지속 피해도 기관에 닿을 수 있음']
+          },
+          {
+            title: '협동은 직업표가 아니라 네트워크',
+            copy: '기관은 태그, 트리거, 슬롯, 임계값을 봅니다. 빠진 기관 하나가 들어오면 루트 전체가 켜질 수 있습니다.',
+            points: ['지정 기관과 태그 임계값 모두 중요', '한 번의 발동이 여러 규칙을 켬']
+          },
+          {
+            title: '웨이브마다 질문이 바뀐다',
+            copy: '추격, 원거리, 중갑 정예, Boss, 보상 타이밍, 약점, 생성 묶음이 웨이브마다 다른 압박을 만듭니다.',
+            points: ['적 역할이 다른 기관을 압박', 'Boss 웨이브는 보상 가치를 바꿈']
+          },
+          {
+            title: '기동이 전투를 들러붙지 않게 한다',
+            copy: '대시 확정, 벽 미끄러짐, 겹침 밀어내기, 돌파 창, 넉백 합성이 밀집전을 끼임으로 만들지 않습니다.',
+            points: ['충격에는 탈출로가 필요', '빈사 돌파가 공간을 엶']
+          },
+          {
+            title: '피드백에도 예산이 있다',
+            copy: '히트 스톱, 흔들림, 넉백, 피해 숫자, 이펙트를 조율해 기관 절단과 큰 타격이 계속 읽히게 합니다.',
+            points: ['강한 타격은 더 확실히 보임', '전투가 빽빽하면 노이즈를 낮춤']
+          }
+        ]
+      }
+    };
+
     const catalogState = {
       data: null,
       mode: 'species',
@@ -2288,6 +2588,11 @@
       return translations[selected]?.[key] || translations.en[key] || key;
     }
 
+    function currentSystemContent() {
+      const selected = normalizeLanguage(languageSelect?.value || document.documentElement.lang || 'en');
+      return systemContent[selected] || systemContent.en;
+    }
+
     function escapeHtml(value) {
       return String(value ?? '').replace(/[&<>"']/g, (char) => ({
         '&': '&amp;',
@@ -2300,6 +2605,67 @@
 
     function chip(value) {
       return value ? `<span class='atlas-chip'>${escapeHtml(value)}</span>` : '';
+    }
+
+    function catalogItemId(item) {
+      return String(item?.id ?? item?.number ?? '');
+    }
+
+    function findCatalogItemInMode(mode, id) {
+      const items = catalogState.data?.[mode] || [];
+      const wanted = String(id ?? '');
+      return items.find((item) => catalogItemId(item) === wanted);
+    }
+
+    function findOrganByName(name) {
+      const wanted = String(name ?? '').trim();
+      if (!wanted) return null;
+      return (catalogState.data?.organs || []).find((organ) => organ.name === wanted || organ.id === wanted);
+    }
+
+    function atlasLink(mode, id, label) {
+      if (!id || !label) return '';
+      return `<button class='atlas-link' type='button' data-catalog-jump-mode='${escapeHtml(mode)}' data-catalog-jump-id='${escapeHtml(id)}'>${escapeHtml(label)}</button>`;
+    }
+
+    function renderAtlasLinks(items, empty = '-') {
+      const links = (items || []).filter(Boolean).map((item) => atlasLink(item.mode, item.id, item.label)).filter(Boolean);
+      return links.length ? `<div class='atlas-meta'>${links.join('')}</div>` : `<p>${escapeHtml(empty)}</p>`;
+    }
+
+    function jumpCatalog(mode, id) {
+      if (!findCatalogItemInMode(mode, id)) return;
+      catalogState.mode = mode;
+      catalogState.query = '';
+      catalogState.filter = '';
+      catalogState.selectedId = String(id);
+      const search = document.getElementById('atlasSearch');
+      const filter = document.getElementById('atlasFilter');
+      if (search) search.value = '';
+      if (filter) filter.value = '';
+      renderCatalog();
+      document.getElementById('atlas')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+
+    function renderSystems() {
+      const content = currentSystemContent();
+      const flow = document.getElementById('systemFlow');
+      const grid = document.getElementById('systemGrid');
+      if (flow) {
+        flow.innerHTML = content.flow.map((label, index) => `
+          <div class='system-flow-step'><span>${String(index + 1).padStart(2, '0')}</span>${escapeHtml(label)}</div>
+        `).join('');
+      }
+      if (grid) {
+        grid.innerHTML = content.cards.map((card, index) => `
+          <article class='system-card ${index < 2 ? 'major' : ''}'>
+            <b>${String(index + 1).padStart(2, '0')}</b>
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.copy)}</p>
+            <ul>${(card.points || []).map((point) => `<li>${escapeHtml(point)}</li>`).join('')}</ul>
+          </article>
+        `).join('');
+      }
     }
 
     function compactText(value, fallback = '-') {
@@ -2441,21 +2807,44 @@
       let html = `<h3>${escapeHtml(catalogItemTitle(item))}</h3><p>${escapeHtml(item.description || item.traitSummary || catalogItemSubtitle(item))}</p>`;
       if (catalogState.mode === 'species') {
         html += `<div class='atlas-meta'>${[item.primaryTag, item.secondaryTag, item.combatRole, item.trait].map(chip).join('')}</div>`;
+        const nativeOrganLinks = (item.nativeOrgans || []).map((organ) => ({
+          mode: 'organs',
+          id: organ.id,
+          label: organ.name || organ.id
+        }));
         html += `<div class='atlas-detail-grid'>
-          ${mini('atlas.detail.nativeOrgans', `<div class='atlas-meta'>${(item.nativeOrgans || []).map((organ) => chip(organ.name)).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.nativeOrgans', renderAtlasLinks(nativeOrganLinks))}
           ${mini('atlas.detail.stats', `<p>Move ${compactText(item.stats?.moveSpeed)} · Max ${compactText(item.stats?.maxSpeed)} · Dash ${compactText(item.stats?.dashCharges)} · Load ${compactText(item.stats?.maxLoad)}</p>`)}
         </div>`;
       } else if (catalogState.mode === 'organs') {
         html += `<div class='atlas-meta'>${[item.type, item.mainSlot, item.prototype, ...(item.tags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        const synergyLinks = (item.synergies || []).map((id) => {
+          const synergy = findCatalogItemInMode('synergies', id);
+          return synergy ? { mode: 'synergies', id, label: synergy.name || id } : null;
+        });
+        const speciesLinks = (catalogState.data.species || [])
+          .filter((species) => (species.nativeOrgans || []).some((organ) => organ.id === item.id))
+          .map((species) => ({ mode: 'species', id: species.id, label: species.name || species.id }));
         html += `<div class='atlas-detail-grid'>
           ${mini('atlas.detail.stats', `<p>HP ${compactText(item.hp)} · Slot ${escapeHtml(compactText(item.mainSlot))} · ${escapeHtml(compactText(item.subSlot))}</p>`)}
-          ${mini('atlas.detail.synergies', renderLinkList(item.synergies, catalogState.data.synergies))}
+          ${mini('atlas.detail.synergies', renderAtlasLinks(synergyLinks))}
+          ${mini('atlas.detail.nativeSpecies', renderAtlasLinks(speciesLinks))}
         </div>`;
         if (item.science) html += mini('atlas.detail.tags', `<p>${escapeHtml(item.science)}</p>`);
       } else if (catalogState.mode === 'synergies') {
         html += `<div class='atlas-meta'>${[item.category, item.trigger, item.cooldown ? `${item.cooldown}s` : '', ...(item.requiredTags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        const requiredOrganIds = item.requiredOrgans || [];
+        const requiredOrganLinks = requiredOrganIds.length
+          ? requiredOrganIds.map((id) => {
+              const organ = findCatalogItemInMode('organs', id);
+              return organ ? { mode: 'organs', id, label: organ.name || id } : null;
+            })
+          : (item.requiredOrganNames || []).map((name) => {
+              const organ = findOrganByName(name);
+              return organ ? { mode: 'organs', id: organ.id, label: organ.name || organ.id } : null;
+            });
         html += `<div class='atlas-detail-grid'>
-          ${mini('atlas.detail.requirements', `<div class='atlas-meta'>${(item.requiredOrganNames || []).map(chip).join('') || (item.requiredTags || []).map(chip).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.requirements', renderAtlasLinks(requiredOrganLinks, (item.requiredTags || []).join(' / ') || '-'))}
           ${mini('atlas.detail.effects', `<div class='atlas-meta'>${(item.effectTypes || []).map(chip).join('') || '-'}</div>`)}
         </div>`;
       } else if (catalogState.mode === 'waves') {
@@ -2463,16 +2852,26 @@
         html += mini('atlas.detail.pools', `<div class='atlas-detail-grid'>${(item.pools || []).map((pool) => `
           <div class='atlas-mini'>
             <b>Batch ${Number(pool.batch) + 1 || 1}</b>
-            <p>${pool.entries.map((entry) => `${escapeHtml(entry.enemyName)} x${escapeHtml(entry.min)}-${escapeHtml(entry.max)}`).join('<br>')}</p>
+            <div class='atlas-meta'>${pool.entries.map((entry) => atlasLink('enemies', entry.enemyId, `${entry.enemyName} x${entry.min}-${entry.max}`)).join('')}</div>
           </div>
         `).join('')}</div>`);
       } else if (catalogState.mode === 'enemies') {
         html += `<div class='atlas-meta'>${[item.role, item.species, item.behavior, ...(item.tags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        const appearanceLinks = (item.appearances || []).map((entry) => ({
+          mode: 'waves',
+          id: String(entry.wave),
+          label: `W${entry.wave}${entry.boss ? ' Boss' : ''}`
+        }));
+        const damageOrganLinks = (item.damageOrgans || []).map((organ) => ({
+          mode: 'organs',
+          id: organ.id,
+          label: organ.name || organ.id
+        }));
         html += `<div class='atlas-detail-grid'>
           ${mini('atlas.detail.stats', `<p>HP ${compactText(item.hp)} · Damage ${compactText(item.damage)} · Range ${compactText(item.attackRange)} · Cooldown ${compactText(item.cooldown)}</p>`)}
-          ${mini('atlas.detail.appearances', `<div class='atlas-meta'>${(item.appearances || []).map((entry) => chip(`W${entry.wave}${entry.boss ? ' Boss' : ''}`)).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.appearances', renderAtlasLinks(appearanceLinks))}
           ${mini('atlas.detail.weakParts', `<div class='atlas-meta'>${(item.weakParts || []).map(chip).join('') || '-'}</div>`)}
-          ${mini('atlas.detail.damageOrgans', `<div class='atlas-meta'>${(item.damageOrgans || []).map((organ) => chip(organ.name)).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.damageOrgans', renderAtlasLinks(damageOrganLinks))}
         </div>`;
       }
       detail.innerHTML = html;
@@ -2529,18 +2928,28 @@
       });
       languageSelect.value = selected;
       localStorage.setItem('heteroGenesisLanguage', selected);
+      renderSystems();
       renderCatalog();
     }
 
     document.querySelectorAll('[data-catalog-mode]').forEach((button) => {
       button.addEventListener('click', () => {
         catalogState.mode = button.dataset.catalogMode;
+        catalogState.query = '';
         catalogState.filter = '';
         catalogState.selectedId = '';
+        const search = document.getElementById('atlasSearch');
         const filter = document.getElementById('atlasFilter');
+        if (search) search.value = '';
         if (filter) filter.value = '';
         renderCatalog();
       });
+    });
+
+    document.getElementById('atlasDetail')?.addEventListener('click', (event) => {
+      const target = event.target.closest('[data-catalog-jump-mode]');
+      if (!target) return;
+      jumpCatalog(target.dataset.catalogJumpMode, target.dataset.catalogJumpId);
     });
 
     document.getElementById('atlasSearch')?.addEventListener('input', (event) => {
