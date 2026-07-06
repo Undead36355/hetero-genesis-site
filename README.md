@@ -16,12 +16,13 @@ https://undead36355.github.io/hetero-genesis-privacy-policy/
 - `assets/` - compressed public store images and current-build screenshots
 - `assets/video/` - gameplay introduction video for the homepage
 - `assets/data/game-catalog.json` - public gameplay catalog generated from selected current-build config JSON
+- `assets/data/atlas-localization.json` - public atlas localization subset generated from the game localization packs
 
 The homepage includes a top-right language selector for English, Simplified Chinese, Traditional Chinese, Japanese, and Korean.
 It uses the current mantis-shrimp gameplay introduction video as the first-screen hero, followed by a richer combat rhythm section and expanded gameplay copy.
 The gameplay section now summarizes five player-facing build routes adapted from the internal quick-start guide: ranged venom kiting, heavy melee regeneration, field control, camouflage first strike, and symbiotic support.
 The combat system section now expands the body/damage model into dual health, damage context, defense layers, status pressure, synergy triggers, wave roles, movement handling, and feedback readability.
-The atlas section reads `assets/data/game-catalog.json` and lets visitors browse/search current-build species, organs, synergies, waves, and enemies. Detail panels include cross-links, so visitors can jump from species to organs, organs to synergies, synergies back to required organs, waves to enemies, and enemies to appearances or damage organs.
+The atlas section reads `assets/data/game-catalog.json` and `assets/data/atlas-localization.json` to browse/search current-build species, organs, synergies, waves, and enemies in the selected site language. Detail panels include cross-links, so visitors can jump from species to organs, organs to synergies, synergies back to required organs, waves to enemies, and enemies to appearances or damage organs.
 
 ## Asset Sources
 
@@ -41,10 +42,15 @@ The site only copies public-facing store material candidates:
 - `F:\package\Hetero-Genesis\Assets\Resources\Configs\organ_configs.json`
 - `F:\package\Hetero-Genesis\Assets\Resources\Configs\synergy_effects.json`
 - `F:\package\Hetero-Genesis\Assets\Resources\Configs\wave_configs.json`
+- `F:\package\Hetero-Genesis\Assets\Resources\Localization\zh-CN.json`
+- `F:\package\Hetero-Genesis\Assets\Resources\Localization\zh-TW.json`
+- `F:\package\Hetero-Genesis\Assets\Resources\Localization\en-US.json`
+- `F:\package\Hetero-Genesis\Assets\Resources\Localization\ja-JP.json`
+- `F:\package\Hetero-Genesis\Assets\Resources\Localization\ko-KR.json`
 
 The gameplay video is based on the user-approved cut and compressed for GitHub Pages stability while keeping 1080x1920, about 60fps, and the original cut length. The site copy is under 50 MB.
 
-The public catalog is a reduced gameplay subset for promotion and browsing. It does not include account, identity, payment, tax, signing, certificate, key, or 2FA material.
+The public catalog and atlas localization are reduced gameplay subsets for promotion and browsing. They do not include account, identity, payment, tax, signing, certificate, key, or 2FA material.
 
 No private account, identity, tax, payment, certificate, key, or 2FA material belongs in this repository.
 

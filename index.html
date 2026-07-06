@@ -2574,6 +2574,7 @@
 
     const catalogState = {
       data: null,
+      localeData: null,
       mode: 'species',
       query: '',
       filter: '',
@@ -2582,6 +2583,13 @@
 
     const languageSelect = document.getElementById('languageSelect');
     const availableLanguages = Object.keys(translations);
+    const atlasLanguageCodes = {
+      en: 'en',
+      'zh-Hans': 'zh-Hans',
+      'zh-Hant': 'zh-Hant',
+      ja: 'ja',
+      ko: 'ko'
+    };
 
     function textFor(key) {
       const selected = normalizeLanguage(languageSelect?.value || document.documentElement.lang || 'en');
@@ -2673,6 +2681,134 @@
       return text || fallback;
     }
 
+    function currentAtlasLanguage() {
+      const selected = normalizeLanguage(languageSelect?.value || document.documentElement.lang || 'en');
+      return atlasLanguageCodes[selected] || 'en';
+    }
+
+    function atlasPack(language = currentAtlasLanguage()) {
+      return catalogState.localeData?.entries?.[language] || {};
+    }
+
+    function atlasText(key, fallback = '') {
+      const normalized = String(key ?? '').trim();
+      if (!normalized) return fallback ?? '';
+      const selected = currentAtlasLanguage();
+      const selectedPack = atlasPack(selected);
+      const zhPack = atlasPack('zh-Hans');
+      return selectedPack[normalized] || zhPack[normalized] || fallback || '';
+    }
+
+    function atlasTextFromZhValue(value) {
+      const raw = String(value ?? '').trim();
+      if (!raw) return '';
+      const zhPack = atlasPack('zh-Hans');
+      const match = Object.entries(zhPack).find(([, text]) => text === raw);
+      return match ? atlasText(match[0], '') : '';
+    }
+
+    function containsCjk(text) {
+      return /[\u3400-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]/.test(String(text ?? ''));
+    }
+
+    function splitIdentifierParts(text) {
+      return String(text ?? '')
+        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+        .split(/[^A-Za-z0-9]+/)
+        .map((part) => part.trim().toLowerCase())
+        .filter(Boolean);
+    }
+
+    function titleCaseIdentifier(part) {
+      return part ? part.charAt(0).toUpperCase() + part.slice(1) : '';
+    }
+
+    function localizedIdentifier(value, fallback = '') {
+      const raw = String(value ?? '').trim();
+      if (!raw) return fallback || '';
+      const exact = atlasText(raw, '');
+      if (exact) return exact;
+      if (/^[\d.]+[a-z%]*$/i.test(raw)) return raw;
+      const token = atlasText(`token.${raw}`, '');
+      if (token) return token;
+      const phrase = atlasText(`phrase.${raw}`, '');
+      if (phrase) return phrase;
+      if (containsCjk(raw)) return raw;
+      const parts = splitIdentifierParts(raw);
+      const translated = parts.map((part) => (
+        atlasText(`identifier.${part}`, '') ||
+        atlasText(`word.${part}`, '') ||
+        (currentAtlasLanguage() === 'en' ? titleCaseIdentifier(part) : '')
+      )).filter(Boolean);
+      if (!translated.length) return fallback || raw;
+      return currentAtlasLanguage() === 'en' ? translated.join(' ') : translated.join('');
+    }
+
+    function localizeTerm(value) {
+      const raw = String(value ?? '').trim();
+      if (!raw) return '';
+      const lower = raw.toLowerCase();
+      return atlasText(`category.${lower}`, '') ||
+        atlasText(`slot.main.${raw}`, '') ||
+        atlasText(`quality.${raw}`, '') ||
+        atlasText(`tag.${raw}`, '') ||
+        atlasText(`damageType.${lower}`, '') ||
+        atlasTextFromZhValue(raw) ||
+        localizedIdentifier(raw, raw);
+    }
+
+    function localizeChip(value) {
+      const localized = localizeTerm(value);
+      return localized ? chip(localized) : '';
+    }
+
+    function localizedSpeciesTraitId(item) {
+      return item?.traitId || catalogState.localeData?.speciesTraits?.[item?.id] || '';
+    }
+
+    function localizedItemTitle(item, mode = catalogState.mode) {
+      if (!item) return '';
+      if (mode === 'species') return atlasText(`species.${item.id}.name`, item.name || item.id || '');
+      if (mode === 'organs') return atlasText(`organ.${item.id}.name`, item.name || item.id || '');
+      if (mode === 'synergies') return atlasText(`synergy.${item.id}.name`, item.name || item.id || '');
+      if (mode === 'waves') return localizedWaveName(item);
+      if (mode === 'enemies') return atlasText(`enemy.${item.id}.name`, atlasText(`token.${item.id}`, localizedIdentifier(item.id, item.name || item.id || '')));
+      return item.name || item.id || item.number || '';
+    }
+
+    function localizedItemDescription(item, mode = catalogState.mode) {
+      if (!item) return '';
+      if (mode === 'species') {
+        const traitId = localizedSpeciesTraitId(item);
+        return atlasText(`species.${item.id}.description`, '') ||
+          atlasText(`trait.${traitId}.summary`, '') ||
+          item.traitSummary ||
+          item.description ||
+          catalogItemSubtitle(item);
+      }
+      if (mode === 'organs') return atlasText(`organ.${item.id}.description`, item.description || item.science || catalogItemSubtitle(item));
+      if (mode === 'synergies') return atlasText(`synergy.${item.id}.description`, item.description || catalogItemSubtitle(item));
+      return item.description || item.traitSummary || catalogItemSubtitle(item);
+    }
+
+    function localizedWaveName(item) {
+      const number = item?.number ?? '';
+      if (!number) return item?.name || '';
+      const boss = item?.isBoss;
+      const language = currentAtlasLanguage();
+      if (language === 'ja') return boss ? `第 ${number} ウェーブ ボス` : `第 ${number} ウェーブ`;
+      if (language === 'ko') return boss ? `${number} 웨이브 보스` : `${number} 웨이브`;
+      if (language === 'zh-Hant') return boss ? `第 ${number} 波首領` : `第 ${number} 波`;
+      if (language === 'zh-Hans') return boss ? `第 ${number} 波首领` : `第 ${number} 波`;
+      return boss ? `Wave ${number} Boss` : `Wave ${number}`;
+    }
+
+    function localizedFacet(value) {
+      if (value === 'Boss') return currentAtlasLanguage() === 'en' ? 'Boss' : localizeTerm('boss');
+      if (value === 'Normal') return currentAtlasLanguage() === 'en' ? 'Normal' : localizeTerm('normal');
+      return localizeTerm(value);
+    }
+
     function catalogItems() {
       if (!catalogState.data) return [];
       return catalogState.data[catalogState.mode] || [];
@@ -2680,21 +2816,33 @@
 
     function catalogItemTitle(item) {
       if (!item) return '';
-      return item.name || item.id || item.number || '';
+      return localizedItemTitle(item);
     }
 
     function catalogItemSubtitle(item) {
       if (!item) return '';
-      if (catalogState.mode === 'species') return [item.primaryTag, item.secondaryTag, item.combatRole].filter(Boolean).join(' / ');
-      if (catalogState.mode === 'organs') return [item.type, item.mainSlot, item.prototype].filter(Boolean).join(' / ');
-      if (catalogState.mode === 'synergies') return [item.category, item.trigger].filter(Boolean).join(' / ');
-      if (catalogState.mode === 'waves') return `${item.isBoss ? 'Boss' : 'Normal'} · ${item.batchCount || 1} batches · ${item.rewardType || '-'}`;
-      if (catalogState.mode === 'enemies') return [item.role, item.species, item.behavior].filter(Boolean).join(' / ');
+      if (catalogState.mode === 'species') {
+        const traitId = localizedSpeciesTraitId(item);
+        return [
+          atlasText(`species.${item.id}.primaryTag`, item.primaryTag),
+          atlasText(`species.${item.id}.secondaryTag`, item.secondaryTag),
+          atlasText(`trait.${traitId}.role`, item.combatRole)
+        ].filter(Boolean).join(' / ');
+      }
+      if (catalogState.mode === 'organs') return [localizeTerm(item.type), localizeTerm(item.mainSlot), localizeTerm(item.prototype)].filter(Boolean).join(' / ');
+      if (catalogState.mode === 'synergies') return [localizeTerm(item.category), localizeTerm(item.trigger)].filter(Boolean).join(' / ');
+      if (catalogState.mode === 'waves') return `${item.isBoss ? localizedFacet('Boss') : localizedFacet('Normal')} · ${item.batchCount || 1} batches · ${localizeTerm(item.rewardType || '-')}`;
+      if (catalogState.mode === 'enemies') return [localizeTerm(item.role), localizeTerm(item.species), localizeTerm(item.behavior)].filter(Boolean).join(' / ');
       return '';
     }
 
     function catalogSearchText(item) {
-      return JSON.stringify(item).toLowerCase();
+      return [
+        JSON.stringify(item),
+        catalogItemTitle(item),
+        catalogItemSubtitle(item),
+        localizedItemDescription(item)
+      ].join(' ').toLowerCase();
     }
 
     function catalogFilterOptions(items) {
@@ -2750,7 +2898,7 @@
       if (!filter) return;
       const options = catalogFilterOptions(catalogItems());
       filter.innerHTML = `<option value=''>${escapeHtml(textFor('atlas.filter.all'))}</option>` +
-        options.map((option) => `<option value='${escapeHtml(option)}'>${escapeHtml(option)}</option>`).join('');
+        options.map((option) => `<option value='${escapeHtml(option)}'>${escapeHtml(localizedFacet(option))}</option>`).join('');
       filter.value = catalogState.filter;
     }
 
@@ -2804,73 +2952,79 @@
         detail.innerHTML = `<div class='atlas-empty'>${escapeHtml(textFor('atlas.empty'))}</div>`;
         return;
       }
-      let html = `<h3>${escapeHtml(catalogItemTitle(item))}</h3><p>${escapeHtml(item.description || item.traitSummary || catalogItemSubtitle(item))}</p>`;
+      let html = `<h3>${escapeHtml(catalogItemTitle(item))}</h3><p>${escapeHtml(localizedItemDescription(item))}</p>`;
       if (catalogState.mode === 'species') {
-        html += `<div class='atlas-meta'>${[item.primaryTag, item.secondaryTag, item.combatRole, item.trait].map(chip).join('')}</div>`;
+        const traitId = localizedSpeciesTraitId(item);
+        html += `<div class='atlas-meta'>${[
+          atlasText(`species.${item.id}.primaryTag`, item.primaryTag),
+          atlasText(`species.${item.id}.secondaryTag`, item.secondaryTag),
+          atlasText(`trait.${traitId}.role`, item.combatRole),
+          atlasText(`trait.${traitId}.name`, item.trait)
+        ].map(chip).join('')}</div>`;
         const nativeOrganLinks = (item.nativeOrgans || []).map((organ) => ({
           mode: 'organs',
           id: organ.id,
-          label: organ.name || organ.id
+          label: atlasText(`organ.${organ.id}.name`, organ.name || organ.id)
         }));
         html += `<div class='atlas-detail-grid'>
           ${mini('atlas.detail.nativeOrgans', renderAtlasLinks(nativeOrganLinks))}
           ${mini('atlas.detail.stats', `<p>Move ${compactText(item.stats?.moveSpeed)} · Max ${compactText(item.stats?.maxSpeed)} · Dash ${compactText(item.stats?.dashCharges)} · Load ${compactText(item.stats?.maxLoad)}</p>`)}
         </div>`;
       } else if (catalogState.mode === 'organs') {
-        html += `<div class='atlas-meta'>${[item.type, item.mainSlot, item.prototype, ...(item.tags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        html += `<div class='atlas-meta'>${[item.type, item.mainSlot, item.prototype, ...(item.tags || []).slice(0, 6)].map(localizeChip).join('')}</div>`;
         const synergyLinks = (item.synergies || []).map((id) => {
           const synergy = findCatalogItemInMode('synergies', id);
-          return synergy ? { mode: 'synergies', id, label: synergy.name || id } : null;
+          return synergy ? { mode: 'synergies', id, label: localizedItemTitle(synergy, 'synergies') || id } : null;
         });
         const speciesLinks = (catalogState.data.species || [])
           .filter((species) => (species.nativeOrgans || []).some((organ) => organ.id === item.id))
-          .map((species) => ({ mode: 'species', id: species.id, label: species.name || species.id }));
+          .map((species) => ({ mode: 'species', id: species.id, label: localizedItemTitle(species, 'species') || species.id }));
         html += `<div class='atlas-detail-grid'>
-          ${mini('atlas.detail.stats', `<p>HP ${compactText(item.hp)} · Slot ${escapeHtml(compactText(item.mainSlot))} · ${escapeHtml(compactText(item.subSlot))}</p>`)}
+          ${mini('atlas.detail.stats', `<p>HP ${compactText(item.hp)} · Slot ${escapeHtml(localizeTerm(compactText(item.mainSlot)))} · ${escapeHtml(compactText(item.subSlot))}</p>`)}
           ${mini('atlas.detail.synergies', renderAtlasLinks(synergyLinks))}
           ${mini('atlas.detail.nativeSpecies', renderAtlasLinks(speciesLinks))}
         </div>`;
-        if (item.science) html += mini('atlas.detail.tags', `<p>${escapeHtml(item.science)}</p>`);
+        if (item.science) html += mini('atlas.detail.tags', `<p>${escapeHtml(atlasText(`organ.${item.id}.science`, item.science))}</p>`);
       } else if (catalogState.mode === 'synergies') {
-        html += `<div class='atlas-meta'>${[item.category, item.trigger, item.cooldown ? `${item.cooldown}s` : '', ...(item.requiredTags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        html += `<div class='atlas-meta'>${[item.category, item.trigger, item.cooldown ? `${item.cooldown}s` : '', ...(item.requiredTags || []).slice(0, 6)].map(localizeChip).join('')}</div>`;
         const requiredOrganIds = item.requiredOrgans || [];
         const requiredOrganLinks = requiredOrganIds.length
           ? requiredOrganIds.map((id) => {
               const organ = findCatalogItemInMode('organs', id);
-              return organ ? { mode: 'organs', id, label: organ.name || id } : null;
+              return organ ? { mode: 'organs', id, label: localizedItemTitle(organ, 'organs') || id } : null;
             })
           : (item.requiredOrganNames || []).map((name) => {
               const organ = findOrganByName(name);
-              return organ ? { mode: 'organs', id: organ.id, label: organ.name || organ.id } : null;
+              return organ ? { mode: 'organs', id: organ.id, label: localizedItemTitle(organ, 'organs') || organ.id } : null;
             });
         html += `<div class='atlas-detail-grid'>
-          ${mini('atlas.detail.requirements', renderAtlasLinks(requiredOrganLinks, (item.requiredTags || []).join(' / ') || '-'))}
-          ${mini('atlas.detail.effects', `<div class='atlas-meta'>${(item.effectTypes || []).map(chip).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.requirements', renderAtlasLinks(requiredOrganLinks, (item.requiredTags || []).map(localizeTerm).join(' / ') || '-'))}
+          ${mini('atlas.detail.effects', `<div class='atlas-meta'>${(item.effectTypes || []).map(localizeChip).join('') || '-'}</div>`)}
         </div>`;
       } else if (catalogState.mode === 'waves') {
-        html += `<div class='atlas-meta'>${[item.isBoss ? 'Boss' : 'Normal', item.rewardType, `${item.batchCount || 1} batches`, ...(item.clearConditions || [])].map(chip).join('')}</div>`;
+        html += `<div class='atlas-meta'>${[item.isBoss ? 'Boss' : 'Normal', item.rewardType, `${item.batchCount || 1} batches`, ...(item.clearConditions || [])].map(localizeChip).join('')}</div>`;
         html += mini('atlas.detail.pools', `<div class='atlas-detail-grid'>${(item.pools || []).map((pool) => `
           <div class='atlas-mini'>
             <b>Batch ${Number(pool.batch) + 1 || 1}</b>
-            <div class='atlas-meta'>${pool.entries.map((entry) => atlasLink('enemies', entry.enemyId, `${entry.enemyName} x${entry.min}-${entry.max}`)).join('')}</div>
+            <div class='atlas-meta'>${pool.entries.map((entry) => atlasLink('enemies', entry.enemyId, `${localizedIdentifier(entry.enemyId, entry.enemyName)} x${entry.min}-${entry.max}`)).join('')}</div>
           </div>
         `).join('')}</div>`);
       } else if (catalogState.mode === 'enemies') {
-        html += `<div class='atlas-meta'>${[item.role, item.species, item.behavior, ...(item.tags || []).slice(0, 6)].map(chip).join('')}</div>`;
+        html += `<div class='atlas-meta'>${[item.role, item.species, item.behavior, ...(item.tags || []).slice(0, 6)].map(localizeChip).join('')}</div>`;
         const appearanceLinks = (item.appearances || []).map((entry) => ({
           mode: 'waves',
           id: String(entry.wave),
-          label: `W${entry.wave}${entry.boss ? ' Boss' : ''}`
+          label: localizedWaveName({ number: entry.wave, isBoss: entry.boss })
         }));
         const damageOrganLinks = (item.damageOrgans || []).map((organ) => ({
           mode: 'organs',
           id: organ.id,
-          label: organ.name || organ.id
+          label: atlasText(`organ.${organ.id}.name`, organ.name || organ.id)
         }));
         html += `<div class='atlas-detail-grid'>
           ${mini('atlas.detail.stats', `<p>HP ${compactText(item.hp)} · Damage ${compactText(item.damage)} · Range ${compactText(item.attackRange)} · Cooldown ${compactText(item.cooldown)}</p>`)}
           ${mini('atlas.detail.appearances', renderAtlasLinks(appearanceLinks))}
-          ${mini('atlas.detail.weakParts', `<div class='atlas-meta'>${(item.weakParts || []).map(chip).join('') || '-'}</div>`)}
+          ${mini('atlas.detail.weakParts', `<div class='atlas-meta'>${(item.weakParts || []).map(localizeChip).join('') || '-'}</div>`)}
           ${mini('atlas.detail.damageOrgans', renderAtlasLinks(damageOrganLinks))}
         </div>`;
       }
@@ -2890,9 +3044,15 @@
 
     async function initCatalog() {
       try {
-        const response = await fetch('assets/data/game-catalog.json');
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        catalogState.data = await response.json();
+        const [catalogResponse, localeResponse] = await Promise.all([
+          fetch('assets/data/game-catalog.json'),
+          fetch('assets/data/atlas-localization.json')
+        ]);
+        if (!catalogResponse.ok) throw new Error(`HTTP ${catalogResponse.status}`);
+        catalogState.data = await catalogResponse.json();
+        if (localeResponse.ok) {
+          catalogState.localeData = await localeResponse.json();
+        }
         renderCatalog();
       } catch (error) {
         const detail = document.getElementById('atlasDetail');
