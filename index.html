@@ -3770,7 +3770,7 @@
 
     window.addEventListener('hashchange', () => applyCatalogHash({ scroll: true }));
     languageSelect.addEventListener('change', (event) => applyLanguage(event.target.value));
-    applyLanguage(localStorage.getItem('heteroGenesisLanguage') || navigator.language || 'en');
+    applyLanguage(localStorage.getItem('heteroGenesisLanguage') || 'en');
     initCatalog();
   </script>
 </body>
