@@ -1,0 +1,143 @@
+{
+  "version": "v3",
+  "date": "2026-10-14",
+  "source": "Steam refresh-20261011-v3",
+  "trailer_seconds": 100,
+  "source_motion_unchanged": true,
+  "web_encoding": "H.264 CRF26 trailer / CRF25 loops; no speed changes or interpolation",
+  "demo_announcement": "planned 2026-11-06T02:00:00+08:00; not available yet",
+  "files": [
+    {
+      "path": "01-boss-weakpoints.png",
+      "bytes": 3307659
+    },
+    {
+      "path": "02-living-body-combat.png",
+      "bytes": 3408136
+    },
+    {
+      "path": "03-organ-choices-and-synergies.png",
+      "bytes": 1750583
+    },
+    {
+      "path": "04-body-slot-assembly.png",
+      "bytes": 1792518
+    },
+    {
+      "path": "05-synergy-connections.png",
+      "bytes": 1634600
+    },
+    {
+      "path": "06-starting-species.png",
+      "bytes": 2466724
+    },
+    {
+      "path": "07-close-range-pressure.png",
+      "bytes": 2554124
+    },
+    {
+      "path": "08-body-timeline.png",
+      "bytes": 1914165
+    },
+    {
+      "path": "09-evolution-choice.png",
+      "bytes": 2396159
+    },
+    {
+      "path": "demo-atlas.json",
+      "bytes": 44405
+    },
+    {
+      "path": "hg20261011v3_01_three_species.jpg",
+      "bytes": 78652
+    },
+    {
+      "path": "hg20261011v3_01_three_species.mp4",
+      "bytes": 2754862
+    },
+    {
+      "path": "hg20261011v3_02_choose_and_mount.jpg",
+      "bytes": 63554
+    },
+    {
+      "path": "hg20261011v3_02_choose_and_mount.mp4",
+      "bytes": 623452
+    },
+    {
+      "path": "hg20261011v3_03_melee_impacts.jpg",
+      "bytes": 91732
+    },
+    {
+      "path": "hg20261011v3_03_melee_impacts.mp4",
+      "bytes": 2329326
+    },
+    {
+      "path": "hg20261011v3_04_ranged_fire.jpg",
+      "bytes": 90386
+    },
+    {
+      "path": "hg20261011v3_04_ranged_fire.mp4",
+      "bytes": 1642204
+    },
+    {
+      "path": "hg20261011v3_05_soft_suction.jpg",
+      "bytes": 95888
+    },
+    {
+      "path": "hg20261011v3_05_soft_suction.mp4",
+      "bytes": 1389170
+    },
+    {
+      "path": "hg20261011v3_06_fractured_mutation.jpg",
+      "bytes": 88541
+    },
+    {
+      "path": "hg20261011v3_06_fractured_mutation.mp4",
+      "bytes": 1154586
+    },
+    {
+      "path": "hg20261011v3_07_later_waves.jpg",
+      "bytes": 129081
+    },
+    {
+      "path": "hg20261011v3_07_later_waves.mp4",
+      "bytes": 1872046
+    },
+    {
+      "path": "hg20261011v3_08_boss_weakpoints.jpg",
+      "bytes": 114516
+    },
+    {
+      "path": "hg20261011v3_08_boss_weakpoints.mp4",
+      "bytes": 2462811
+    },
+    {
+      "path": "library_hero_3840x1240.jpg",
+      "bytes": 869330
+    },
+    {
+      "path": "library_logo_1280x720.png",
+      "bytes": 43304
+    },
+    {
+      "path": "main_capsule_1232x706.png",
+      "bytes": 1562391
+    },
+    {
+      "path": "media-copy.json",
+      "bytes": 11712
+    },
+    {
+      "path": "store-copy.json",
+      "bytes": 14445
+    },
+    {
+      "path": "trailer-poster.jpg",
+      "bytes": 117815
+    },
+    {
+      "path": "trailer.mp4",
+      "bytes": 45702890
+    }
+  ]
+}

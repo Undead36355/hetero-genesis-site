@@ -1,0 +1,242 @@
+{
+  "english": {
+    "short": "Build a body. Keep it alive. Graft organs onto a deep-sea creature, link their synergies, and adapt when vital parts break. Fight through waves and bosses in this 2D action roguelite, then evolve into a different way to survive.",
+    "intro": "Your build is a living body. Every organ changes how you survive.\n\nHetero-Genesis is a 2D deep-sea action roguelite. Choose a species, graft new organs onto its body, and fight your way through an ocean that keeps pushing back.",
+    "sections": [
+      [
+        "Three species. Three ways to begin.",
+        "Choose an octopus, jellyfish, or sea snake in the demo. Start with a different body, graft new organs, and discover your own way to survive the deep."
+      ],
+      [
+        "Choose an organ. Make it part of you.",
+        "Pick a new organ, then choose where to attach it. Watch it join your body as each choice becomes a visible change to your build."
+      ],
+      [
+        "Hammer blows and piercing strikes",
+        "Make melee organs part of your body. Close in for hammer blows or piercing strikes, and find openings as you move into contact with your enemies."
+      ],
+      [
+        "Launch. Travel. Impact.",
+        "Fire water jets and light projectiles with ranged organs. Follow each shot from your body across the battlefield to its target, and discover another way to fight."
+      ],
+      [
+        "Suction arms that bend and pull",
+        "Watch an octopus’s suction arms flex and stretch as it moves, connects, and pulls. The organs on your body become part of every encounter."
+      ],
+      [
+        "Fractured Mutation: reshape your species",
+        "Choose Fractured Mutation to reshape your body along a new species path. Watch the complete transformation and change how you fight within the same dive."
+      ],
+      [
+        "Survive the pressure of later waves",
+        "Venture into later waves and face enemies attacking from several directions. Move through overlapping attacks and abilities while keeping your changing body alive."
+      ],
+      [
+        "Target the boss’s vulnerable organs",
+        "Confront a deep-sea boss and focus your attacks on its vulnerable organs. Watch its body, choose your target, and look for an opening at close range."
+      ]
+    ],
+    "section_media": [
+      "hg20261011v3_01_three_species",
+      "hg20261011v3_02_choose_and_mount",
+      "hg20261011v3_03_melee_impacts",
+      "hg20261011v3_04_ranged_fire",
+      "hg20261011v3_05_soft_suction",
+      "hg20261011v3_06_fractured_mutation",
+      "hg20261011v3_07_later_waves",
+      "hg20261011v3_08_boss_weakpoints"
+    ]
+  },
+  "schinese": {
+    "short": "你的构筑，是一具活着的身体。《异构进化》是一款 2D 深海动作 Roguelite：嫁接器官、连接协同，在波次战斗与 Boss 挑战中守住关键部位。器官可能受损断裂，演化也会改变身体；每次下潜，都尝试另一种活法。",
+    "intro": "你的构筑，是一具活着的身体。每个器官，都在改变你的活法。\n\n《异构进化》是一款 2D 深海动作 Roguelite。选择物种起点，为身体嫁接新的器官，在不断施压的海洋生态中寻找生路。",
+    "sections": [
+      [
+        "三种物种，三种生存起点",
+        "Demo 可选章鱼、水母与海蛇。从不同的身体出发，嫁接器官，探索属于你的深海生存方式。"
+      ],
+      [
+        "选择器官，接入身体",
+        "挑选新的器官，再决定它在身体上的挂载位置。看着器官接入身体，让每次选择成为看得见的构筑变化。"
+      ],
+      [
+        "贴身交锋，锤击与刺击",
+        "让近战器官成为身体的一部分。贴近敌人，挥出锤击或刺击，在移动与接触中寻找命中的机会。"
+      ],
+      [
+        "发射、飞行、命中",
+        "用远程器官发射水流与光弹。看着弹体离开身体、穿过战场并击中目标，体验不同于贴身交锋的攻击方式。"
+      ],
+      [
+        "会弯曲、会拉扯的吸盘腕",
+        "章鱼的吸盘腕随着运动弯曲、伸展，在接触与拉扯中展现柔软的连接。身体上的器官，也参与着每一次交锋。"
+      ],
+      [
+        "断谱异化，重塑物种",
+        "选择断谱异化，沿新的物种方向重塑身体。见证完整的变形过程，在同一局下潜中改变身体与战斗方向。"
+      ],
+      [
+        "迎接更深处的围攻",
+        "深入后续波次，面对多种敌人的夹击。穿行于交错的攻击与技能效果之间，在压力中守住这具不断变化的身体。"
+      ],
+      [
+        "瞄准 Boss 的器官弱点",
+        "直面深海 Boss，把攻击集中到它的器官弱点。观察目标与身体部位，在近距离交锋中寻找突破口。"
+      ]
+    ],
+    "section_media": [
+      "hg20261011v3_01_three_species",
+      "hg20261011v3_02_choose_and_mount",
+      "hg20261011v3_03_melee_impacts",
+      "hg20261011v3_04_ranged_fire",
+      "hg20261011v3_05_soft_suction",
+      "hg20261011v3_06_fractured_mutation",
+      "hg20261011v3_07_later_waves",
+      "hg20261011v3_08_boss_weakpoints"
+    ]
+  },
+  "tchinese": {
+    "short": "你的構築，是一具活著的身體。《異構進化》是一款 2D 深海動作 Roguelite：嫁接器官、連結協同，在波次戰鬥與 Boss 挑戰中守住關鍵部位。器官可能受損斷裂，演化也會改變身體；每次下潛，都嘗試另一種活法。",
+    "intro": "你的構築，是一具活著的身體。每個器官，都在改變你的活法。\n\n《異構進化》是一款 2D 深海動作 Roguelite。選擇物種起點，為身體嫁接新的器官，在不斷施壓的海洋生態中尋找生路。",
+    "sections": [
+      [
+        "三種物種，三種生存起點",
+        "Demo 可選章魚、水母與海蛇。從不同的身體出發，嫁接器官，探索屬於你的深海生存方式。"
+      ],
+      [
+        "選擇器官，接入身體",
+        "挑選新的器官，再決定它在身體上的掛載位置。看著器官接入身體，讓每次選擇成為看得見的構築變化。"
+      ],
+      [
+        "貼身交鋒，錘擊與刺擊",
+        "讓近戰器官成為身體的一部分。貼近敵人，揮出錘擊或刺擊，在移動與接觸中尋找命中的機會。"
+      ],
+      [
+        "發射、飛行、命中",
+        "用遠程器官發射水流與光彈。看著彈體離開身體、穿過戰場並擊中目標，體驗不同於貼身交鋒的攻擊方式。"
+      ],
+      [
+        "會彎曲、會拉扯的吸盤腕",
+        "章魚的吸盤腕隨著運動彎曲、伸展，在接觸與拉扯中展現柔軟的連接。身體上的器官，也參與著每一次交鋒。"
+      ],
+      [
+        "斷譜異化，重塑物種",
+        "選擇斷譜異化，沿新的物種方向重塑身體。見證完整的變形過程，在同一局下潛中改變身體與戰鬥方向。"
+      ],
+      [
+        "迎接更深處的圍攻",
+        "深入後續波次，面對多種敵人的夾擊。穿行於交錯的攻擊與技能效果之間，在壓力中守住這具不斷變化的身體。"
+      ],
+      [
+        "瞄準 Boss 的器官弱點",
+        "直面深海 Boss，把攻擊集中到牠的器官弱點。觀察目標與身體部位，在近距離交鋒中尋找突破口。"
+      ]
+    ],
+    "section_media": [
+      "hg20261011v3_01_three_species",
+      "hg20261011v3_02_choose_and_mount",
+      "hg20261011v3_03_melee_impacts",
+      "hg20261011v3_04_ranged_fire",
+      "hg20261011v3_05_soft_suction",
+      "hg20261011v3_06_fractured_mutation",
+      "hg20261011v3_07_later_waves",
+      "hg20261011v3_08_boss_weakpoints"
+    ]
+  },
+  "japanese": {
+    "short": "ビルドは、生きた身体そのもの。Hetero-Genesisは、深海生物に器官を移植し、シナジーを組み合わせて戦う2Dアクションローグライトです。器官の損傷や破壊に対応しながら敵の群れとボスを突破し、進化を選び、次の潜航で新たな生存方法を試しましょう。",
+    "intro": "あなたのビルドは、生きた身体。器官ひとつで、生き延び方が変わる。\n\nHetero-Genesisは深海を舞台にした2Dアクションローグライトです。種を選び、身体に新しい器官を移植して、容赦のない海の生態系を生き抜きましょう。",
+    "sections": [
+      [
+        "3つの種から始まる生存戦略",
+        "体験版ではタコ、クラゲ、ウミヘビを選択できます。それぞれの身体に器官を移植し、自分だけの深海での生き方を見つけましょう。"
+      ],
+      [
+        "器官を選び、身体につなぐ",
+        "新しい器官を選び、取り付ける部位を決めましょう。器官が身体につながり、選択のたびにビルドが目に見える形で変わります。"
+      ],
+      [
+        "叩きつけ、突き刺す近接攻撃",
+        "近接攻撃の器官を身体に取り込みましょう。敵に接近して叩きつけ、突き刺す。動きと接触の中で、攻撃を当てる機会を探ります。"
+      ],
+      [
+        "発射から飛翔、命中まで",
+        "遠距離攻撃の器官から水流や光弾を放ちましょう。身体から離れた弾が戦場を横切り、標的に届くまで。近接戦とは異なる攻め方を体験できます。"
+      ],
+      [
+        "しなり、伸び、引き寄せる吸盤の腕",
+        "タコの吸盤の腕は、動きに合わせてしなり、伸びていきます。接触や引っ張り合いの中で、身体につながる器官の柔らかな動きを感じてください。"
+      ],
+      [
+        "断系変異で、新たな種の姿へ",
+        "「断系変異」を選び、別の種へと身体を作り変えましょう。変身の過程を見届け、ひとつの潜航の中で身体も戦い方も変えていきます。"
+      ],
+      [
+        "深まる波状攻撃を生き抜く",
+        "先のウェーブへ進むほど、多彩な敵がさまざまな方向から迫ります。重なり合う攻撃や能力の間を動き、変化し続ける身体を守り抜きましょう。"
+      ],
+      [
+        "ボスの弱点となる器官を狙う",
+        "深海のボスに挑み、弱点となる器官に攻撃を集中させましょう。身体の各部位を観察し、近距離での攻防から突破口を探ります。"
+      ]
+    ],
+    "section_media": [
+      "hg20261011v3_01_three_species",
+      "hg20261011v3_02_choose_and_mount",
+      "hg20261011v3_03_melee_impacts",
+      "hg20261011v3_04_ranged_fire",
+      "hg20261011v3_05_soft_suction",
+      "hg20261011v3_06_fractured_mutation",
+      "hg20261011v3_07_later_waves",
+      "hg20261011v3_08_boss_weakpoints"
+    ]
+  },
+  "koreana": {
+    "short": "당신의 빌드는 살아 있는 몸입니다. Hetero-Genesis는 심해 생물에게 기관을 이식하고 시너지를 연결하는 2D 액션 로그라이트입니다. 기관의 손상과 파괴에 대응하며 적 무리와 보스를 돌파하세요. 진화를 선택하고, 다음 잠수에서는 새로운 생존 방식을 시험하세요.",
+    "intro": "당신의 빌드는 살아 있는 몸입니다. 기관 하나가 생존 방식을 바꿉니다.\n\nHetero-Genesis는 심해를 배경으로 하는 2D 액션 로그라이트입니다. 시작 종을 선택하고 새로운 기관을 이식하여 끊임없이 압박해 오는 해양 생태계에서 살아남으세요.",
+    "sections": [
+      [
+        "세 가지 종, 세 가지 생존의 시작",
+        "데모에서는 문어, 해파리, 바다뱀을 선택할 수 있습니다. 서로 다른 몸에 새로운 기관을 이식하며 나만의 심해 생존 방식을 찾아보세요."
+      ],
+      [
+        "기관을 고르고 몸에 연결하세요",
+        "새로운 기관을 고른 뒤 장착할 부위를 결정하세요. 기관이 몸에 연결되는 모습을 지켜보며, 선택할 때마다 눈에 보이게 달라지는 빌드를 만들어 보세요."
+      ],
+      [
+        "내려치고 찌르는 근접 공격",
+        "근접 공격 기관을 몸의 일부로 만드세요. 적에게 다가가 내려치거나 찌르며, 이동과 접촉 속에서 공격을 맞힐 기회를 찾아보세요."
+      ],
+      [
+        "발사부터 비행, 명중까지",
+        "원거리 기관으로 물줄기와 빛 탄환을 발사하세요. 몸에서 출발한 탄환이 전장을 가로질러 목표에 명중하는 과정을 따라가며 새로운 공격 방식을 경험하세요."
+      ],
+      [
+        "휘어지고 늘어나며 당기는 흡반 팔",
+        "문어의 흡반 팔이 움직임에 따라 휘어지고 늘어납니다. 접촉하고 당기는 순간마다 몸에 연결된 기관의 유연한 움직임을 확인하세요."
+      ],
+      [
+        "계통 단절 변이로 새로운 종의 모습으로",
+        "계통 단절 변이를 선택해 새로운 종으로 몸을 바꿔 보세요. 변신의 모든 과정을 지켜보고 한 번의 잠수 안에서 몸과 전투 방식을 변화시키세요."
+      ],
+      [
+        "후반 웨이브의 포위를 견뎌 내세요",
+        "후반 웨이브로 나아가 여러 방향에서 몰려오는 적들을 상대하세요. 겹쳐지는 공격과 능력 사이를 누비며 끊임없이 변하는 몸을 지켜 내세요."
+      ],
+      [
+        "보스의 약점 기관을 노리세요",
+        "심해의 보스와 맞서 약점 기관에 공격을 집중하세요. 몸의 각 부위를 살피고 목표를 정해 근접전 속에서 돌파구를 찾아보세요."
+      ]
+    ],
+    "section_media": [
+      "hg20261011v3_01_three_species",
+      "hg20261011v3_02_choose_and_mount",
+      "hg20261011v3_03_melee_impacts",
+      "hg20261011v3_04_ranged_fire",
+      "hg20261011v3_05_soft_suction",
+      "hg20261011v3_06_fractured_mutation",
+      "hg20261011v3_07_later_waves",
+      "hg20261011v3_08_boss_weakpoints"
+    ]
+  }
+}

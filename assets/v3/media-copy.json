@@ -1,0 +1,210 @@
+[
+  {
+    "id": "01",
+    "media": "hg20261011v3_01_three_species",
+    "localizations": {
+      "schinese": {
+        "title": "三种物种，三种生存起点",
+        "description": "Demo 可选章鱼、水母与海蛇。从不同的身体出发，嫁接器官，探索属于你的深海生存方式。"
+      },
+      "tchinese": {
+        "title": "三種物種，三種生存起點",
+        "description": "Demo 可選章魚、水母與海蛇。從不同的身體出發，嫁接器官，探索屬於你的深海生存方式。"
+      },
+      "english": {
+        "title": "Three species. Three ways to begin.",
+        "description": "Choose an octopus, jellyfish, or sea snake in the demo. Start with a different body, graft new organs, and discover your own way to survive the deep."
+      },
+      "japanese": {
+        "title": "3つの種から始まる生存戦略",
+        "description": "体験版ではタコ、クラゲ、ウミヘビを選択できます。それぞれの身体に器官を移植し、自分だけの深海での生き方を見つけましょう。"
+      },
+      "koreana": {
+        "title": "세 가지 종, 세 가지 생존의 시작",
+        "description": "데모에서는 문어, 해파리, 바다뱀을 선택할 수 있습니다. 서로 다른 몸에 새로운 기관을 이식하며 나만의 심해 생존 방식을 찾아보세요."
+      }
+    }
+  },
+  {
+    "id": "02",
+    "media": "hg20261011v3_02_choose_and_mount",
+    "localizations": {
+      "schinese": {
+        "title": "选择器官，接入身体",
+        "description": "挑选新的器官，再决定它在身体上的挂载位置。看着器官接入身体，让每次选择成为看得见的构筑变化。"
+      },
+      "tchinese": {
+        "title": "選擇器官，接入身體",
+        "description": "挑選新的器官，再決定它在身體上的掛載位置。看著器官接入身體，讓每次選擇成為看得見的構築變化。"
+      },
+      "english": {
+        "title": "Choose an organ. Make it part of you.",
+        "description": "Pick a new organ, then choose where to attach it. Watch it join your body as each choice becomes a visible change to your build."
+      },
+      "japanese": {
+        "title": "器官を選び、身体につなぐ",
+        "description": "新しい器官を選び、取り付ける部位を決めましょう。器官が身体につながり、選択のたびにビルドが目に見える形で変わります。"
+      },
+      "koreana": {
+        "title": "기관을 고르고 몸에 연결하세요",
+        "description": "새로운 기관을 고른 뒤 장착할 부위를 결정하세요. 기관이 몸에 연결되는 모습을 지켜보며, 선택할 때마다 눈에 보이게 달라지는 빌드를 만들어 보세요."
+      }
+    }
+  },
+  {
+    "id": "03",
+    "media": "hg20261011v3_03_melee_impacts",
+    "localizations": {
+      "schinese": {
+        "title": "贴身交锋，锤击与刺击",
+        "description": "让近战器官成为身体的一部分。贴近敌人，挥出锤击或刺击，在移动与接触中寻找命中的机会。"
+      },
+      "tchinese": {
+        "title": "貼身交鋒，錘擊與刺擊",
+        "description": "讓近戰器官成為身體的一部分。貼近敵人，揮出錘擊或刺擊，在移動與接觸中尋找命中的機會。"
+      },
+      "english": {
+        "title": "Hammer blows and piercing strikes",
+        "description": "Make melee organs part of your body. Close in for hammer blows or piercing strikes, and find openings as you move into contact with your enemies."
+      },
+      "japanese": {
+        "title": "叩きつけ、突き刺す近接攻撃",
+        "description": "近接攻撃の器官を身体に取り込みましょう。敵に接近して叩きつけ、突き刺す。動きと接触の中で、攻撃を当てる機会を探ります。"
+      },
+      "koreana": {
+        "title": "내려치고 찌르는 근접 공격",
+        "description": "근접 공격 기관을 몸의 일부로 만드세요. 적에게 다가가 내려치거나 찌르며, 이동과 접촉 속에서 공격을 맞힐 기회를 찾아보세요."
+      }
+    }
+  },
+  {
+    "id": "04",
+    "media": "hg20261011v3_04_ranged_fire",
+    "localizations": {
+      "schinese": {
+        "title": "发射、飞行、命中",
+        "description": "用远程器官发射水流与光弹。看着弹体离开身体、穿过战场并击中目标，体验不同于贴身交锋的攻击方式。"
+      },
+      "tchinese": {
+        "title": "發射、飛行、命中",
+        "description": "用遠程器官發射水流與光彈。看著彈體離開身體、穿過戰場並擊中目標，體驗不同於貼身交鋒的攻擊方式。"
+      },
+      "english": {
+        "title": "Launch. Travel. Impact.",
+        "description": "Fire water jets and light projectiles with ranged organs. Follow each shot from your body across the battlefield to its target, and discover another way to fight."
+      },
+      "japanese": {
+        "title": "発射から飛翔、命中まで",
+        "description": "遠距離攻撃の器官から水流や光弾を放ちましょう。身体から離れた弾が戦場を横切り、標的に届くまで。近接戦とは異なる攻め方を体験できます。"
+      },
+      "koreana": {
+        "title": "발사부터 비행, 명중까지",
+        "description": "원거리 기관으로 물줄기와 빛 탄환을 발사하세요. 몸에서 출발한 탄환이 전장을 가로질러 목표에 명중하는 과정을 따라가며 새로운 공격 방식을 경험하세요."
+      }
+    }
+  },
+  {
+    "id": "05",
+    "media": "hg20261011v3_05_soft_suction",
+    "localizations": {
+      "schinese": {
+        "title": "会弯曲、会拉扯的吸盘腕",
+        "description": "章鱼的吸盘腕随着运动弯曲、伸展，在接触与拉扯中展现柔软的连接。身体上的器官，也参与着每一次交锋。"
+      },
+      "tchinese": {
+        "title": "會彎曲、會拉扯的吸盤腕",
+        "description": "章魚的吸盤腕隨著運動彎曲、伸展，在接觸與拉扯中展現柔軟的連接。身體上的器官，也參與著每一次交鋒。"
+      },
+      "english": {
+        "title": "Suction arms that bend and pull",
+        "description": "Watch an octopus’s suction arms flex and stretch as it moves, connects, and pulls. The organs on your body become part of every encounter."
+      },
+      "japanese": {
+        "title": "しなり、伸び、引き寄せる吸盤の腕",
+        "description": "タコの吸盤の腕は、動きに合わせてしなり、伸びていきます。接触や引っ張り合いの中で、身体につながる器官の柔らかな動きを感じてください。"
+      },
+      "koreana": {
+        "title": "휘어지고 늘어나며 당기는 흡반 팔",
+        "description": "문어의 흡반 팔이 움직임에 따라 휘어지고 늘어납니다. 접촉하고 당기는 순간마다 몸에 연결된 기관의 유연한 움직임을 확인하세요."
+      }
+    }
+  },
+  {
+    "id": "06",
+    "media": "hg20261011v3_06_fractured_mutation",
+    "localizations": {
+      "schinese": {
+        "title": "断谱异化，重塑物种",
+        "description": "选择断谱异化，沿新的物种方向重塑身体。见证完整的变形过程，在同一局下潜中改变身体与战斗方向。"
+      },
+      "tchinese": {
+        "title": "斷譜異化，重塑物種",
+        "description": "選擇斷譜異化，沿新的物種方向重塑身體。見證完整的變形過程，在同一局下潛中改變身體與戰鬥方向。"
+      },
+      "english": {
+        "title": "Fractured Mutation: reshape your species",
+        "description": "Choose Fractured Mutation to reshape your body along a new species path. Watch the complete transformation and change how you fight within the same dive."
+      },
+      "japanese": {
+        "title": "断系変異で、新たな種の姿へ",
+        "description": "「断系変異」を選び、別の種へと身体を作り変えましょう。変身の過程を見届け、ひとつの潜航の中で身体も戦い方も変えていきます。"
+      },
+      "koreana": {
+        "title": "계통 단절 변이로 새로운 종의 모습으로",
+        "description": "계통 단절 변이를 선택해 새로운 종으로 몸을 바꿔 보세요. 변신의 모든 과정을 지켜보고 한 번의 잠수 안에서 몸과 전투 방식을 변화시키세요."
+      }
+    }
+  },
+  {
+    "id": "07",
+    "media": "hg20261011v3_07_later_waves",
+    "localizations": {
+      "schinese": {
+        "title": "迎接更深处的围攻",
+        "description": "深入后续波次，面对多种敌人的夹击。穿行于交错的攻击与技能效果之间，在压力中守住这具不断变化的身体。"
+      },
+      "tchinese": {
+        "title": "迎接更深處的圍攻",
+        "description": "深入後續波次，面對多種敵人的夾擊。穿行於交錯的攻擊與技能效果之間，在壓力中守住這具不斷變化的身體。"
+      },
+      "english": {
+        "title": "Survive the pressure of later waves",
+        "description": "Venture into later waves and face enemies attacking from several directions. Move through overlapping attacks and abilities while keeping your changing body alive."
+      },
+      "japanese": {
+        "title": "深まる波状攻撃を生き抜く",
+        "description": "先のウェーブへ進むほど、多彩な敵がさまざまな方向から迫ります。重なり合う攻撃や能力の間を動き、変化し続ける身体を守り抜きましょう。"
+      },
+      "koreana": {
+        "title": "후반 웨이브의 포위를 견뎌 내세요",
+        "description": "후반 웨이브로 나아가 여러 방향에서 몰려오는 적들을 상대하세요. 겹쳐지는 공격과 능력 사이를 누비며 끊임없이 변하는 몸을 지켜 내세요."
+      }
+    }
+  },
+  {
+    "id": "08",
+    "media": "hg20261011v3_08_boss_weakpoints",
+    "localizations": {
+      "schinese": {
+        "title": "瞄准 Boss 的器官弱点",
+        "description": "直面深海 Boss，把攻击集中到它的器官弱点。观察目标与身体部位，在近距离交锋中寻找突破口。"
+      },
+      "tchinese": {
+        "title": "瞄準 Boss 的器官弱點",
+        "description": "直面深海 Boss，把攻擊集中到牠的器官弱點。觀察目標與身體部位，在近距離交鋒中尋找突破口。"
+      },
+      "english": {
+        "title": "Target the boss’s vulnerable organs",
+        "description": "Confront a deep-sea boss and focus your attacks on its vulnerable organs. Watch its body, choose your target, and look for an opening at close range."
+      },
+      "japanese": {
+        "title": "ボスの弱点となる器官を狙う",
+        "description": "深海のボスに挑み、弱点となる器官に攻撃を集中させましょう。身体の各部位を観察し、近距離での攻防から突破口を探ります。"
+      },
+      "koreana": {
+        "title": "보스의 약점 기관을 노리세요",
+        "description": "심해의 보스와 맞서 약점 기관에 공격을 집중하세요. 몸의 각 부위를 살피고 목표를 정해 근접전 속에서 돌파구를 찾아보세요."
+      }
+    }
+  }
+]
