@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://undead36355.github.io/hetero-genesis-site/sitemap.xml
+Sitemap: https://tianyangstudio.cn/sitemap.xml

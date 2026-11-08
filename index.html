@@ -1,22 +1,201 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en" data-lang="en" data-title-en="Tianyang Studio — Independent game studio" data-title-zh="天阳工作室 — 独立游戏工作室" data-desc-en="Tianyang Studio is the independent studio behind Hetero-Genesis and Hetero-Genesis 2: deep-sea worlds, living bodies, and systems you can see." data-desc-zh="天阳工作室是《异构进化》与《异构进化 2》的独立游戏工作室，专注深海世界、活体构筑与看得见的系统。">
+<head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hetero-Genesis — Build a body. Keep it alive.</title>
-<meta name="description" content="Graft organs onto a deep-sea creature, survive waves and bosses, and evolve your living build. Discover Hetero-Genesis, a 2D action roguelite.">
-<link rel="canonical" href="https://undead36355.github.io/hetero-genesis-site/"><link rel="icon" href="assets/img/app-icon-180.png">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Hetero-Genesis"><meta property="og:title" content="Hetero-Genesis — Build a body. Keep it alive."><meta property="og:description" content="A living body. An ocean that fights back. Discover a 2D deep-sea action roguelite."><meta property="og:url" content="https://undead36355.github.io/hetero-genesis-site/"><meta property="og:image" content="https://undead36355.github.io/hetero-genesis-site/assets/v3/main_capsule_1232x706.png">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TianyangStudio"><meta name="twitter:title" content="Hetero-Genesis — Build a body. Keep it alive."><meta name="twitter:description" content="Graft organs, survive the deep, and evolve the body you build."><meta name="twitter:image" content="https://undead36355.github.io/hetero-genesis-site/assets/v3/main_capsule_1232x706.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Hetero-Genesis","alternateName":"异构进化","description":"A 2D deep-sea action roguelite about grafting organs, surviving waves and bosses, and evolving a living body.","gamePlatform":"PC (Windows)","playMode":"SinglePlayer","genre":["Action Roguelite","Indie"],"inLanguage":["en","zh-CN","zh-TW","ja","ko"],"author":{"@type":"Organization","name":"Tianyang Studio"},"url":"https://store.steampowered.com/app/5014650/"}</script>
-<link rel="stylesheet" href="assets/site.css"><script defer src="assets/site.js"></script></head>
-<body><a class="skip" href="#main" data-text="skip">Skip to content</a>
-<header><a class="brand" href="#home">HETERO<span>—</span>GENESIS<small>TIANYANG STUDIO</small></a><nav aria-label="Main navigation"><a href="#trailer" data-text="trailerNav">Trailer</a><a href="#features" data-text="featuresNav">Gameplay</a><a href="#demo" data-text="demoNav">Demo</a><a href="#gallery" data-text="galleryNav">Screenshots</a></nav><label class="language"><span class="sr-only" data-text="language">Language</span><select id="language" aria-label="Language"><option value="english">English</option><option value="schinese">简体中文</option><option value="tchinese">繁體中文</option><option value="japanese">日本語</option><option value="koreana">한국어</option></select></label></header>
+<title>Tianyang Studio — Independent game studio</title>
+<meta name="description" content="Tianyang Studio is the independent studio behind Hetero-Genesis and Hetero-Genesis 2: deep-sea worlds, living bodies, and systems you can see.">
+<link rel="canonical" href="https://tianyangstudio.cn/">
+<link rel="icon" href="assets/img/app-icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tianyang Studio">
+<meta property="og:title" content="Tianyang Studio — Living worlds, made by hand">
+<meta property="og:description" content="The independent studio behind Hetero-Genesis and Hetero-Genesis 2.">
+<meta property="og:url" content="https://tianyangstudio.cn/">
+<meta property="og:image" content="https://tianyangstudio.cn/assets/v3/library_hero_3840x1240.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TianyangStudio">
+<meta name="twitter:title" content="Tianyang Studio — Living worlds, made by hand">
+<meta name="twitter:description" content="The independent studio behind Hetero-Genesis and Hetero-Genesis 2.">
+<meta name="twitter:image" content="https://tianyangstudio.cn/assets/v3/library_hero_3840x1240.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Tianyang Studio","alternateName":"天阳工作室","url":"https://tianyangstudio.cn/","email":"qianxi36355@gmail.com","sameAs":["https://x.com/TianyangStudio"],"owns":{"@type":"VideoGame","name":"Hetero-Genesis","url":"https://store.steampowered.com/app/5014650/"}}</script>
+<script>document.documentElement.classList.add('js');try{var s=localStorage.getItem('tys-language');document.documentElement.dataset.lang=(s==='zh'||s==='en')?s:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');}catch(e){document.documentElement.dataset.lang='en';}</script>
+<link rel="stylesheet" href="assets/studio/studio.css"><script defer src="assets/studio/studio.js"></script><script defer src="assets/studio/glass.js"></script>
+</head>
+<body data-page="studio">
+<div class="page-veil" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+<div class="cursor-lamp" aria-hidden="true"></div>
+<div class="section-wash" aria-hidden="true"><i></i><i></i></div>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="zh">跳到正文</span></a>
+
+<header class="site-header">
+  <a class="wordmark" href="./"><i aria-hidden="true"></i><b>TIANYANG</b> STUDIO</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#works"><span class="en">Works</span><span class="zh">作品</span></a>
+    <a href="#studio"><span class="en">Studio</span><span class="zh">工作室</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="zh">联系</span></a>
+  </nav>
+  <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch to Chinese"><span class="en">中文</span><span class="zh">EN</span></button>
+</header>
+
+<nav class="section-rail" aria-label="Section index">
+  <a href="#works" data-rail="works"><span class="num">01</span><span class="sr-only"><span class="en">Works</span><span class="zh">作品</span></span></a>
+  <a href="#studio" data-rail="studio"><span class="num">02</span><span class="sr-only"><span class="en">Studio</span><span class="zh">工作室</span></span></a>
+  <a href="#contact" data-rail="contact"><span class="num">03</span><span class="sr-only"><span class="en">Contact</span><span class="zh">联系</span></span></a>
+</nav>
+
 <main id="main">
-<section class="hero" id="home"><div class="hero-copy"><p class="eyebrow" data-text="genre">2D DEEP-SEA ACTION ROGUELITE</p><h1 data-text="hero">Build a body.<br>Keep it alive.</h1><p class="hero-description" id="short">Graft organs onto a deep-sea creature. Fight through waves and bosses. Evolve into a different way to survive.</p><div class="actions"><a class="button" data-steam="hero" href="https://store.steampowered.com/app/5014650/" target="_blank" rel="noopener" data-text="wishlist">Wishlist on Steam ↗</a><a class="text-link" href="#trailer" data-text="watch">Watch the trailer ↓</a></div><p class="platform" data-text="platform">PC · Windows · Single-player</p></div><div class="hero-art"><img src="assets/v3/main_capsule_1232x706.png" width="1232" height="706" alt="Hetero-Genesis key art: a copper-red octopus and grafted organs in a blue ocean" fetchpriority="high"></div><div class="hero-bottom"><span data-text="heroFoot">YOUR BUILD IS A LIVING BODY.</span><span>01 / INTO THE DEEP</span></div></section>
-<section class="trailer-section wrap" id="trailer"><div class="section-heading"><div><p class="eyebrow" data-text="trailerKicker">SEE IT IN MOTION</p><h2 data-text="trailerTitle">One body. Many ways to fight.</h2></div><p class="section-summary" data-text="trailerSummary">Melee impacts, ranged fire, organ grafting and transformation — captured from the PC version.</p></div><div class="trailer-frame"><video id="trailerVideo" controls playsinline preload="none" poster="assets/v3/trailer-poster.jpg" aria-label="Hetero-Genesis gameplay trailer"><source src="assets/v3/trailer.mp4" type="video/mp4"></video></div><div class="media-caption"><span data-text="trailerLabel">GAMEPLAY TRAILER · 1:40</span><span data-text="mediaNote">Footage shows the PC game. The demo offers a curated selection of its content.</span></div></section>
-<section class="features-section" id="features"><div class="wrap"><div class="section-heading"><div><p class="eyebrow" data-text="featuresKicker">GRAFT / FIGHT / EVOLVE</p><h2 data-text="featuresTitle">Every organ changes the next fight.</h2></div><p id="intro" class="section-summary"></p></div><div id="featuresGrid" class="features-grid"></div></div></section>
-<section class="demo-section wrap" id="demo"><div class="demo-intro"><p class="eyebrow" data-text="demoKicker">YOUR FIRST DIVE</p><h2 data-text="demoTitle">A complete dive.<br>A body of your own.</h2><p data-text="demoDescription">Start as an octopus, jellyfish or sea snake. Graft organs, survive ten waves and discover new ways to evolve. Unlock a hermit crab for your next dive.</p><div class="demo-date"><span class="status-dot"></span><span data-text="demoDate">Demo planned for November 5, 2026 · 10 AM PST</span></div><p class="subtle" data-text="demoStatus">In preparation. The demo is not publicly playable yet.</p><a class="button" data-steam="demo" href="https://store.steampowered.com/app/5014650/" target="_blank" rel="noopener" data-text="demoCta">Wishlist for the next dive ↗</a></div><div class="demo-details"><div class="demo-numbers"><div><strong>10</strong><span data-text="waves">waves per dive</span></div><div><strong>38</strong><span data-text="organs">graftable organs</span></div><div><strong>18</strong><span data-text="synergies">organ synergies</span></div><div><strong>3 + 1</strong><span data-text="species">starting species + unlock</span></div></div><ul class="demo-list"><li data-text="demoLine1">Three bosses and choices that reshape your body.</li><li data-text="demoLine2">A0 difficulty, with A1 unlocked after a successful dive.</li><li data-text="demoLine3">Three unlockable contracts. No playtime countdown.</li><li data-text="demoLine4">English, Simplified Chinese, Traditional Chinese, Japanese and Korean.</li></ul><p class="subtle" data-text="demoScope">These are the planned demo contents. The full game offers a wider range of builds.</p></div></section>
-<section class="gallery-section" id="gallery"><div class="wrap"><div class="section-heading"><div><p class="eyebrow" data-text="galleryKicker">FROM THE DEEP</p><h2 data-text="galleryTitle">Meet the ocean that fights back.</h2></div><p class="section-summary" data-text="gallerySummary">Combat, organ choices, body assembly and evolution. Select a frame to see it up close.</p></div><div class="gallery-stage"><button id="galleryOpen" class="image-button" type="button"><img id="galleryImage" src="assets/v3/01-boss-weakpoints.png" width="1920" height="1080" loading="lazy" alt="Boss weakpoints in combat"></button><div class="gallery-caption"><span id="galleryTitle"></span><span id="galleryIndex">01 / 09</span></div></div><div id="galleryThumbs" class="gallery-thumbs" aria-label="Screenshot selection"></div></div></section>
-<section class="atlas-section wrap" id="atlas"><details id="atlasDisclosure"><summary><span><span class="eyebrow" data-text="atlasKicker">PLAN YOUR NEXT BODY</span><span class="details-title" data-text="atlasTitle">Explore demo species, organs and synergies</span></span><span class="plus" aria-hidden="true">+</span></summary><div class="atlas-content"><p class="subtle" data-text="atlasNote">A selection of demo builds. Descriptions are a guide; balance may change during development.</p><div class="atlas-controls"><label><span class="sr-only" data-text="category">Category</span><select id="atlasCategory"><option value="species" data-text="atlasSpecies">Species</option><option value="organs" data-text="atlasOrgans">Organs</option><option value="synergies" data-text="atlasSynergies">Synergies</option></select></label><label class="search"><span class="sr-only" data-text="search">Search</span><input id="atlasSearch" type="search" placeholder="Search" aria-label="Search atlas"></label><span id="atlasCount" class="subtle" aria-live="polite"></span></div><div class="atlas-layout"><div id="atlasList" class="atlas-list"></div><article id="atlasDetail" class="atlas-detail"></article></div></div></details></section>
-<section class="contact-section wrap" id="contact"><div><p class="eyebrow">TIANYANG STUDIO</p><h2 data-text="contactTitle">Bring your strange builds back.</h2><p data-text="contactDescription">Share a build, tell us where your dive went wrong, or get in touch about covering the game.</p></div><div class="contact-links"><a href="https://steamcommunity.com/app/5014650/discussions/" target="_blank" rel="noopener" data-text="community">Steam community ↗</a><a href="mailto:qianxi36355@gmail.com" data-text="email">Feedback & press enquiries ↗</a><a href="https://x.com/TianyangStudio" target="_blank" rel="noopener">X · @TianyangStudio ↗</a></div></section>
-<section class="final-cta"><div class="wrap"><p class="eyebrow" data-text="finalKicker">THE NEXT DIVE STARTS WITH A CHOICE.</p><h2 data-text="finalTitle">What will your body become?</h2><a class="button" data-steam="footer" href="https://store.steampowered.com/app/5014650/" target="_blank" rel="noopener" data-text="wishlist">Wishlist on Steam ↗</a></div></section>
-</main><footer class="wrap"><span>© 2026 Tianyang Studio · Hetero-Genesis / 异构进化</span><a href="https://undead36355.github.io/hetero-genesis-privacy-policy/" target="_blank" rel="noopener" data-text="privacy">Privacy policy</a></footer><dialog id="lightbox"><button id="lightboxClose" class="close" type="button" aria-label="Close">×</button><img id="lightboxImage" alt=""><p id="lightboxCaption"></p></dialog><p id="loadError" class="load-error" hidden role="status">Some content could not load. Please refresh, or visit our Steam page.</p><noscript><div class="wrap"><p>Watch Hetero-Genesis on <a href="https://store.steampowered.com/app/5014650/">Steam</a>. Enable JavaScript to switch languages and explore gameplay clips.</p></div></noscript></body></html>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="overline"><span class="en">Independent game studio</span><span class="zh">独立游戏工作室</span></p>
+        <h1><span class="en">Living worlds,<br>made by hand.</span><span class="zh">会呼吸的世界，<br>由我们亲手造。</span></h1>
+        <p class="lede"><span class="en">We are Tianyang Studio. We build deep-sea ecologies, living bodies, and the systems that hold them together — then hand them to players to take apart.</span><span class="zh">我们是天阳工作室。我们制作深海生态、活体身体，以及支撑它们运转的系统——然后交到玩家手里，任由拆解与重组。</span></p>
+        <div class="hero-meta">
+          <span><span class="en"><b>2</b> works · <b>1</b> released</span><span class="zh"><b>2</b> 部作品 · <b>1</b> 部已上线</span></span>
+          <span><span class="en">Bodies &amp; oceans</span><span class="zh">身体与海洋</span></span>
+          <span><span class="en">PC (Windows)</span><span class="zh">PC（Windows）</span></span>
+        </div>
+      </div>
+      <div class="hero-plates">
+        <figure class="plate plate--hg1">
+          <img src="assets/v3/main_capsule_1232x706.png" width="1232" height="706" alt="Hetero-Genesis key art" fetchpriority="high">
+          <figcaption><span>01 — HETERO-GENESIS</span><span class="tag"><span class="en">Released</span><span class="zh">已上线</span></span></figcaption>
+        </figure>
+        <figure class="plate plate--hg2">
+          <img src="assets/hg2/hero-ocean.jpg" width="1600" height="900" alt="Hetero-Genesis 2 current ocean build">
+          <figcaption><span>02 — HETERO-GENESIS 2</span><span class="tag"><span class="en">In development</span><span class="zh">开发中</span></span></figcaption>
+        </figure>
+      </div>
+      <div class="hero-cue" aria-hidden="true">
+        <span class="rule"><i></i></span>
+        <span><span class="en">Scroll · index</span><span class="zh">向下 · 作品索引</span></span>
+      </div>
+    </section>
+  </div>
+
+  <section class="section" id="works">
+    <div class="wrap">
+      <div class="section-head">
+        <div data-reveal>
+          <p class="kicker"><span class="num">01</span><span class="en">Selected works</span><span class="zh">作品</span></p>
+          <h2><span class="en">Two worlds, both alive.</span><span class="zh">两个世界，都在生长。</span></h2>
+        </div>
+        <p data-reveal style="--reveal-delay:120ms"><span class="en">One released, one in development. Each game keeps its own visual language and its own way of being played.</span><span class="zh">一部已上线，一部仍在开发。每款作品保留自己的视觉语言，也保留自己的玩法节奏。</span></p>
+      </div>
+
+      <div class="works">
+        <article class="work work--hg1" data-reveal>
+          <div class="work-copy">
+            <p class="status"><span class="idx">01</span><i aria-hidden="true"></i><span class="en">Released · Steam</span><span class="zh">已上线 · Steam</span></p>
+            <h3><a class="work-title" href="hetero-genesis.html">Hetero-Genesis</a></h3>
+            <p class="subtitle"><span class="en">2D deep-sea action roguelite</span><span class="zh">2D 深海动作 Roguelite</span></p>
+            <p class="desc"><span class="en">Graft organs onto a deep-sea creature, survive waves and bosses, and evolve a body that keeps changing how you fight.</span><span class="zh">把器官嫁接到一具深海生物身上，在波次与 Boss 之间活下来，让身体不断改变你战斗的方式。</span></p>
+            <div class="work-meta">
+              <span>PC · Windows</span>
+              <span><span class="en">Steam · Released</span><span class="zh">Steam · 已上线</span></span>
+              <span><span class="en">5 languages</span><span class="zh">5 种语言</span></span>
+            </div>
+            <a class="work-link" href="hetero-genesis.html"><span class="en">Enter the game page</span><span class="zh">进入作品页</span> <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="work-visual">
+            <div class="frame"><a class="work-image-link" href="hetero-genesis.html" aria-label="Open the Hetero-Genesis page"><img src="assets/v3/hg20261011v3_01_three_species.jpg" width="1232" height="692" alt="Hetero-Genesis gameplay: three starting species" loading="lazy"></a></div>
+            <div class="caption"><span><span class="en">In-game · three species</span><span class="zh">实机画面 · 三种起手物种</span></span><span>01 / 02</span></div>
+          </div>
+        </article>
+
+        <article class="work work--flip" data-reveal>
+          <div class="work-copy">
+            <p class="status status--dev"><span class="idx">02</span><i aria-hidden="true"></i><span class="en">In development</span><span class="zh">开发中</span></p>
+            <h3><a class="work-title" href="hg2.html">Hetero-Genesis 2</a></h3>
+            <p class="subtitle"><span class="en">2D top-down ocean exploration</span><span class="zh">2D 俯视横屏海域探索</span></p>
+            <p class="desc"><span class="en">A body you draw yourself. Organs, pipes and supply networks that all have to work together — then a species to carry across the ocean.</span><span class="zh">一具由你亲手绘制的身体。器官、管道与供给网络必须真正协同工作，然后带着一个物种穿越整片海域。</span></p>
+            <ul class="dev-timeline" aria-label="Recent development milestones">
+              <li><time datetime="2026-11-03">2026-11-03</time><span><span class="en">Six base body forms wired into the player flow.</span><span class="zh">六类基础形态接入正式玩家链路。</span></span></li>
+              <li><time datetime="2026-11-06">2026-11-06</time><span><span class="en">Three ocean basins lit as one material system.</span><span class="zh">三海域结构光照与材质分层。</span></span></li>
+              <li><time datetime="2026-11-07">2026-11-07</time><span><span class="en">Staged dive loading, motion interpolation, attachment fixes.</span><span class="zh">海域加载页、移动插值与装配修复。</span></span></li>
+              <li><time datetime="2026-11-08">2026-11-08</time><span><span class="en">Direct contour editing, shared controls, collapsible panels.</span><span class="zh">轮廓直接编辑、统一控件与可折叠侧栏。</span></span></li>
+            </ul>
+            <div class="work-meta">
+              <span>PC · Windows</span>
+              <span><span class="en">Playable prototype</span><span class="zh">可运行样片</span></span>
+              <span>Unity 2022.3</span>
+            </div>
+            <a class="work-link" href="hg2.html"><span class="en">Open the development page</span><span class="zh">查看开发进度</span> <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="work-visual" data-shots>
+            <div class="frame shot-main"><a class="shot-main-link" href="hg2.html" aria-label="Open the Hetero-Genesis 2 development page"><img data-shot-main src="assets/hg2/hero-ocean.jpg" width="1600" height="900" alt="Hetero-Genesis 2 current ocean build" loading="lazy"></a></div>
+            <div class="shot-strip">
+              <button type="button" data-shot="assets/hg2/hero-ocean.jpg" aria-pressed="true" aria-label="Show the shallow bay"><img src="assets/hg2/hero-ocean.jpg" width="1600" height="900" alt="Shallow bay" loading="lazy"></button>
+              <button type="button" data-shot="assets/hg2/workbench.jpg" aria-pressed="false" aria-label="Show the construction workbench"><img src="assets/hg2/workbench.jpg" width="1600" height="900" alt="Construction workbench" loading="lazy"></button>
+              <button type="button" data-shot="assets/hg2/sea-deep.jpg" aria-pressed="false" aria-label="Show the deep sea"><img src="assets/hg2/sea-deep.jpg" width="1600" height="900" alt="Deep sea" loading="lazy"></button>
+              <button type="button" data-shot="assets/hg2/editor-contour.jpg" aria-pressed="false" aria-label="Show contour editing"><img src="assets/hg2/editor-contour.jpg" width="1600" height="900" alt="Contour editing" loading="lazy"></button>
+            </div>
+            <div class="caption"><span><span class="en">Current build · real screenshots</span><span class="zh">当前样片 · 实机截图</span></span><span>02 / 02</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="studio">
+    <div class="wrap">
+      <div class="studio-grid">
+        <div class="studio-copy" data-reveal>
+          <p class="kicker"><span class="num">02</span><span class="en">The studio</span><span class="zh">工作室</span></p>
+          <h2><span class="en">Independent by design.</span><span class="zh">以独立方式做游戏。</span></h2>
+        </div>
+        <div>
+          <div class="studio-copy" data-reveal style="--reveal-delay:90ms">
+            <p><span class="en">Tianyang Studio is an independent game studio. Design, systems and art stay in the same hands, so the creature on screen and the rules underneath it are built together.</span><span class="zh">天阳工作室是一家独立游戏工作室。设计、系统与美术由同一双手完成，所以屏幕上看到的身体与它底下的规则一起生长。</span></p>
+            <p><span class="en">Our games start from the body: how it moves, what it eats, what it can lose, and what it can become. The ocean is not a backdrop — it is a system that pushes back.</span><span class="zh">我们的游戏从身体出发：它怎么移动、吃什么、会失去什么，又能变成什么。海洋从来不是背景，而是一套会反击的系统。</span></p>
+          </div>
+          <div class="principles">
+            <div class="principle" data-reveal style="--reveal-delay:0ms"><b>01</b><div><h4><span class="en">Mechanics you can see</span><span class="zh">看得见的机制</span></h4><p><span class="en">Supply, space and contact are shown in the body itself, not hidden in a spreadsheet.</span><span class="zh">供给、空间与接触都表现在身体上，而不是藏在数值表里。</span></p></div></div>
+            <div class="principle" data-reveal style="--reveal-delay:90ms"><b>02</b><div><h4><span class="en">Anatomy, drawn by hand</span><span class="zh">手绘的身体</span></h4><p><span class="en">Layered tissue, ink lines and real silhouettes — the creature stays readable at play distance.</span><span class="zh">分层组织、墨线与真实轮廓——生物在正常游戏视距下依然可读。</span></p></div></div>
+            <div class="principle" data-reveal style="--reveal-delay:180ms"><b>03</b><div><h4><span class="en">Oceans that push back</span><span class="zh">会反击的海洋</span></h4><p><span class="en">Light, terrain and ecology change what is safe, what is worth reaching, and when to leave.</span><span class="zh">光照、地形与生态决定哪里安全、哪里值得去，以及什么时候该离开。</span></p></div></div>
+          </div>
+          <dl class="facts" data-reveal style="--reveal-delay:120ms">
+            <div><dt><span class="en">Works</span><span class="zh">作品</span></dt><dd>Hetero-Genesis · Hetero-Genesis 2</dd></div>
+            <div><dt><span class="en">Platform</span><span class="zh">平台</span></dt><dd>PC (Windows)</dd></div>
+            <div><dt><span class="en">Languages</span><span class="zh">语言</span></dt><dd>EN · 简中 · 繁中 · 日本語 · 한국어</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div data-reveal>
+          <p class="kicker"><span class="num">03</span><span class="en">Contact</span><span class="zh">联系</span></p>
+          <h2><span class="en">Say hello.</span><span class="zh">联系我们。</span></h2>
+          <p><span class="en">Press, feedback, or a strange build you want to share — write to us. We read everything.</span><span class="zh">媒体、反馈，或者你想分享的奇异构筑——写信给我们，我们会读。</span></p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:qianxi36355@gmail.com" data-reveal><span><span class="en">Email</span><span class="zh">邮箱</span></span><span>qianxi36355@gmail.com ↗</span></a>
+          <a href="https://x.com/TianyangStudio" target="_blank" rel="noopener" data-reveal style="--reveal-delay:60ms"><span>X</span><span>@TianyangStudio ↗</span></a>
+          <a href="https://steamcommunity.com/app/5014650/discussions/" target="_blank" rel="noopener" data-reveal style="--reveal-delay:120ms"><span><span class="en">Steam community</span><span class="zh">Steam 社区</span></span><span><span class="en">Hetero-Genesis ↗</span><span class="zh">异构进化 ↗</span></span></a>
+          <a href="https://undead36355.github.io/hetero-genesis-privacy-policy/" target="_blank" rel="noopener" data-reveal style="--reveal-delay:180ms"><span><span class="en">Privacy</span><span class="zh">隐私政策</span></span><span><span class="en">Hetero-Genesis ↗</span><span class="zh">异构进化 ↗</span></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="endmark" data-reveal>
+      <span class="endmark-line" aria-hidden="true"></span>
+      <span class="endmark-word">TIANYANG STUDIO</span>
+      <span class="endmark-note"><span class="en">End of archive · 2026</span><span class="zh">档案结束 · 2026</span></span>
+    </div>
+    <div class="footer-bar">
+      <span>© 2026 Tianyang Studio · 天阳工作室</span>
+      <span class="footer-links"><a href="hetero-genesis.html">Hetero-Genesis / 异构进化</a><a href="hg2.html">Hetero-Genesis 2 / 异构进化 2</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

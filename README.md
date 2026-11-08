@@ -1,8 +1,19 @@
-# Hetero-Genesis official website
+# Tianyang Studio official website
 
-Public site: https://undead36355.github.io/hetero-genesis-site/
+Public site (target): https://tianyangstudio.cn/
+Current GitHub Pages address: https://undead36355.github.io/hetero-genesis-site/
 
 Published from the `main` branch root with GitHub Pages. Static HTML, CSS and JavaScript; no build framework or account system.
+
+## Studio site · 2026-11-08
+
+- `/` is the Tianyang Studio homepage: bilingual (English / Simplified Chinese), works list, studio profile and contact links.
+- `/hetero-genesis.html` is the preserved HG1 landing page (formerly `/index.html`). Its V3 art, media, five-language system and demo atlas are unchanged; only the canonical/OG URLs and a back link were updated.
+- `/hg2.html` is the Hetero-Genesis 2 development page. It uses real screenshots copied from `F:/package/hetero-genesis-2/docs/baseline` and `Logs/`, and milestone text from the project handoff. No release date, price or fabricated progress is published.
+- `CNAME` is prepared locally but intentionally not committed yet: DNS for `tianyangstudio.cn` must point to GitHub Pages first. Once DNS is live, commit `CNAME` and bind the custom domain in the Pages settings.
+- `sitemap.xml`, `robots.txt`, canonical and OG URLs use `https://tianyangstudio.cn` as the base.
+
+Local preview: run `python -m http.server 8080` in this checkout and open `http://localhost:8080/`. JSON-driven HG1 sections require HTTP, not `file://`.
 
 ## V3 refresh · 2026-10-14
 
