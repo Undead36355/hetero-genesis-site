@@ -19,16 +19,12 @@
 <meta name="twitter:image" content="https://tianyangstudio.cn/assets/hg2/hero-ocean.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Hetero-Genesis 2","alternateName":"异构进化 2","description":"A 2D top-down ocean exploration game about self-drawn bodies, organ networks and migration.","gamePlatform":"PC (Windows)","playMode":"SinglePlayer","genre":["Ocean Exploration","Simulation","Indie"],"inLanguage":["en","zh-CN","zh-TW","ja","ko"],"author":{"@type":"Organization","name":"Tianyang Studio"},"url":"https://tianyangstudio.cn/hg2.html"}</script>
 <script>try{var s=localStorage.getItem('tys-language');document.documentElement.dataset.lang=(s==='zh'||s==='en')?s:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');}catch(e){document.documentElement.dataset.lang='en';}</script>
-<link rel="stylesheet" href="assets/studio/studio.css"><script defer src="assets/studio/studio.js"></script>
+<link rel="stylesheet" href="assets/studio/studio.css"><link rel="stylesheet" href="assets/studio/portal.css?v=20261111"><script defer src="assets/studio/portal.js?v=20261111"></script>
 </head>
-<body data-page="hg2">
+<body class="portal-detail" data-page="hg2">
 <a class="skip" href="#main"><span class="en">Skip to content</span><span class="zh">跳到正文</span></a>
 
-<header class="site-header">
-  <a class="wordmark" href="./"><i aria-hidden="true"></i><b>TIANYANG</b> STUDIO</a>
-  <a class="back-link" href="./#works">← <span class="en">All works</span><span class="zh">全部作品</span></a>
-  <button class="lang-switch" id="langSwitch" type="button" aria-label="Switch to Chinese"><span class="en">中文</span><span class="zh">EN</span></button>
-</header>
+<header class="masthead"><a class="studio-brand" href="./" aria-label="天阳工作室 Tianyang Studio"><svg class="studio-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="8" stroke="currentColor"/><path d="M20 1v7m0 24v7M1 20h7m24 0h7M6.6 6.6l5 5m16.8 16.8 5 5M6.6 33.4l5-5m16.8-16.8 5-5" stroke="currentColor"/><circle cx="20" cy="20" r="3" fill="currentColor"/></svg><span class="brand-type"><b>TIANYANG</b><small>STUDIO · 天阳工作室</small></span></a><nav id="portalNav" aria-label="主导航 Main navigation"><a href="./#works"><span class="zh">作品</span><span class="en">Works</span></a><a href="./#studio"><span class="zh">工作室</span><span class="en">Studio</span></a><a href="./#contact"><span class="zh">联系</span><span class="en">Contact</span></a></nav><button class="language-button" id="portalLanguage" type="button"><span class="zh">EN</span><span class="en">中文</span></button><button class="mobile-nav" aria-controls="portalNav" aria-expanded="false" type="button"><span class="zh">菜单</span><span class="en">Menu</span></button></header>
 
 <main id="main">
   <div class="wrap">
@@ -114,7 +110,7 @@
     </div>
   </section>
 
-  <section class="gallery-section">
+  <section class="gallery-section" id="screens">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -124,24 +120,19 @@
         <p><span class="en">Every image below is captured from the running prototype. The interface and content are still changing.</span><span class="zh">以下画面全部来自正在运行的样片。界面与内容仍在持续调整。</span></p>
       </div>
       <div class="gallery-grid">
-        <figure class="gallery-item gallery-item--wide">
-          <img src="assets/hg2/workbench.jpg" width="1600" height="900" alt="Hetero-Genesis 2 construction workbench" loading="lazy">
+        <figure class="gallery-item gallery-item--wide"><button class="gallery-zoom" type="button" data-gallery="assets/hg2/workbench.jpg" aria-label="Hetero-Genesis 2 construction workbench"><img src="assets/hg2/workbench.jpg" width="1600" height="900" alt="Hetero-Genesis 2 construction workbench" loading="lazy"></button>
           <figcaption><span><span class="en">The construction workbench</span><span class="zh">构筑工作台</span></span><span>01</span></figcaption>
         </figure>
-        <figure class="gallery-item">
-          <img src="assets/hg2/sea-shallow.jpg" width="1600" height="900" alt="Shallow bay in Hetero-Genesis 2" loading="lazy">
+        <figure class="gallery-item"><button class="gallery-zoom" type="button" data-gallery="assets/hg2/sea-shallow.jpg" aria-label="Shallow bay in Hetero-Genesis 2"><img src="assets/hg2/sea-shallow.jpg" width="1600" height="900" alt="Shallow bay in Hetero-Genesis 2" loading="lazy"></button>
           <figcaption><span><span class="en">Gray green shallow bay</span><span class="zh">灰绿浅湾</span></span><span>02</span></figcaption>
         </figure>
-        <figure class="gallery-item">
-          <img src="assets/hg2/sea-mid.jpg" width="1600" height="900" alt="Mid-depth ocean in Hetero-Genesis 2" loading="lazy">
+        <figure class="gallery-item"><button class="gallery-zoom" type="button" data-gallery="assets/hg2/sea-mid.jpg" aria-label="Mid-depth ocean in Hetero-Genesis 2"><img src="assets/hg2/sea-mid.jpg" width="1600" height="900" alt="Mid-depth ocean in Hetero-Genesis 2" loading="lazy"></button>
           <figcaption><span><span class="en">Mid-depth directional light</span><span class="zh">中海的方向性光照</span></span><span>03</span></figcaption>
         </figure>
-        <figure class="gallery-item">
-          <img src="assets/hg2/sea-deep.jpg" width="1600" height="900" alt="Deep sea in Hetero-Genesis 2" loading="lazy">
+        <figure class="gallery-item"><button class="gallery-zoom" type="button" data-gallery="assets/hg2/sea-deep.jpg" aria-label="Deep sea in Hetero-Genesis 2"><img src="assets/hg2/sea-deep.jpg" width="1600" height="900" alt="Deep sea in Hetero-Genesis 2" loading="lazy"></button>
           <figcaption><span><span class="en">Deep water, sparse light</span><span class="zh">深海的稀疏受光</span></span><span>04</span></figcaption>
         </figure>
-        <figure class="gallery-item">
-          <img src="assets/hg2/editor-contour.jpg" width="1600" height="900" alt="Direct contour editing in Hetero-Genesis 2" loading="lazy">
+        <figure class="gallery-item"><button class="gallery-zoom" type="button" data-gallery="assets/hg2/editor-contour.jpg" aria-label="Direct contour editing in Hetero-Genesis 2"><img src="assets/hg2/editor-contour.jpg" width="1600" height="900" alt="Direct contour editing in Hetero-Genesis 2" loading="lazy"></button>
           <figcaption><span><span class="en">Direct contour editing</span><span class="zh">轮廓直接编辑</span></span><span>05</span></figcaption>
         </figure>
       </div>
@@ -166,11 +157,6 @@
   </section>
 </main>
 
-<footer class="site-footer game-footer">
-  <div class="wrap">
-    <span>© 2026 Tianyang Studio · 天阳工作室</span>
-    <span class="footer-links"><a href="./">Tianyang Studio</a><a href="hetero-genesis.html">Hetero-Genesis / 异构进化</a></span>
-  </div>
-</footer>
+<footer class="portal-footer"><div class="footer-main"><span>© 2026 Tianyang Studio · 天阳工作室</span><span>INDEPENDENT GAMES · BODIES &amp; OCEANS</span></div><div class="footer-legal"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">闽ICP备2026043421号-1</a><a href="/privacy/"><span class="zh">隐私政策</span><span class="en">Privacy policy</span></a><a href="./"><span class="zh">工作室首页</span><span class="en">Studio home</span></a></div></footer><dialog class="media-dialog" id="mediaDialog" aria-labelledby="mediaTitle"><div class="dialog-bar"><span id="mediaTitle">TIANYANG STUDIO / <span class="zh">作品影像</span><span class="en">Game footage</span></span><button class="dialog-close" type="button" aria-label="关闭 Close">×</button></div><video controls playsinline preload="none" poster="assets/v3/trailer-poster.jpg" hidden></video><img alt="" hidden><p><span class="zh">游戏实机画面。开发中的内容与界面可能调整。</span><span class="en">Captured from the game. Content and interface may change during development.</span></p></dialog>
 </body>
 </html>
