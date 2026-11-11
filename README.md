@@ -15,6 +15,14 @@ The public domain is served by the existing Tencent Cloud Nginx host. GitHub sto
 
 Local preview: run `python -m http.server 8080` in this checkout and open `http://localhost:8080/`. JSON-driven HG1 sections require HTTP, not `file://`.
 
+## Living-current motion · 2026-11-11
+
+All three pages use `assets/motion.css` and `assets/motion.js`: image-based WebGL water refraction, pointer/click ripples, animated caustic light, native-scroll parallax, entrance reveals, hovering media cards and a shared localized motion control. The studio and HG2 pages include an interactive, procedurally drawn organic mesh; the HG2 hero has a decorative rotating anatomy motif. These visualizations are website artwork, not additional game features or promised gameplay.
+
+The implementation uses local assets and browser APIs, with no new runtime framework or external font dependency. Canvas work stops when offscreen or the page is hidden; resolution is capped, with a lower touch-device budget. Reduced-motion and the saved motion-off setting provide a readable static state. Existing localized content, media controls, policy links and release statuses are retained.
+
+Visual references inspected: [Lusion](https://lusion.co/) for interactive visual composition and [Kojima Productions](https://www.kojimaproductions.jp/en) for game-first cinematic presentation. No reference-site code or media is included.
+
 ## V3 refresh · 2026-10-14
 
 - V3 copper-red octopus key art, ocean background and social preview image.

@@ -18,9 +18,10 @@ let media=[],store={},atlas=null,selectedScreenshot=0,selectedEntry=null;
 const screenshots=['01-boss-weakpoints.png','02-living-body-combat.png','03-organ-choices-and-synergies.png','04-body-slot-assembly.png','05-synergy-connections.png','06-starting-species.png','07-close-range-pressure.png','08-body-timeline.png','09-evolution-choice.png'];
 const featureGrid=document.querySelector('#featuresGrid');
 const motion=matchMedia('(prefers-reduced-motion: reduce)');
+const allowClipMotion=()=>!motion.matches&&document.documentElement.dataset.motion!=='off';
 const observer=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{
  target.dataset.visible=String(isIntersecting);
- if(isIntersecting){if(!target.src){target.src=target.dataset.src;target.load();}if(!motion.matches&&!target.dataset.userPaused&&!document.hidden)target.play().catch(()=>{});}
+ if(isIntersecting){if(!target.src){target.src=target.dataset.src;target.load();}if(allowClipMotion()&&!target.dataset.userPaused&&!document.hidden)target.play().catch(()=>{});}
  else target.pause();
 }),{threshold:.2});
 function renderFeatures(){
@@ -81,7 +82,9 @@ function applyLanguage(){
 }
 document.querySelector('#language').addEventListener('change',event=>{lang=event.target.value;try{localStorage.setItem('hg-language',lang);}catch{}applyLanguage();});
 document.querySelectorAll('[data-steam]').forEach(link=>{link.href=`https://store.steampowered.com/app/${link.dataset.steam==='demo'?'5446350':'5014650'}/?utm_source=official_site&utm_medium=web&utm_campaign=demo_20261106&utm_content=${link.dataset.steam}`;});
-document.addEventListener('visibilitychange',()=>{document.querySelectorAll('.clip').forEach(video=>{if(document.hidden)video.pause();else if(video.dataset.visible==='true'&&!video.dataset.userPaused&&!motion.matches)video.play().catch(()=>{});});});
+document.addEventListener('visibilitychange',()=>{document.querySelectorAll('.clip').forEach(video=>{if(document.hidden)video.pause();else if(video.dataset.visible==='true'&&!video.dataset.userPaused&&allowClipMotion())video.play().catch(()=>{});});});
 motion.addEventListener('change',()=>{if(motion.matches)document.querySelectorAll('.clip').forEach(video=>video.pause());});
 applyLanguage();
 Promise.all(['store-copy','media-copy','demo-atlas'].map(name=>fetch(`assets/v3/${name}.json`).then(response=>{if(!response.ok)throw Error(name);return response.json();}))).then(([copy,clips,data])=>{store=copy;media=clips;atlas=data;renderFeatures();applyLanguage();}).catch(error=>{console.error(error);document.querySelector('#loadError').hidden=false;});
+
+document.body.addEventListener('studio-motion',e=>{document.querySelectorAll('.clip').forEach(video=>{if(!e.detail.enabled)video.pause();else if(video.dataset.visible==='true'&&!video.dataset.userPaused&&!document.hidden&&!motion.matches)video.play().catch(()=>{});});});
